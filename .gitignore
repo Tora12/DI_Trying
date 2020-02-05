@@ -1,2 +1,8 @@
+## Unity
+Library/
+Logs/
+Packages/
+ProjectSettings/
+
 ## Ignore Mac OS Stuff
 .DS_Store
