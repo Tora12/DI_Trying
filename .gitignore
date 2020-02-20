@@ -1,16 +1,13 @@
-## Unity
-[Bb]uild/
-[Bb]uilds/
-[Ll]ibrary/
-[Ll]ogs/
-[Mm]emoryCaptures/
-[Oo]bj/
-[Pp]ackages/
-[Pp]rojectSettings/
-[Tt]emp/
-
-## Ignore Mac OS Stuff
-.DS_Store
+## Unity Generated
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ibrary/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+/[Oo]bj/
+/[Pp]ackages/
+/[Pp]rojectSettings/
+/[Tt]emp/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -65,3 +62,6 @@ obj
 obj.meta
 bin
 bin.meta
+
+## OS Generated
+.DS_Store*
