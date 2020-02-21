@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MechMovement : MonoBehaviour
 {
+    [SerializeField] object ForwardAnimation;
+    [SerializeField] object TurnAnimation;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +17,9 @@ public class MechMovement : MonoBehaviour
     {
         
     }
+
+    public void MechFoward()
+    {
+
+    } 
 }
