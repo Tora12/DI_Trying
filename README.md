@@ -15,6 +15,8 @@ Currently we are working towards having a minimum viable product by 02/27/2020. 
 * [Gantt Chart](https://docs.google.com/spreadsheets/d/19o83MxaFepVyZ4x1RYVhEqQ_Qr2QDk57QNjsfDz3CUw/edit?usp=sharing)
 * [Trello Board]()
 
+![Image of Dev Room](/doc/02-24-2020_Screenshot.png)
+
 ## Getting Started
 
 ### Prerequisites
