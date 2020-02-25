@@ -13,7 +13,7 @@ Current Project Status: Prototype in Progress
 Currently we are working towards having a minimum viable product by 02/27/2020. If you would like to learn more about where we are in the development process, please click one of the links below:
 
 * [Gantt Chart](https://docs.google.com/spreadsheets/d/19o83MxaFepVyZ4x1RYVhEqQ_Qr2QDk57QNjsfDz3CUw/edit?usp=sharing)
-* [Trello Board]()
+* [Trello Board](https://trello.com/b/LNXeEloW/honeybadgerstudioshbs)
 
 ![Image of Dev Room](/doc/02-24-2020_Screenshot.png)
 
