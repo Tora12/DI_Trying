@@ -1,6 +1,6 @@
-![Image of HBS Logo](/doc/HBS_Logo.png)
-
 # DI Trying
+
+![Image of HBS Logo](/doc/HBS_Logo.png)
 
 # Overview
 
@@ -19,10 +19,10 @@ Currently we are working towards having a minimum viable product by 02/27/2020. 
 
 ### Prerequisites
 
-* Must have **[Unity Hub]**(https://store.unity.com/?_ga=2.234855702.907401220.1580205439-245300881.1553140728#plans-individual) installed.
+* Must have [Unity Hub](https://store.unity.com/?_ga=2.234855702.907401220.1580205439-245300881.1553140728#plans-individual) installed.
     * Must have the **2019.3.0f6** module installed Within the Unity Hub application.
 
-* Mush have **[git]**(https://git-scm.com/) or **[GitHub Desktop]**(https://desktop.github.com/) installed.
+* Mush have [git](https://git-scm.com/) or [GitHub Desktop](https://desktop.github.com/) installed.
 
 ### Installing
 
