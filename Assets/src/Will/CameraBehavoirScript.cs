@@ -15,6 +15,6 @@ public class CameraBehavoirScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position=new Vector3(18.29f,4.09f,mainCharacter.position.z);
+        transform.position=new Vector3(18.29f,mainCharacter.position.y+3.59f,mainCharacter.position.z);
     }
 }
