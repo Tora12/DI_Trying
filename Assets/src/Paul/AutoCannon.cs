@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+//[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody))]
 
 public class AutoCannon : MonoBehaviour
@@ -10,29 +10,21 @@ public class AutoCannon : MonoBehaviour
 
     private Animator animator, animatorWeap;
 	private Rigidbody rb;
-	private Transform startMarker;
-	private Transform endMarker;
 	[SerializeField] private float speed = 1.0f;
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
-		rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
+		rb = GetComponentInChildren<Rigidbody>();
     }
 
-	/*
 	void FixedUpdate()
-    {
-		// Distance moved equals elapsed time times speed..
-		float distCovered = (Time.time - startTime) * speed;
-
-		// Fraction of journey completed equals current distance divided by total distance.
-		float fractionOfJourney = distCovered / journeyLength;
-
-		// Set our position as a fraction of the distance between the markers.
-		transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+	{
+		if (Input.GetKey("j"))
+        {
+			WalkForwad();
+        }
 	}
-	*/
 
 	public void Fire()
 	{
@@ -69,26 +61,12 @@ public class AutoCannon : MonoBehaviour
 	}
 	public void StrafeLeft()
 	{
-		//rb.velocity = -transform.right * speed;
-		//tansform.Translate(Vector3.left * Time.deltaTime * speed, Space.Self);
+		transform.Translate(-Vector3.right * Time.deltaTime * speed, Space.Self);
 		animator.SetBool("ACS_StrafeLeft", true);
-	}
-
-	public void OnAnimatorMove()
-	{
-		// we implement this function to override the default root motion.
-		// this allows us to modify the positional speed before it's applied.
-		if (Time.deltaTime > 0)
-		{
-			Vector3 v = (animator.deltaPosition * speed) / Time.deltaTime;
-
-			// we preserve the existing y part of the current velocity.
-			v.y = rb.velocity.y;
-			rb.velocity = v;
-		}
 	}
 	public void StrafeRight()
 	{
+		transform.Translate(Vector3.right * Time.deltaTime * speed, Space.Self);
 		animator.SetBool("ACS_StrafeRight", true);
 	}
 	public void Idle()
@@ -134,9 +112,11 @@ public class AutoCannon : MonoBehaviour
 	public void WalkForwad()
 	{
 		animator.SetBool("ACS_WalkForwad", true);
+		transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
 	}
 	public void WalkForwad2()
 	{
+		transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
 		animator.SetBool("ACS_WalkForwad2", true);
 	}
 	public void WalkBack()
