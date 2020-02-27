@@ -10,6 +10,8 @@ public class AutoCannon : MonoBehaviour
 
     private Animator animator, animatorWeap;
 	private Rigidbody rb;
+	private Transform startMarker;
+	private Transform endMarker;
 	[SerializeField] private float speed = 1.0f;
 
     void Awake()
@@ -17,6 +19,18 @@ public class AutoCannon : MonoBehaviour
         animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
     }
+
+	void FixedUpdate()
+    {
+		// Distance moved equals elapsed time times speed..
+		float distCovered = (Time.time - startTime) * speed;
+
+		// Fraction of journey completed equals current distance divided by total distance.
+		float fractionOfJourney = distCovered / journeyLength;
+
+		// Set our position as a fraction of the distance between the markers.
+		transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+	}
 
 	public void Fire()
 	{
