@@ -20,6 +20,7 @@ public class AutoCannon : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
     }
 
+	/*
 	void FixedUpdate()
     {
 		// Distance moved equals elapsed time times speed..
@@ -31,6 +32,7 @@ public class AutoCannon : MonoBehaviour
 		// Set our position as a fraction of the distance between the markers.
 		transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
 	}
+	*/
 
 	public void Fire()
 	{
@@ -68,8 +70,22 @@ public class AutoCannon : MonoBehaviour
 	public void StrafeLeft()
 	{
 		//rb.velocity = -transform.right * speed;
-		transform.Translate(Vector3.left * Time.deltaTime * speed, Space.Self);
+		//tansform.Translate(Vector3.left * Time.deltaTime * speed, Space.Self);
 		animator.SetBool("ACS_StrafeLeft", true);
+	}
+
+	public void OnAnimatorMove()
+	{
+		// we implement this function to override the default root motion.
+		// this allows us to modify the positional speed before it's applied.
+		if (Time.deltaTime > 0)
+		{
+			Vector3 v = (animator.deltaPosition * speed) / Time.deltaTime;
+
+			// we preserve the existing y part of the current velocity.
+			v.y = rb.velocity.y;
+			rb.velocity = v;
+		}
 	}
 	public void StrafeRight()
 	{
