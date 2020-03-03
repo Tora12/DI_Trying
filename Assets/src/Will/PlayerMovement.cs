@@ -8,15 +8,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float MovingTurnSpeed = 360;
-    [SerializeField] float StationaryTurnSpeed = 180;
-    [SerializeField] float JumpPower = 12f;
+    [SerializeField] float MovingTurnSpeed = 720;
+    [SerializeField] float StationaryTurnSpeed = 720;
+    [SerializeField] float JumpPower = 10f;
     [Range(1f, 4f)][SerializeField] float GravityMultiplier = 2f;
     [SerializeField] float RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
     [SerializeField] float MoveSpeedMultiplier = 1f;
-    [SerializeField] float AirSpeed = 10f;
+    [SerializeField] float AirSpeed = 6f;
     [SerializeField] float AnimSpeedMultiplier = 1f;
-    [SerializeField] float GroundCheckDistance = 0.1f;
+    [SerializeField] float GroundCheckDistance = 0.2f;
 
 
     Rigidbody rigidbody;
@@ -93,7 +93,9 @@ public class PlayerMovement : MonoBehaviour
        rigidbody.AddForce(extraGravityForce);
        GroundCheckDistance=rigidbody.velocity.y<0?OrigGroundCheckDistance:0.01f;
        Vector3 movementForce=(move*AirSpeed);
-       rigidbody.AddForce(movementForce);
+       //rigidbody.AddForce(movementForce);
+       movementForce.y=rigidbody.velocity.y;
+       rigidbody.velocity=movementForce;
     }
     void HandleGroundMovement(bool jump){
         if(jump&& Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded")){
@@ -109,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
             IsGrounded=true;
             Animator.applyRootMotion=true;
         }else{
-            //IsGrounded=false;
+            IsGrounded=false;
             GroundNormal=Vector3.up;
             Animator.applyRootMotion=false;
     	}
