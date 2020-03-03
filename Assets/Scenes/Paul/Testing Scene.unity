@@ -1377,7 +1377,7 @@ MonoBehaviour:
   MoveSpeedMultiplier: 1
   AirSpeed: 6
   AnimSpeedMultiplier: 1
-  GroundCheckDistance: 0.1
+  GroundCheckDistance: 0.2
 --- !u!114 &2077680615
 MonoBehaviour:
   m_ObjectHideFlags: 0
