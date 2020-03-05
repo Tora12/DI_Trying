@@ -4,20 +4,18 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody))]
 
-
-
 public class AutoCannon : MonoBehaviour
-{
+{	
+	public GameObject[] weapArray;
+	public float speed = 1.0f;
 	private const int forward = 1;
 	private const int backward = 2;
 	private const int left = 3;
 	private const int right = 4;
-    public GameObject[] weapArray;
     private Animator animator, animatorWeap;
 	private Rigidbody rb;
 	private int direction = 0;
 	private int roat = 0;
-	[SerializeField] private float speed = 1.0f;
 	[SerializeField] private float rotation = 1.0f;
 
     void Awake()
@@ -103,54 +101,51 @@ public class AutoCannon : MonoBehaviour
 		}
 	}
 
-	public void Dead1()
+	private void Dead1()
 	{
 		animator.SetBool("ACS_Dead1", true);
 	}
-	public void Dead2()
+	private void Dead2()
 	{
 		animator.SetBool("ACS_Dead2", true);
 	}
-	public void Dead3()
+	private void Dead3()
 	{
 		animator.SetBool("ACS_Dead3", true);
 	}
-	public void Dead4()
+	private void Dead4()
 	{
 		animator.SetBool("ACS_Dead4", true);
 	}
 	public void StrafeLeft()
 	{
 		animator.SetBool("ACS_StrafeLeft", true);
+		animator.speed = speed;
 		direction = left;
 	}
 	public void StrafeRight()
 	{
 		animator.SetBool("ACS_StrafeRight", true);
+		animator.speed = speed;
 		direction = right;
 	}
 	public void Idle()
 	{
 		animator.SetBool("ACS_Idle", true);
+		animator.speed = speed;
 		direction = 0;
 		roat = 0;
-	}
-	public void Idle2()
-	{
-		animator.SetBool("ACS_Idle2", true);
-	}
-	public void Attack()
-	{
-		animator.SetBool("ACS_Attack", true);
 	}
 	public void TurnLeft()
 	{
 		animator.SetBool("ACS_TurnLeft", true);
+		animator.speed = speed;
 		roat = left;
 	}
 	public void TurnRight()
 	{
 		animator.SetBool("ACS_TurnRight", true);
+		animator.speed = speed;
 		roat = right;
 	}
 	public void ChangeToWalk()
@@ -164,32 +159,25 @@ public class AutoCannon : MonoBehaviour
 	public void MoveWeelsForwad()
 	{
 		animator.SetBool("ACS_MoveWeelsForwad", true);
-		direction = forward;
-	}
-	public void MoveWeelsForwad2()
-	{
-		animator.SetBool("ACS_MoveWeelsForwad2", true);
+		animator.speed = speed;
 		direction = forward;
 	}
 	public void MoveWeelsBack()
 	{
 		animator.SetBool("ACS_MoveWeelsBack", true);
+		animator.speed = speed;
 		direction = backward;
 	}
 	public void WalkForwad()
 	{
 		animator.SetBool("ACS_WalkForwad", true);
-		direction = forward;
-	}
-	public void WalkForwad2()
-	{
-		//transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
-		animator.SetBool("ACS_WalkForwad2", true);
+		animator.speed = speed;
 		direction = forward;
 	}
 	public void WalkBack()
 	{
 		animator.SetBool("ACS_WalkBack", true);
+		animator.speed = speed;
 		direction = backward;
 	}
 }
