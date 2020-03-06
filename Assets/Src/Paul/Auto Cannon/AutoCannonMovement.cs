@@ -4,10 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class AutoCannon : MonoBehaviour
+public class AutoCannonMovement : MonoBehaviour
 {	
 	public GameObject[] weapArray;
 	public float speed = 1.0f;
+	public float rotationSpeed = 1.0f;
 	private const int forward = 1;
 	private const int backward = 2;
 	private const int left = 3;
@@ -16,7 +17,6 @@ public class AutoCannon : MonoBehaviour
 	private Rigidbody rb;
 	private int direction = 0;
 	private int roat = 0;
-	[SerializeField] private float rotation = 1.0f;
 
     void Awake()
     {
@@ -76,11 +76,11 @@ public class AutoCannon : MonoBehaviour
 		}
 		else if (roat == left)
 		{
-			transform.Rotate(0.0f, -rotation, 0.0f, Space.Self);
+			transform.Rotate(0.0f, -rotationSpeed, 0.0f, Space.Self);
 		}
 		else if (roat == right)
 		{
-			transform.Rotate(0.0f, rotation, 0.0f, Space.Self);
+			transform.Rotate(0.0f, rotationSpeed, 0.0f, Space.Self);
 		}
 	}
 
@@ -101,51 +101,51 @@ public class AutoCannon : MonoBehaviour
 		}
 	}
 
-	private void Dead1()
+	public void Dead1()
 	{
 		animator.SetBool("ACS_Dead1", true);
 	}
-	private void Dead2()
+	public void Dead2()
 	{
 		animator.SetBool("ACS_Dead2", true);
 	}
-	private void Dead3()
+	public void Dead3()
 	{
 		animator.SetBool("ACS_Dead3", true);
 	}
-	private void Dead4()
+	public void Dead4()
 	{
 		animator.SetBool("ACS_Dead4", true);
 	}
 	public void StrafeLeft()
 	{
 		animator.SetBool("ACS_StrafeLeft", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * speed;
 		direction = left;
 	}
 	public void StrafeRight()
 	{
 		animator.SetBool("ACS_StrafeRight", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * speed;
 		direction = right;
 	}
 	public void Idle()
 	{
 		animator.SetBool("ACS_Idle", true);
-		animator.speed = speed;
+		animator.speed = 1;
 		direction = 0;
 		roat = 0;
 	}
 	public void TurnLeft()
 	{
 		animator.SetBool("ACS_TurnLeft", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * rotationSpeed;
 		roat = left;
 	}
 	public void TurnRight()
 	{
 		animator.SetBool("ACS_TurnRight", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * rotationSpeed;
 		roat = right;
 	}
 	public void ChangeToWalk()
@@ -159,25 +159,25 @@ public class AutoCannon : MonoBehaviour
 	public void MoveWeelsForwad()
 	{
 		animator.SetBool("ACS_MoveWeelsForwad", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * speed;
 		direction = forward;
 	}
 	public void MoveWeelsBack()
 	{
 		animator.SetBool("ACS_MoveWeelsBack", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * speed;
 		direction = backward;
 	}
 	public void WalkForwad()
 	{
 		animator.SetBool("ACS_WalkForwad", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * speed;
 		direction = forward;
 	}
 	public void WalkBack()
 	{
 		animator.SetBool("ACS_WalkBack", true);
-		animator.speed = speed;
+		animator.speed = animator.speed * speed;
 		direction = backward;
 	}
 }
