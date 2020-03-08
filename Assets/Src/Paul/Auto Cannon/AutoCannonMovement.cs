@@ -7,6 +7,7 @@ using UnityEngine;
 public class AutoCannonMovement : MonoBehaviour
 {	
 	public GameObject[] weapArray;
+	public GameObject Bullet;
 	public float speed = 1.0f;
 	public float rotationSpeed = 1.0f;
 	private const int forward = 1;
