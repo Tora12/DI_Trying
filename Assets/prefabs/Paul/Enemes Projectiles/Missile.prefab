@@ -59,10 +59,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.07008759
-  m_Height: 0.18404852
+  m_Radius: 0.031056901
+  m_Height: 0.14788127
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.00069727504}
 --- !u!1001 &7044362400189321903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,6 +70,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4193166561345200}
     m_Modifications:
+    - target: {fileID: -5975033157549033438, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -125,6 +150,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2416733968201007103, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1afb9b996694844fbea902b4c2188d5, type: 2}
     - target: {fileID: -927199367670048503, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
         type: 3}
       propertyPath: m_Name

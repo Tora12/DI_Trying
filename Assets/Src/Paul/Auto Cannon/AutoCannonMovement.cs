@@ -5,11 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 
 public class AutoCannonMovement : MonoBehaviour
-{	
+{
 	public GameObject[] weapArray;
 	public GameObject Bullet;
 	public float speed = 1.0f;
 	public float rotationSpeed = 1.0f;
+	[SerializeField] private GameObject BulletSpawn;
 	private const int forward = 1;
 	private const int backward = 2;
 	private const int left = 3;
@@ -91,6 +92,9 @@ public class AutoCannonMovement : MonoBehaviour
 		{
 			animatorWeap = weap.GetComponent<Animator>();
 			animatorWeap.SetBool("Fire", true);
+			GameObject clone = Instantiate(Bullet, BulletSpawn.transform.position, Quaternion.identity);
+			Rigidbody cloneRB = clone.GetComponent<Rigidbody>();
+			cloneRB.velocity = Vector3.forward * 10;
 		}
 	}
 	public void stopFire()
