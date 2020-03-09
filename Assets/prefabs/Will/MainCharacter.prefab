@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 4893799887049348636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: -0.11213112}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78, y: 0.78, z: 0.78}
   m_Children:
   - {fileID: 7739272149052130226}
   - {fileID: 5796052025705670738}
@@ -78,7 +78,7 @@ Animator:
   m_GameObject: {fileID: 4893799887049348636}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
-  m_Controller: {fileID: 9100000, guid: 1328275ec7e88504ba643b592951d6c3, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7df5b5574a866048b84940d7bcc3981, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -175,6 +175,22 @@ PrefabInstance:
     - target: {fileID: 100204, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
       propertyPath: m_Name
       value: Robot
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.8478481
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5286159
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.03757581
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.017518919
       objectReference: {fileID: 0}
     - target: {fileID: 400204, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
       propertyPath: m_LocalPosition.x
