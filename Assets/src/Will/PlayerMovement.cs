@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     float CapsuleHeight;
     Vector3 CapsuleCenter;
     CapsuleCollider Capsule;
+    bool canDoubleJump=false;
+    bool canDash=false;
+    bool canUseGrapple=false;
+    bool airJump=true;
+
 
     void Start()
     {
@@ -54,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         if(IsGrounded){
             HandleGroundMovement(jump);
         }else{
-            HandleAirMovement(tempmove);
+            HandleAirMovement(tempmove,jump);
         }
         UpdateAnimator(move);
     }
@@ -88,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 		rigidbody.velocity = v;
 	}
     }
-    void HandleAirMovement(Vector3 move){
+    void HandleAirMovement(Vector3 move, bool jump){
        Vector3 extraGravityForce=(Physics.gravity * GravityMultiplier)-Physics.gravity;
        rigidbody.AddForce(extraGravityForce);
        GroundCheckDistance=rigidbody.velocity.y<0?OrigGroundCheckDistance:0.01f;
@@ -96,11 +101,16 @@ public class PlayerMovement : MonoBehaviour
        //rigidbody.AddForce(movementForce);
        movementForce.y=rigidbody.velocity.y;
        rigidbody.velocity=movementForce;
+       if(jump && canDoubleJump==true && airJump==true){
+            rigidbody.velocity=new Vector3(rigidbody.velocity.x,JumpPower,rigidbody.velocity.z);
+            airJump=false;
+        }
     }
     void HandleGroundMovement(bool jump){
         if(jump&& Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded")){
             rigidbody.velocity=new Vector3(rigidbody.velocity.x,JumpPower,rigidbody.velocity.z);
             IsGrounded=false;
+            airJump=true;
             GroundCheckDistance=0.1f;
         }
     }
@@ -115,5 +125,16 @@ public class PlayerMovement : MonoBehaviour
             GroundNormal=Vector3.up;
             Animator.applyRootMotion=false;
     	}
+    }
+    public void UnlockMovementAbillity(string abillity){
+        if(abillity=="DoubleJump"){
+            canDoubleJump=true;
+        }else if (abillity=="Dash"){
+            canDash=true;
+        }else if (abillity=="GrappleHook"){
+            canUseGrapple=true;
+        }else if (abillity=="TBA"){
+            
+        }
     }
 }

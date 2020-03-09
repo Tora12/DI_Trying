@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraBehavoirScript : MonoBehaviour
 {
     private Transform mainCharacter;
-    [Range(-.5f, .5f)][SerializeField] float Angle=.25f;
+    [Range(-.5f, .5f)][SerializeField] float Angle=.15f;
     [Range(1f, 40f)][SerializeField] float Distance=20f;
     //[SerializeField] float xOffset=18.29f;
     //[SerializeField] float yOffset=3.59f;
