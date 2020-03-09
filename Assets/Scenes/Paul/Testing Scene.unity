@@ -565,8 +565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71a0e658f1081c44902c2a8c7679ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xOffset: 18.29
-  yOffset: 3.59
+  Angle: 0.25
+  Distance: 20
   zOffset: 0
 --- !u!1001 &513769842
 PrefabInstance:
