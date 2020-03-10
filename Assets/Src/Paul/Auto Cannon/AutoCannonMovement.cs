@@ -136,7 +136,7 @@ public class AutoCannonMovement : MonoBehaviour
 	}
 	public void Idle()
 	{
-		animator.SetBool("ACS_Idle", true);
+		animator.SetBool("ACS_Idle2", true);
 		animator.speed = 1;
 		direction = 0;
 		roat = 0;
