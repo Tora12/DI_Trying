@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7245945854573260281}
   - component: {fileID: 4655201592655507843}
   - component: {fileID: 4190315718679096617}
+  - component: {fileID: -8561559958053490003}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Player
@@ -119,6 +120,21 @@ MonoBehaviour:
   AirSpeed: 6
   AnimSpeedMultiplier: 1
   GroundCheckDistance: 0.4
+--- !u!114 &-8561559958053490003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893799887049348636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d6b4cb9fd464a9c9773551cb124d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  dead: 0
+  doll: {fileID: 5234630441100487884, guid: c251fc6fa19fde84aa34f50ccb667474, type: 3}
 --- !u!114 &1698130374
 MonoBehaviour:
   m_ObjectHideFlags: 0
