@@ -4,29 +4,29 @@ namespace VolumetricLines
 {
 	/// <summary>
 	/// Render a single volumetric line
-	/// 
+	///
 	/// Based on the Volumetric lines algorithm by Sebastien Hillaire
 	/// http://sebastien.hillaire.free.fr/index.php?option=com_content&view=article&id=57&Itemid=74
-	/// 
+	///
 	/// Thread in the Unity3D Forum:
 	/// http://forum.unity3d.com/threads/181618-Volumetric-lines
-	/// 
+	///
 	/// Unity3D port by Johannes Unterguggenberger
 	/// johannes.unterguggenberger@gmail.com
-	/// 
+	///
 	/// Thanks to Michael Probst for support during development.
-	/// 
+	///
 	/// Thanks for bugfixes and improvements to Unity Forum User "Mistale"
 	/// http://forum.unity3d.com/members/102350-Mistale
-    /// 
+    ///
     /// Shader code optimization and cleanup by Lex Darlog (aka DRL)
     /// http://forum.unity3d.com/members/lex-drl.67487/
-    /// 
+    ///
 	/// </summary>
 	[RequireComponent(typeof(MeshFilter))]
 	[RequireComponent(typeof(MeshRenderer))]
 	[ExecuteInEditMode]
-	public class VolumetricLineBehavior : MonoBehaviour 
+	public class VolumetricLineBehavior : MonoBehaviour
 	{
 		// Used to compute the average value of all the Vector3's components:
 		static readonly Vector3 Average = new Vector3(1f/3f, 1f/3f, 1f/3f);
@@ -42,31 +42,31 @@ namespace VolumetricLines
 		/// Set to false in order to change the material's properties as specified in this script.
 		/// Set to true in order to *initially* leave the material's properties as they are in the template material.
 		/// </summary>
-		[SerializeField] 
+		[SerializeField]
 		private bool m_doNotOverwriteTemplateMaterialProperties;
 
 		/// <summary>
 		/// The start position relative to the GameObject's origin
 		/// </summary>
-		[SerializeField] 
+		[SerializeField]
 		private Vector3 m_startPos;
-		
+
 		/// <summary>
 		/// The end position relative to the GameObject's origin
 		/// </summary>
-		[SerializeField] 
+		[SerializeField]
 		private Vector3 m_endPos = new Vector3(0f, 0f, 100f);
 
 		/// <summary>
 		/// Line Color
 		/// </summary>
-		[SerializeField] 
+		[SerializeField]
 		private Color m_lineColor;
 
 		/// <summary>
 		/// The width of the line
 		/// </summary>
-		[SerializeField] 
+		[SerializeField]
 		private float m_lineWidth;
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace VolumetricLines
 		/// This GameObject's specific material
 		/// </summary>
 		private Material m_material;
-		
+
 		/// <summary>
 		/// This GameObject's mesh filter
 		/// </summary>
@@ -90,7 +90,7 @@ namespace VolumetricLines
 		#region properties
 		/// <summary>
 		/// Gets or sets the tmplate material.
-		/// Setting this will only have an impact once. 
+		/// Setting this will only have an impact once.
 		/// Subsequent changes will be ignored.
 		/// </summary>
 		public Material TemplateMaterial
@@ -111,7 +111,7 @@ namespace VolumetricLines
 			get { return m_doNotOverwriteTemplateMaterialProperties; }
 			set { m_doNotOverwriteTemplateMaterialProperties = value; }
 		}
-		
+
 		/// <summary>
 		/// Get or set the line color of this volumetric line's material
 		/// </summary>
@@ -191,7 +191,7 @@ namespace VolumetricLines
 		}
 
 		#endregion
-		
+
 		#region methods
 		/// <summary>
 		/// Creates a copy of the template material for this instance
@@ -206,7 +206,7 @@ namespace VolumetricLines
 					GetComponent<MeshRenderer>().sharedMaterial = m_material;
 					SetAllMaterialProperties();
 				}
-				else 
+				else
 				{
 					m_material = GetComponent<MeshRenderer>().sharedMaterial;
 				}
@@ -238,7 +238,7 @@ namespace VolumetricLines
 		/// </summary>
 		public void UpdateLineScale()
 		{
-			if (null != m_material) 
+			if (null != m_material)
 			{
 				m_material.SetFloat("_LineScale", CalculateLineScale());
 			}
@@ -282,7 +282,7 @@ namespace VolumetricLines
 				Mathf.Max(m_startPos.y, m_endPos.y) + scaledLineWidth,
 				Mathf.Max(m_startPos.z, m_endPos.z) + scaledLineWidth
 			);
-			
+
 			return new Bounds
 			{
 				min = min,
@@ -291,7 +291,7 @@ namespace VolumetricLines
 		}
 
 		/// <summary>
-		/// Updates the bounds of this line according to the current properties, 
+		/// Updates the bounds of this line according to the current properties,
 		/// which there are: start point, end point, line width, scaling of the object.
 		/// </summary>
 		public void UpdateBounds()
@@ -325,7 +325,7 @@ namespace VolumetricLines
 				m_endPos,
 				m_endPos,
 			};
-			
+
 			Vector3[] other = {
 				m_endPos,
 				m_endPos,
@@ -352,7 +352,7 @@ namespace VolumetricLines
 		#endregion
 
 		#region event functions
-		void Start () 
+		void Start ()
 		{
 			Mesh mesh = new Mesh();
 			m_meshFilter = GetComponent<MeshFilter>();
@@ -367,9 +367,9 @@ namespace VolumetricLines
 
 		void OnDestroy()
 		{
-			if (null != m_meshFilter) 
+			if (null != m_meshFilter)
 			{
-				if (Application.isPlaying) 
+				if (Application.isPlaying)
 				{
 					Mesh.Destroy(m_meshFilter.sharedMesh);
 				}
@@ -399,7 +399,7 @@ namespace VolumetricLines
 			SetAllMaterialProperties();
 			UpdateBounds();
 		}
-	
+
 		void OnDrawGizmos()
 		{
 			Gizmos.color = Color.green;
