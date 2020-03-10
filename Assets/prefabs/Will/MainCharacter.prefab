@@ -135,6 +135,7 @@ MonoBehaviour:
   health: 100
   dead: 0
   doll: {fileID: 5234630441100487884, guid: c251fc6fa19fde84aa34f50ccb667474, type: 3}
+  body: {fileID: 5796052025705313394}
 --- !u!114 &1698130374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +259,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9500000, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a67db89bdee18f241927d32f2379ded1, type: 3}
+--- !u!1 &5796052025705313394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100204, guid: a67db89bdee18f241927d32f2379ded1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5796052025705280286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5796052025705670738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400204, guid: a67db89bdee18f241927d32f2379ded1,
@@ -281,15 +288,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.792
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -0.5091419
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.039485846
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_LocalRotation.y
@@ -301,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99922013
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_RootOrder
@@ -309,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 4.526
       objectReference: {fileID: 0}
     - target: {fileID: 400110, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

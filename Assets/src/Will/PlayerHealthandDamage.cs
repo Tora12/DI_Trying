@@ -7,6 +7,7 @@ public class PlayerHealthandDamage : MonoBehaviour
     public float health=100.0f;
     public bool dead=false;
     [SerializeField] private GameObject doll;
+    [SerializeField] private GameObject body;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class PlayerHealthandDamage : MonoBehaviour
     {
         if(health<=0 && !dead){
             Instantiate(doll, transform);
+            Destroy(body);
             dead=true;
         }
     }
