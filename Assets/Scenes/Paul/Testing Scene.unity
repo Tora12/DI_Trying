@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -562,6 +562,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274864451}
   m_CullTransparentMesh: 0
+--- !u!1 &289177945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7599174544013075816, guid: 1f3ca6b4124396148beca43d47dcaeb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1714036713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &319547686
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +754,12 @@ Transform:
   m_Father: {fileID: 541940843}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &438628014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7599601608488295770, guid: 1f3ca6b4124396148beca43d47dcaeb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1714036713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &492322539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,6 +1808,12 @@ Transform:
   m_Father: {fileID: 541940843}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1381531223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7599740765668738038, guid: 1f3ca6b4124396148beca43d47dcaeb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1714036713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1549429796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7599636701741414088, guid: 1f3ca6b4124396148beca43d47dcaeb1,
@@ -1814,11 +1832,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98d6fd128b082947b1d3e6647e5c6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapArray: []
-  Bullet: {fileID: 0}
+  weapArray:
+  - {fileID: 289177945}
+  - {fileID: 1381531223}
+  Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
   speed: 1
   rotationSpeed: 1
-  BulletSpawn: {fileID: 0}
+  BulletSpawn: {fileID: 438628014}
 --- !u!114 &1549429801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,6 +1851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e265568caf5ffdf45b43e6e0e766e4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 100
+  movement: {fileID: 1549429800}
+  EnemyDespawnTime: 2
 --- !u!1 &1561087163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,7 +2166,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1549429800}
         m_MethodName: Fire
         m_Mode: 1
         m_Arguments:
