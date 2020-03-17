@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
     [SerializeField] float MoveSpeedMultiplier = 1f;
     [SerializeField] float AirSpeed = 6f;
+    [SerializeField] float dashSpeed = 24f;
     [SerializeField] float AnimSpeedMultiplier = 1f;
     [SerializeField] float GroundCheckDistance = 0.2f;
 
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 CapsuleCenter;
     CapsuleCollider Capsule;
     bool canDoubleJump=false;
-    bool canDash=false;
+    bool canDash=true;
     bool canUseGrapple=false;
     bool airJump=true;
 
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 	OrigGroundCheckDistance = GroundCheckDistance;
     }
 
-    public void Move(Vector3 move,bool jump){
+    public void Move(Vector3 move,bool jump, bool dash){
         if(move.magnitude>1f)move.Normalize();
         Vector3 tempmove=move;
         move=transform.InverseTransformDirection(move);
@@ -55,13 +56,26 @@ public class PlayerMovement : MonoBehaviour
         move = Vector3.ProjectOnPlane(move,GroundNormal);
         TurnAmount=Mathf.Atan2(move.x,move.z);
         ForwardAmount=move.z;
-        ApplyExtraTurnRotation();
-        if(IsGrounded){
-            HandleGroundMovement(jump);
+        if(dash){
+            Vector3 movementForce=(tempmove*dashSpeed);
+            movementForce.y=0;
+            rigidbody.velocity=movementForce;
+            ApplyExtraTurnRotation();
+            Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);
+	    Animator.SetFloat("Turn", TurnAmount, 0.1f, Time.deltaTime);
+	    Animator.SetBool("Crouch", false);
+	    Animator.SetBool("OnGround", false);
+            
         }else{
-            HandleAirMovement(tempmove,jump);
+            ApplyExtraTurnRotation();
+            if(IsGrounded){
+                HandleGroundMovement(jump);
+            }else{
+                HandleAirMovement(tempmove,jump);
+            }
+            UpdateAnimator(move);
         }
-        UpdateAnimator(move);
+        
     }
     void UpdateAnimator(Vector3 move){
 	Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);

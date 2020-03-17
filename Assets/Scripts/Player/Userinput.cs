@@ -10,6 +10,7 @@ public class Userinput : MonoBehaviour
     private Transform cameraPos;
     private Vector3 move;
     private bool jump;
+    private bool dash;
     void Start()
     {
         if(Camera.main!=null)cameraPos=Camera.main.transform;
@@ -21,11 +22,13 @@ public class Userinput : MonoBehaviour
     void Update()
     {
         if(!jump)jump=Input.GetButtonDown("Jump");
+        if(!dash)dash=Input.GetButton("Fire3");
     }
     void FixedUpdate(){
         float h =Input.GetAxis("Horizontal");
         move=h*cameraPos.right;
-        character.Move(move,jump);
+        character.Move(move,jump,dash);
         jump=false;
+        dash=false;
     }   
 }

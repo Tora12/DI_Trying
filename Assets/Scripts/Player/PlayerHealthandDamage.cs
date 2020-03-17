@@ -18,7 +18,7 @@ public class PlayerHealthandDamage : MonoBehaviour
     void Update()
     {
         if(health<=0 && !dead){
-            Instantiate(doll, transform);
+            Instantiate(doll, transform.position, transform.rotation);
             Destroy(body);
             dead=true;
         }
