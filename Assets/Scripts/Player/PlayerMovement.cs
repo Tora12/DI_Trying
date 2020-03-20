@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float MoveSpeedMultiplier = 1f;
     [SerializeField] float AirSpeed = 6f;
     [SerializeField] float dashSpeed = 24f;
+	[SerializeField] float dashDistance = 6f;
+	[SerializeField] float dashRecharge = 1f;
     [SerializeField] float AnimSpeedMultiplier = 1f;
     [SerializeField] float GroundCheckDistance = 0.2f;
 
@@ -33,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider Capsule;
     bool canDoubleJump=false;
     bool canDash=true;
+    bool dashing=false;
+	float lastDashTime=0;
+	bool airDash=false;
+	bool dashJump=false;
+    Vector3 dashDirection;
     bool canUseGrapple=false;
     bool airJump=true;
 
@@ -56,16 +63,8 @@ public class PlayerMovement : MonoBehaviour
         move = Vector3.ProjectOnPlane(move,GroundNormal);
         TurnAmount=Mathf.Atan2(move.x,move.z);
         ForwardAmount=move.z;
-        if(dash){
-            Vector3 movementForce=(tempmove*dashSpeed);
-            movementForce.y=0;
-            rigidbody.velocity=movementForce;
-            ApplyExtraTurnRotation();
-            Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);
-	    Animator.SetFloat("Turn", TurnAmount, 0.1f, Time.deltaTime);
-	    Animator.SetBool("Crouch", false);
-	    Animator.SetBool("OnGround", false);
-            
+        if((dash&&canDash) || dashing){
+            HandleDashMovement(tempmove);
         }else{
             ApplyExtraTurnRotation();
             if(IsGrounded){
@@ -115,9 +114,10 @@ public class PlayerMovement : MonoBehaviour
        //rigidbody.AddForce(movementForce);
        movementForce.y=rigidbody.velocity.y;
        rigidbody.velocity=movementForce;
-       if(jump && canDoubleJump==true && airJump==true){
+       if(jump && ((canDoubleJump && airJump) ||(canDash && dashJump))){
             rigidbody.velocity=new Vector3(rigidbody.velocity.x,JumpPower,rigidbody.velocity.z);
-            airJump=false;
+            if(airJump) airJump=false;
+			else dashJump=false;
         }
     }
     void HandleGroundMovement(bool jump){
@@ -125,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.velocity=new Vector3(rigidbody.velocity.x,JumpPower,rigidbody.velocity.z);
             IsGrounded=false;
             airJump=true;
+			airDash=true;
+			dashJump=false;
             GroundCheckDistance=0.1f;
         }
     }
@@ -151,4 +153,28 @@ public class PlayerMovement : MonoBehaviour
             
         }
     }
+	void HandleDashMovement(Vector3 move ){
+		if(!dashing && (Time.time-lastDashTime>dashRecharge) && (IsGrounded || airDash)){
+			move.Normalize();
+			if(move==Vector3.zero)move=new Vector3(0,0,1);
+            dashDirection=(move * dashSpeed);
+            dashDirection.y=0f;
+			dashing=true;
+			airDash=false;
+			lastDashTime=Time.time;
+        }
+		if(dashing){
+            rigidbody.velocity=dashDirection;
+            //ApplyExtraTurnRotation();
+            //Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);
+	        //Animator.SetFloat("Turn", TurnAmount, 0.1f, Time.deltaTime);
+	        //Animator.SetBool("Crouch", false);
+	        Animator.SetBool("OnGround", false);
+			if(Time.time-lastDashTime>dashDistance/dashSpeed){
+				dashing=false;
+				rigidbody.velocity=Vector3.zero;
+				dashJump=true;
+			}
+        }
+	}
 }
