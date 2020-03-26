@@ -22,6 +22,7 @@ namespace Tests
         {
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.
+            GameObject gameObject = Resources.Load<GameObject>("Prefabs/Enemies/Enemies/Tower_GaussGun.prefab");
             yield return null;
         }
     }
