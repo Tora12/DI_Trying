@@ -116,8 +116,8 @@ public class PlayerMovement : MonoBehaviour
        rigidbody.velocity=movementForce;
        if(jump && ((canDoubleJump && airJump) ||(canDash && dashJump))){
             rigidbody.velocity=new Vector3(rigidbody.velocity.x,JumpPower,rigidbody.velocity.z);
-            if(airJump) airJump=false;
-			else dashJump=false;
+            if(dashJump) dashJump=false;
+			else airJump=false;
         }
     }
     void HandleGroundMovement(bool jump){
