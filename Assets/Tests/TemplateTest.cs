@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+//needed to load the scene
 using UnityEngine.SceneManagement;
 
 namespace Tests
 {
-    public class Test
+    public class TemplateTest
     {
         // A Test behaves as an ordinary method
         [Test]
@@ -21,11 +22,13 @@ namespace Tests
         [UnityTest]
         public IEnumerator TestWithEnumeratorPasses()
         {
+			//load a scene
 			SceneManager.LoadScene("Testing Scene", LoadSceneMode.Additive);
+			//find an object in scene
             GameObject mainCharacter=GameObject.FindGameObjectWithTag("Player");
-			//PlayerMovement movement=mainCharacter.GetComponent<PlayerMovement>;
-			//movement.move(Vector3.zero,true,false);
+			//wait for a period of seconds
 			yield return new WaitForSeconds(5);
+			//return success
             yield return null;
         }
     }
