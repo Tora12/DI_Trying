@@ -177,4 +177,15 @@ public class PlayerMovement : MonoBehaviour
 			}
         }
 	}
+	void OnCollisionEnter(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+			
+            if(contact.normal.y<.5f){
+				dashing=false;
+			}
+        }
+        
+    }
 }
