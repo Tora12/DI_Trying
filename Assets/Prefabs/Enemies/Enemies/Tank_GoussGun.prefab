@@ -1385,11 +1385,11 @@ GameObject:
   - component: {fileID: 4913566190167168797}
   - component: {fileID: 5002709255627559491}
   - component: {fileID: 840580969477886658}
-  - component: {fileID: 6835917180860591753}
-  - component: {fileID: 8530848259462618503}
+  - component: {fileID: 6473048881952861178}
+  - component: {fileID: 7391825631425375100}
   m_Layer: 0
   m_Name: Tank_GoussGun
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1444,7 +1444,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6835917180860591753
+--- !u!114 &6473048881952861178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1453,16 +1453,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4916497499417732535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98d6fd128b082947b1d3e6647e5c6f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 57591dde1b603f745b124d60b41855cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapArray:
-  - {fileID: 4916062620204202205}
+  weapArray: []
   Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
   speed: 1
   rotationSpeed: 1
-  BulletSpawn: {fileID: 4916438444723452479}
---- !u!114 &8530848259462618503
+--- !u!114 &7391825631425375100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1471,11 +1469,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4916497499417732535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e265568caf5ffdf45b43e6e0e766e4b9, type: 3}
+  m_Script: {fileID: 11500000, guid: acd7ac43ad23f31439104438d1deb71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  movement: {fileID: 6835917180860591753}
+  movement: {fileID: 6473048881952861178}
   EnemyDespawnTime: 2
 --- !u!1 &4916537669037908365
 GameObject:

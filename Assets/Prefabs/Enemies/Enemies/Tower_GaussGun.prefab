@@ -438,9 +438,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8910122598372663067}
   - component: {fileID: -8082583369648262073}
+  - component: {fileID: 8412517850681754927}
+  - component: {fileID: 250953235750215656}
   m_Layer: 0
   m_Name: Tower_GaussGun
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,6 +478,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8412517850681754927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912751355693544125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05a6057c66145b45bd38dd709703ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapArray:
+  - {fileID: 8913319360745514493}
+  - {fileID: 8913401066556055729}
+  Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
+--- !u!114 &250953235750215656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912751355693544125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47da7ba6badf04242bae4cd997fc8f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!1 &8912756789902797201
 GameObject:
   m_ObjectHideFlags: 0

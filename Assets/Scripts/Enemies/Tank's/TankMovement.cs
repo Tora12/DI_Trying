@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class AutoCannonMovement : MonoBehaviour
+public class TankMovement : MonoBehaviour
 {
 	public GameObject[] weapArray;
 	public GameObject Bullet;
@@ -26,6 +26,7 @@ public class AutoCannonMovement : MonoBehaviour
 		rb = GetComponentInChildren<Rigidbody>();
     }
 
+	//Remove Once AI is in place
 	void FixedUpdate()
 	{
 		if (Input.GetKeyDown("i"))
@@ -35,14 +36,6 @@ public class AutoCannonMovement : MonoBehaviour
 		else if (Input.GetKeyDown("k"))
 		{
 			WalkBack();
-		}
-		else if (Input.GetKeyDown("j"))
-        {
-			StrafeLeft();
-        }
-		else if (Input.GetKeyDown("l"))
-		{
-			StrafeRight();
 		}
 		else if (Input.GetKeyDown("u"))
 		{
@@ -58,6 +51,7 @@ public class AutoCannonMovement : MonoBehaviour
 		}
 	}
 
+	//Handles Applying movement to the enemy.
 	void OnAnimatorMove()
 	{
 		if (direction == forward)
@@ -67,14 +61,6 @@ public class AutoCannonMovement : MonoBehaviour
 		else if (direction == backward)
 		{
 			transform.Translate(Vector3.back * speed * Time.deltaTime, Space.Self);
-		}
-		else if (direction == left)
-		{
-			transform.Translate(Vector3.left * speed * Time.deltaTime, Space.Self);
-		}
-		else if (direction == right)
-		{
-			transform.Translate(Vector3.right * speed * Time.deltaTime, Space.Self);
 		}
 		else if (roat == left)
 		{
@@ -86,6 +72,7 @@ public class AutoCannonMovement : MonoBehaviour
 		}
 	}
 
+	//These are the functions that set the different states of the animator.
 	public void Fire()
 	{
 		foreach (GameObject weap in weapArray)
@@ -115,29 +102,9 @@ public class AutoCannonMovement : MonoBehaviour
 	{
 		animator.SetBool("ACS_Dead2", true);
 	}
-	public void Dead3()
-	{
-		animator.SetBool("ACS_Dead3", true);
-	}
-	public void Dead4()
-	{
-		animator.SetBool("ACS_Dead4", true);
-	}
-	public void StrafeLeft()
-	{
-		animator.SetBool("ACS_StrafeLeft", true);
-		animator.speed = animator.speed * speed;
-		direction = left;
-	}
-	public void StrafeRight()
-	{
-		animator.SetBool("ACS_StrafeRight", true);
-		animator.speed = animator.speed * speed;
-		direction = right;
-	}
 	public void Idle()
 	{
-		animator.SetBool("ACS_Idle2", true);
+		animator.SetBool("ACS_Idle", true);
 		animator.speed = 1;
 		direction = 0;
 		roat = 0;
@@ -153,26 +120,6 @@ public class AutoCannonMovement : MonoBehaviour
 		animator.SetBool("ACS_TurnRight", true);
 		animator.speed = animator.speed * rotationSpeed;
 		roat = right;
-	}
-	public void ChangeToWalk()
-	{
-		animator.SetBool("ACS_ChangeToWalk", true);
-	}
-	public void ChangeToWeels()
-	{
-		animator.SetBool("ACS_ChangeToWeels", true);
-	}
-	public void MoveWeelsForwad()
-	{
-		animator.SetBool("ACS_MoveWeelsForwad", true);
-		animator.speed = animator.speed * speed;
-		direction = forward;
-	}
-	public void MoveWeelsBack()
-	{
-		animator.SetBool("ACS_MoveWeelsBack", true);
-		animator.speed = animator.speed * speed;
-		direction = backward;
 	}
 	public void WalkForwad()
 	{

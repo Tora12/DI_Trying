@@ -1381,9 +1381,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4920363373669024901}
   - component: {fileID: 2358812986526723948}
+  - component: {fileID: -8140120351811255891}
+  - component: {fileID: -8078261269506855657}
   m_Layer: 0
   m_Name: Tower_RocketLauncher
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1419,6 +1421,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8140120351811255891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918583202832710215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05a6057c66145b45bd38dd709703ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapArray:
+  - {fileID: 4918698321574273439}
+  - {fileID: 4918985533909949791}
+  Bullet: {fileID: 1018493861343558, guid: 6ccb6c09019cd1f48b8223f4f58468f0, type: 3}
+--- !u!114 &-8078261269506855657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918583202832710215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47da7ba6badf04242bae4cd997fc8f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!1 &4918672054922226307
 GameObject:
   m_ObjectHideFlags: 0

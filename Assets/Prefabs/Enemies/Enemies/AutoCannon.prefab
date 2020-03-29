@@ -1863,10 +1863,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapArray:
   - {fileID: 6867268760070232963}
-  Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
+  Bullet: {fileID: 1127454497954148, guid: 6cf168a8c2c54cf4ea524a63779cb5be, type: 3}
   speed: 1
   rotationSpeed: 1
-  BulletSpawn: {fileID: 1375501418954280498}
 --- !u!1 &4770094795883074775
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5549607661130582056}
   - component: {fileID: 5502839312944975232}
   - component: {fileID: 5551410099874203239}
-  - component: {fileID: 5551410099874203161}
-  - component: {fileID: 5551410099874203160}
+  - component: {fileID: 749450666417471653}
+  - component: {fileID: 8681207540353348714}
   m_Layer: 0
   m_Name: Tank_Cannon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5551410099874203161
+--- !u!114 &749450666417471653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,13 +79,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5550971023945971154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e265568caf5ffdf45b43e6e0e766e4b9, type: 3}
+  m_Script: {fileID: 11500000, guid: acd7ac43ad23f31439104438d1deb71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  movement: {fileID: 5551410099874203160}
+  movement: {fileID: 8681207540353348714}
   EnemyDespawnTime: 2
---- !u!114 &5551410099874203160
+--- !u!114 &8681207540353348714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,15 +94,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5550971023945971154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98d6fd128b082947b1d3e6647e5c6f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 57591dde1b603f745b124d60b41855cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weapArray:
   - {fileID: 5552464576076793988}
-  Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
+  Bullet: {fileID: 1018493861343558, guid: 6ccb6c09019cd1f48b8223f4f58468f0, type: 3}
   speed: 1
   rotationSpeed: 1
-  BulletSpawn: {fileID: 5551102254790838780}
 --- !u!1 &5551077980871313794
 GameObject:
   m_ObjectHideFlags: 0
