@@ -22,7 +22,7 @@ public class Userinput : MonoBehaviour
     void Update()
     {
         if(!jump)jump=Input.GetButtonDown("Jump");
-        if(!dash)dash=Input.GetButton("Fire3");
+        if(!dash)dash=Input.GetButtonDown("Fire3");
     }
     void FixedUpdate(){
         float h =Input.GetAxis("Horizontal");

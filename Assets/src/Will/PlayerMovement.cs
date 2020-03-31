@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float dashSpeed = 24f;
 	[SerializeField] float dashDistance = 6f;
 	[SerializeField] float dashRecharge = 1f;
+	[SerializeField] float grappleSpeed = 6f;
     [SerializeField] float AnimSpeedMultiplier = 1f;
     [SerializeField] float GroundCheckDistance = 0.2f;
 
@@ -33,15 +34,19 @@ public class PlayerMovement : MonoBehaviour
     float CapsuleHeight;
     Vector3 CapsuleCenter;
     CapsuleCollider Capsule;
+	
     bool canDoubleJump=false;
+	bool airJump=true;
+	
     bool canDash=true;
     bool dashing=false;
 	float lastDashTime=0;
 	bool airDash=false;
 	bool dashJump=false;
     Vector3 dashDirection;
-    bool canUseGrapple=false;
-    bool airJump=true;
+	
+    bool canUseGrapple=true;
+    GameObject Hook;
 
 
     void Start()
@@ -65,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
         ForwardAmount=move.z;
         if((dash&&canDash) || dashing){
             HandleDashMovement(tempmove);
+		}else if(canUseGrapple && (GameObject.FindGameObjectsWithTag("Grapple").Length == 1)){
+			Hook = GameObject.FindGameObjectWithTag("Grapple");
+			HandleGrappleMovement();
         }else{
             ApplyExtraTurnRotation();
             if(IsGrounded){
@@ -188,4 +196,14 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
+	void HandleGrappleMovement(){
+		Vector3 point=-transform.position + Hook.transform.position;
+		if(point.magnitude<2f){
+			Destroy(Hook);
+		}
+		Animator.SetBool("OnGround", false);
+		point.Normalize();
+		point*=grappleSpeed;
+		rigidbody.velocity=point;
+	}
 }
