@@ -17,6 +17,7 @@ public class PlayerHealthandDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(transform.position.y<-20) health=0;
         if(health<=0 && !dead){
             Instantiate(doll, transform.position, transform.rotation);
             Destroy(body);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraBehavoirScript : MonoBehaviour
 {
-    private Transform mainCharacter;
+    private GameObject mainCharacter;
     [Range(-.5f, .5f)][SerializeField] float Angle=.15f;
     [Range(1f, 40f)][SerializeField] float Distance=20f;
     //[SerializeField] float xOffset=18.29f;
@@ -14,12 +14,13 @@ public class CameraBehavoirScript : MonoBehaviour
     void Start()
     {
         
-        mainCharacter=GameObject.FindGameObjectWithTag("Player").transform;
+        mainCharacter=GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position=new Vector3(Mathf.Cos(Angle)*Distance,mainCharacter.position.y+Mathf.Sin(Angle)*Distance,mainCharacter.position.z+zOffset);
+		if(mainCharacter.GetComponent<PlayerHealthandDamage>().dead) return;
+        transform.position=new Vector3(Mathf.Cos(Angle)*Distance,mainCharacter.transform.position.y+Mathf.Sin(Angle)*Distance,mainCharacter.transform.position.z+zOffset);
     }
 }
