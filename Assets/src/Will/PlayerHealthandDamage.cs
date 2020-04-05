@@ -20,7 +20,7 @@ public class PlayerHealthandDamage : MonoBehaviour
 		if(transform.position.y<-20) health=0;
         if(health<=0 && !dead){
             Instantiate(doll, transform.position, transform.rotation);
-            Destroy(body);
+            body.SetActive(false);
             dead=true;
         }
     }

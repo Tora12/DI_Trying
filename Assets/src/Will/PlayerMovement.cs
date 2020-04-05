@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 CapsuleCenter;
     CapsuleCollider Capsule;
 	
-    bool canDoubleJump=false;
+    bool canDoubleJump=true;
 	bool airJump=true;
 	
     bool canDash=true;
@@ -159,6 +159,10 @@ public class PlayerMovement : MonoBehaviour
             canUseGrapple=true;
         }else if (abillity=="TBA"){
             
+        }else if (abillity=="Nothing"){
+            canDoubleJump=false;
+			canDash=false;
+			canUseGrapple=false;
         }
     }
 	void HandleDashMovement(Vector3 move ){
