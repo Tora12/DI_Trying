@@ -1996,7 +1996,7 @@ PrefabInstance:
     - target: {fileID: 961234791580073929, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -108.8
+      value: -133.09
       objectReference: {fileID: 0}
     - target: {fileID: 961234791580073929, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
@@ -7079,8 +7079,10 @@ MonoBehaviour:
   - {fileID: 5550971023945971154, guid: 21305d2649477c1429f9f44bf69d62cd, type: 3}
   - {fileID: 4916497499417732535, guid: 5f689414a8c21114bb20499de44ca73a, type: 3}
   - {fileID: 4918583202832710215, guid: 5e5cc2cdc2f691545b72171e2eb6df2c, type: 3}
-  min: -8
-  max: 38
+  minSpawnArea: -133
+  maxSpawnArea: -96
+  minEnemyCount: 1
+  maxEnemyCount: 10
 --- !u!114 &1782718882
 MonoBehaviour:
   m_ObjectHideFlags: 0
