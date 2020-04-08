@@ -8,10 +8,12 @@ public class PlayerHealthandDamage : MonoBehaviour
     public bool dead=false;
     [SerializeField] private GameObject doll;
     [SerializeField] private GameObject body;
+	
+	float old_health;
     // Start is called before the first frame update
     void Start()
     {
-        
+        old_health=health;
     }
 
     // Update is called once per frame
@@ -32,4 +34,12 @@ public class PlayerHealthandDamage : MonoBehaviour
             health = health - 10f;
         }
     }
+	public void killPlayer(){
+		health=0.0f;
+	}
+	public void respawnPlayer(){
+		dead=false;
+		health=old_health;
+		body.SetActive(true);
+	}
 }

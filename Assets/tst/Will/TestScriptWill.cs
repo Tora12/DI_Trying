@@ -5,27 +5,41 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
+
 namespace Tests
 {
-    public class Test
+    public class TestScriptWill
     {
-        // A Test behaves as an ordinary method
-        [Test]
-        public void TestSimplePasses()
-        {
-            // Use the Assert class to test conditions
-        }
-
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
+		[SetUp]
+		public void Setup()
+		{
+			SceneManager.LoadScene("Testing Scene 1", LoadSceneMode.Single);
+		}
+		[TearDown]
+		public void Teardown()
+		{
+			
+		}
         [UnityTest]
-        public IEnumerator TestWithEnumeratorPasses()
+        public IEnumerator Jump()
         {
-			SceneManager.LoadScene("Testing Scene", LoadSceneMode.Additive);
             GameObject mainCharacter=GameObject.FindGameObjectWithTag("Player");
-			//PlayerMovement movement=mainCharacter.GetComponent<PlayerMovement>;
-			//movement.move(Vector3.zero,true,false);
-			yield return new WaitForSeconds(5);
+			PlayerMovement movement=mainCharacter.GetComponent<PlayerMovement>();
+			movement.Move(Vector3.zero,true,false);
+			Assert.IsTrue(mainCharacter.GetComponent<Rigidbody>().velocity.y>9);
+			yield return new WaitForSeconds(2);
+            yield return null;
+        }
+		[UnityTest]
+		public IEnumerator KillAndRespawn()
+        {
+            GameObject mainCharacter=GameObject.FindGameObjectWithTag("Player");
+			PlayerHealthandDamage health=mainCharacter.GetComponent<PlayerHealthandDamage>();
+			yield return new WaitForSeconds(2);
+			health.killPlayer();
+			yield return new WaitForSeconds(2);
+			health.respawnPlayer();
+			yield return new WaitForSeconds(2);
             yield return null;
         }
     }
