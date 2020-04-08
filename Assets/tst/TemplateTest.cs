@@ -17,7 +17,7 @@ namespace Tests
 		public void Setup()
 		{
 			//load a scene
-			SceneManager.LoadScene("Testing Scene", LoadSceneMode.Single);
+			SceneManager.LoadScene("Testing Scene 1", LoadSceneMode.Single);
 		}
 		//same for tear down
 		[TearDown]

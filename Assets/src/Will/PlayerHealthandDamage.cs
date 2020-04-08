@@ -22,7 +22,7 @@ public class PlayerHealthandDamage : MonoBehaviour
 		if(transform.position.y<-20) health=0;
         if(health<=0 && !dead){
             Instantiate(doll, transform.position, transform.rotation);
-            body.SetActive(false);
+			gameObject.SetActive(false);
             dead=true;
         }
     }
@@ -40,6 +40,6 @@ public class PlayerHealthandDamage : MonoBehaviour
 	public void respawnPlayer(){
 		dead=false;
 		health=old_health;
-		body.SetActive(true);
+		gameObject.SetActive(true);
 	}
 }
