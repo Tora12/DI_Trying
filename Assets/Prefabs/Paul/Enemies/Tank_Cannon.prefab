@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5550971023945971154}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.59, z: -2.6}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 5556277227952856306}
   m_Father: {fileID: 0}
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd7ac43ad23f31439104438d1deb71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 10
   movement: {fileID: 8681207540353348714}
   EnemyDespawnTime: 2
 --- !u!114 &8681207540353348714
