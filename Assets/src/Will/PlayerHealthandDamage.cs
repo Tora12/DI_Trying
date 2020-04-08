@@ -6,8 +6,7 @@ public class PlayerHealthandDamage : MonoBehaviour
 {
     public float health=100.0f;
     public bool dead=false;
-    [SerializeField] private GameObject doll;
-    [SerializeField] private GameObject body;
+    [SerializeField] private GameObject doll=null;
 	
 	float old_health;
     // Start is called before the first frame update
@@ -31,7 +30,7 @@ public class PlayerHealthandDamage : MonoBehaviour
         if (other.tag == "EnemyBullet")
         {
             Destroy(other.gameObject);
-            health = health - 10f;
+            health -=10f;
         }
     }
 	public void killPlayer(){

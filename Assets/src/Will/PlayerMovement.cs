@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float GroundCheckDistance = 0.2f;
 
 
-    Rigidbody rigidbody;
+    Rigidbody rigidBody;
     Animator Animator;
     bool IsGrounded;
     float OrigGroundCheckDistance;
@@ -52,11 +52,11 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Animator = GetComponent<Animator>();
-	rigidbody = GetComponent<Rigidbody>();
+	rigidBody = GetComponent<Rigidbody>();
 	Capsule = GetComponent<CapsuleCollider>();
 	CapsuleHeight = Capsule.height;
 	CapsuleCenter = Capsule.center;
-	rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX; 
+	rigidBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX; 
 	OrigGroundCheckDistance = GroundCheckDistance;
     }
 
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 	Animator.SetBool("Crouch", false);
 	Animator.SetBool("OnGround", IsGrounded);
 	if (!IsGrounded){
-		Animator.SetFloat("Jump", rigidbody.velocity.y);
+		Animator.SetFloat("Jump", rigidBody.velocity.y);
 	}
 	float runCycle =Mathf.Repeat(Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + RunCycleLegOffset, 1);
 	float jumpLeg = (runCycle < k_Half ? 1 : -1) * ForwardAmount;		
@@ -110,27 +110,27 @@ public class PlayerMovement : MonoBehaviour
     public void OnAnimatorMove(){
 	if (IsGrounded && Time.deltaTime > 0){
 		Vector3 v = (Animator.deltaPosition * MoveSpeedMultiplier) / Time.deltaTime;
-		v.y = rigidbody.velocity.y;
-		rigidbody.velocity = v;
-	}
+		v.y = rigidBody.velocity.y;
+		rigidBody.velocity = v;
+	} 
     }
     void HandleAirMovement(Vector3 move, bool jump){
        Vector3 extraGravityForce=(Physics.gravity * GravityMultiplier)-Physics.gravity;
-       rigidbody.AddForce(extraGravityForce);
-       GroundCheckDistance=rigidbody.velocity.y<0?OrigGroundCheckDistance:0.01f;
+       rigidBody.AddForce(extraGravityForce);
+       GroundCheckDistance=rigidBody.velocity.y<0?OrigGroundCheckDistance:0.01f;
        Vector3 movementForce=(move*AirSpeed);
-       //rigidbody.AddForce(movementForce);
-       movementForce.y=rigidbody.velocity.y;
-       rigidbody.velocity=movementForce;
+       //rigidBody.AddForce(movementForce);
+       movementForce.y=rigidBody.velocity.y;
+       rigidBody.velocity=movementForce;
        if(jump && ((canDoubleJump && airJump) ||(canDash && dashJump))){
-            rigidbody.velocity=new Vector3(rigidbody.velocity.x,JumpPower,rigidbody.velocity.z);
+            rigidBody.velocity=new Vector3(rigidBody.velocity.x,JumpPower,rigidBody.velocity.z);
             if(dashJump) dashJump=false;
 			else airJump=false;
         }
     }
     void HandleGroundMovement(bool jump){
         if(jump&& Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded")){
-            rigidbody.velocity=new Vector3(rigidbody.velocity.x,JumpPower,rigidbody.velocity.z);
+            rigidBody.velocity=new Vector3(rigidBody.velocity.x,JumpPower,rigidBody.velocity.z);
             IsGrounded=false;
             airJump=true;
 			airDash=true;
@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 			lastDashTime=Time.time;
         }
 		if(dashing){
-            rigidbody.velocity=dashDirection;
+            rigidBody.velocity=dashDirection;
             //ApplyExtraTurnRotation();
             //Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);
 	        //Animator.SetFloat("Turn", TurnAmount, 0.1f, Time.deltaTime);
@@ -184,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
 	        Animator.SetBool("OnGround", false);
 			if(Time.time-lastDashTime>dashDistance/dashSpeed){
 				dashing=false;
-				rigidbody.velocity=Vector3.zero;
+				rigidBody.velocity=Vector3.zero;
 				dashJump=true;
 			}
         }
@@ -208,6 +208,6 @@ public class PlayerMovement : MonoBehaviour
 		Animator.SetBool("OnGround", false);
 		point.Normalize();
 		point*=grappleSpeed;
-		rigidbody.velocity=point;
+		rigidBody.velocity=point;
 	}
 }
