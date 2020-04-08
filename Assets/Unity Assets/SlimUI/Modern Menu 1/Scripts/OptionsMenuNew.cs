@@ -8,6 +8,7 @@ namespace SlimUI.ModernMenu{
 
 		public enum Platform {Desktop, Mobile};
 		public Platform platform;
+		public DataStore dataStore;
 		// toggle buttons
 		[Header("MOBILE SETTINGS")]
 		public GameObject mobileSFXtext;
@@ -219,6 +220,7 @@ namespace SlimUI.ModernMenu{
 
 		public void MusicSlider (){
 			PlayerPrefs.SetFloat("MusicVolume", sliderValue);
+			dataStore.volume = sliderValue;
 		}
 
 		public void  SensitivityXSlider (){
@@ -286,6 +288,7 @@ namespace SlimUI.ModernMenu{
 			difficultynormaltextLINE.gameObject.SetActive(true);
 			PlayerPrefs.SetInt("NormalDifficulty",1);
 			PlayerPrefs.SetInt("HardCoreDifficulty",0);
+			dataStore.bcmode = false;
 		}
 
 		public void  HardcoreDifficulty (){
@@ -293,6 +296,8 @@ namespace SlimUI.ModernMenu{
 			difficultynormaltextLINE.gameObject.SetActive(false);
 			PlayerPrefs.SetInt("NormalDifficulty",0);
 			PlayerPrefs.SetInt("HardCoreDifficulty",1);
+			dataStore.bcmode = true;
+
 		}
 
 		public void  ShadowsOff (){
