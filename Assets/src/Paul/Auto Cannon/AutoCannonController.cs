@@ -25,6 +25,11 @@ public class AutoCannonController : MonoBehaviour
 
     void Update()
     {
+        if (Health < maxHealth)
+        {
+            HealthBar.SetActive(true);
+        }
+
         //Handles Enemy Death Animation Triggering.
         if(Health <= 0 && !Dead)
         {

@@ -24,8 +24,13 @@ public class TankController : MonoBehaviour
 
     void Update()
     {
+        if (Health < maxHealth)
+        {
+            HealthBar.SetActive(true);
+        }
+
         //Handles Enemy Death Animation Triggering.
-        if(Health <= 0 && !Dead)
+        if (Health <= 0 && !Dead)
         {
             //Prevents the Animation from constantly replaying.
             Dead = true;
