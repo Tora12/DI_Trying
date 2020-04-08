@@ -13,6 +13,7 @@ public class TowerController : MonoBehaviour
     private bool Dead = false;
 
     private int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class TowerController : MonoBehaviour
         {
             //Prevents the Animation from constantly replaying.
             Dead = true;
+            //Removes the Health Bar
             Destroy(HealthBar);
             Destroy(gameObject, EnemyDespawnTime);
         }
