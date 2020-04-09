@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject player;
+    public int[] temp;
+    
+    [SerializeField] private GameTriggers gameTriggers;
 
     void Start()
     {
@@ -14,5 +17,15 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.tag == "Door")
+        {
+
+            DoorController doorController = col.GetComponent<DoorController>();
+            gameTriggers.enterRoom(player, doorController.teleportLocation, temp, 1);
+        }
     }
 }
