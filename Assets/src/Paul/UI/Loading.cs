@@ -11,7 +11,12 @@ public class Loading : MonoBehaviour
     {
         if(dataStore.ui)
         {
+            ui.SetActive(true);
+        }
 
+        else if(!dataStore.ui) 
+        {
+            ui.SetActive(false);
         }
     } 
 }

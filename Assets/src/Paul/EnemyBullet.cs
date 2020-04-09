@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SphereofInfluence : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
+    public int damage = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +15,5 @@ public class SphereofInfluence : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            Debug.Log("Die Player!!!!");
-        }
     }
 }

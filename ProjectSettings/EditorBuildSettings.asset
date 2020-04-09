@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zac/Level_00.unity
     guid: 48b1a5df5057e47b68994c19c1bfa1cb
+  - enabled: 1
+    path: Assets/Scenes/Paul/Testing Scene 1.unity
+    guid: 162ceafa5213d0a4c8e7dff91b5e6440
+  - enabled: 1
+    path: Assets/InitTestScene637208207460265570.unity
+    guid: d3efac4a3cd8851498d5a511c5c4f6ed
   m_configObjects: {}

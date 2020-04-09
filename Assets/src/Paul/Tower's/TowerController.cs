@@ -7,6 +7,8 @@ public class TowerController : MonoBehaviour
 {
     public float maxHealth = 10;
     public float Health;
+    public int fireDelay = 0;
+    [SerializeField] private TowerMovement movement;
     [SerializeField] private GameObject HealthBar;
     [SerializeField] private Slider slider;
     private int EnemyDespawnTime = 0;
@@ -47,6 +49,15 @@ public class TowerController : MonoBehaviour
             Destroy(other.gameObject);
             Health = Health - Damage;
             slider.value = Health;
+        }
+        
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            movement.Fire();
         }
     }
 }

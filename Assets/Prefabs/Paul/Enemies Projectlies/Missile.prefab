@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4193166561345200}
   - component: {fileID: 54401394745222390}
   - component: {fileID: 136324014728381426}
+  - component: {fileID: 9207529157482240876}
   m_Layer: 0
   m_Name: Missile
   m_TagString: EnemyBullet
@@ -29,7 +30,7 @@ Transform:
   m_LocalPosition: {x: -0, y: -0.138, z: 0.787}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
-  - {fileID: 2645915948199885237}
+  - {fileID: 7044362400188925997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63,6 +64,19 @@ CapsuleCollider:
   m_Height: 0.14788127
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -0.00069727504}
+--- !u!114 &9207529157482240876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896030263230236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19d87f59a3367f4cad49b2f4dcde06e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1001 &7044362400189321903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,9 +176,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed041dafaa9b484cbe6a5b245036b3e, type: 3}
---- !u!4 &2645915948199885237 stripped
+--- !u!4 &7044362400188925997 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 2ed041dafaa9b484cbe6a5b245036b3e,
     type: 3}
   m_PrefabInstance: {fileID: 7044362400189321903}
   m_PrefabAsset: {fileID: 0}

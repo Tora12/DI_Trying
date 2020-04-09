@@ -26,6 +26,7 @@ public class AutoCannonMovement : MonoBehaviour
 		rb = GetComponentInChildren<Rigidbody>();
     }
 
+	/*
 	void FixedUpdate()
 	{
 		if (Input.GetKeyDown("i"))
@@ -57,6 +58,7 @@ public class AutoCannonMovement : MonoBehaviour
 			Idle();
 		}
 	}
+	*/
 
 	void OnAnimatorMove()
 	{

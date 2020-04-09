@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23608145001947230}
   - component: {fileID: 54755105647043084}
   - component: {fileID: 135450934489493536}
+  - component: {fileID: -5048366603087131208}
   m_Layer: 0
   m_Name: RocketShell
   m_TagString: EnemyBullet
@@ -111,6 +112,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.05
   m_Center: {x: 0, y: 0.09, z: 0}
+--- !u!114 &-5048366603087131208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018493861343558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19d87f59a3367f4cad49b2f4dcde06e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1030161267075354
 GameObject:
   m_ObjectHideFlags: 0
