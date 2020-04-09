@@ -42,5 +42,33 @@ namespace Tests
 			//return success
 			yield return null;
 		}
+
+		[UnityTest]
+		public IEnumerator EnemyMovement()
+        {
+			GameObject enemy = GameObject.Find("LaserGun");
+			AutoCannonMovement movement = enemy.GetComponent<AutoCannonMovement>();
+			movement.StrafeLeft();
+			Assert.IsTrue(enemy.GetComponent<Rigidbody>().velocity.x != 0);
+			//wait for a period of seconds
+			yield return new WaitForSeconds(2);
+			movement.Idle();
+			movement.StrafeRight();
+			Assert.IsTrue(enemy.GetComponent<Rigidbody>().velocity.x != 0);
+			//wait for a period of seconds
+			yield return new WaitForSeconds(2);
+			movement.Idle();
+			movement.WalkForwad();
+			Assert.IsTrue(enemy.GetComponent<Rigidbody>().velocity.z != 0);
+			//wait for a period of seconds
+			yield return new WaitForSeconds(2);
+			movement.Idle();
+			movement.WalkBack();
+			Assert.IsTrue(enemy.GetComponent<Rigidbody>().velocity.z != 0);
+			//wait for a period of seconds
+			yield return new WaitForSeconds(2);
+			movement.Idle();
+			yield return null;
+		}	
 	}
 }
