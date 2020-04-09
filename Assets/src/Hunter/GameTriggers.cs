@@ -25,4 +25,35 @@ public class GameTriggers : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(toDespawn);
     }
+
+    public void respawnPlayer(Vector3 location, int delay)
+    {
+        StartCoroutine(respawnPlayer_Coroutine(location, delay));
+    }
+
+    IEnumerator respawnPlayer_Coroutine(Vector3 location, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
+
+    public void despawnPlayer(int delay)
+    {
+        StartCoroutine(despawnPlayer_Coroutine(delay));
+    }
+
+    IEnumerator despawnPlayer_Coroutine(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
+
+    public void enterRoom(GameObject player, Vector3 location, int[] temp, int delay)
+    {
+        StartCoroutine(enterRoom_Coroutine(player, location, temp, delay));
+    }
+
+    IEnumerator enterRoom_Coroutine(GameObject player, Vector3 location, int[] temp, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.transform.position = location;
+    }
 }
