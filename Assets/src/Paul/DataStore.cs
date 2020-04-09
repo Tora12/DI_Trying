@@ -5,7 +5,7 @@ using UnityEngine;
 public class DataStore : MonoBehaviour
 {
     public bool bcmode = false;
-    public bool ui = false;
+    public bool ui = true;
     public float volume = 1;
 
     void Awake()
