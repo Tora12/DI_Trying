@@ -2616,6 +2616,7 @@ GameObject:
   - component: {fileID: 661273576}
   - component: {fileID: 661273575}
   - component: {fileID: 661273579}
+  - component: {fileID: 661273578}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2671,6 +2672,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661273578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661273574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b772981337fd44f43a78c904b043acd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &661273579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2685,7 +2698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2098073145}
   temp: 
-  gameTriggers: {fileID: 0}
+  gameTriggers: {fileID: 661273578}
 --- !u!1001 &667364883
 PrefabInstance:
   m_ObjectHideFlags: 0
