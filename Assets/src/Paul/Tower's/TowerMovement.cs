@@ -17,7 +17,7 @@ public class TowerMovement : MonoBehaviour
 			animatorWeap.SetBool("Fire", true);
 			GameObject clone = Instantiate(Bullet, spawn.position , transform.rotation);
 			Rigidbody cloneRB = clone.GetComponent<Rigidbody>();
-			cloneRB.velocity = Vector3.forward * 10;
+			cloneRB.velocity = transform.forward * 10;
 		}
 	}
 

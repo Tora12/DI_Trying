@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   Health: 10
-  minFireDelay: 0.1
+  minFireDelay: 0.5
   maxFireDelay: 1
   movement: {fileID: -8140120351811255891}
   HealthBar: {fileID: 7041978337125981102}

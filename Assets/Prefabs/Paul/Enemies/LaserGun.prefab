@@ -4770,7 +4770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   Health: 10
-  minFireDelay: 0.1
+  minFireDelay: 0.5
   maxFireDelay: 1
   HealthBar: {fileID: 428172171719571002}
   canvas: {fileID: 4485480868467894321}

@@ -8,7 +8,7 @@ public class TowerController : MonoBehaviour
     public float maxHealth = 10;
     public float Health;
     //public float fireDelay = 1;
-    public float minFireDelay = 0.1f;
+    public float minFireDelay = 0.5f;
     public float maxFireDelay = 1.0f;
     private float fireDelay;
     public TowerMovement movement;
