@@ -7,11 +7,13 @@ public class TankController : MonoBehaviour
 {
     public float maxHealth = 10;
     public float Health;
-    [SerializeField] private GameObject HealthBar;
-    [SerializeField] private Slider slider;
+    public int fireDelay = 1;
+    public GameObject HealthBar;
+    public Slider slider;
     public TankMovement movement;
     public int EnemyDespawnTime = 2;
     private bool Dead = false;
+    private bool canFire = false;
 
     private int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
 
@@ -55,6 +57,34 @@ public class TankController : MonoBehaviour
             Destroy(other.gameObject);
             Health = Health - Damage;
             slider.value = Health;
+        }
+
+        if (other.tag == "Player")
+        {
+            canFire = true;
+            fire();
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            canFire = false;
+        }
+    }
+
+    void fire()
+    {
+        StartCoroutine(fire_Coroutine());
+    }
+
+    IEnumerator fire_Coroutine()
+    {
+        while (canFire)
+        {
+            movement.Fire();
+            yield return new WaitForSeconds(fireDelay);
         }
     }
 }

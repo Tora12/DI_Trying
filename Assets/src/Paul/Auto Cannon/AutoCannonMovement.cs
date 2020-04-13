@@ -18,7 +18,7 @@ public class AutoCannonMovement : MonoBehaviour
 	private Rigidbody rb;
 	private int direction = 0;
 	private int roat = 0;
-	private string name = "Gun_End";
+	private new string name = "Gun_End";
 
 	void Awake()
     {

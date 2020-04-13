@@ -845,6 +845,7 @@ GameObject:
   - component: {fileID: -8082583369648262073}
   - component: {fileID: 8412517850681754927}
   - component: {fileID: 250953235750215656}
+  - component: {fileID: 1045539088599321726}
   m_Layer: 0
   m_Name: Tower_GaussGun
   m_TagString: Enemy
@@ -914,8 +915,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   Health: 10
+  fireDelay: 1
+  movement: {fileID: 8412517850681754927}
   HealthBar: {fileID: 7124270033597985904}
   slider: {fileID: 460423508957464309}
+--- !u!135 &1045539088599321726
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912751355693544125}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8912756789902797201
 GameObject:
   m_ObjectHideFlags: 0

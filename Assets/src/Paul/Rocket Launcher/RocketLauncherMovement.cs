@@ -8,7 +8,7 @@ public class RocketLauncherMovement : MonoBehaviour
 	public GameObject Bullet;
 	public float speed = 1.0f;
 	public float rotationSpeed = 1.0f;
-	[SerializeField] private GameObject BulletSpawn;
+	public GameObject BulletSpawn;
 	private const int forward = 1;
 	private const int backward = 2;
 	private const int left = 3;

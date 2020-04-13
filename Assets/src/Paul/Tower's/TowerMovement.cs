@@ -6,7 +6,7 @@ public class TowerMovement : MonoBehaviour
 	public GameObject[] weapArray;
 	public GameObject Bullet;
 	private Animator animatorWeap;
-	private string name = "Gun_End";
+	private new string name = "Gun_End";
 
 	public void Fire()
 	{

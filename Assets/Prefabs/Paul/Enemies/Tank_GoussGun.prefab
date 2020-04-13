@@ -1460,6 +1460,7 @@ GameObject:
   - component: {fileID: 840580969477886658}
   - component: {fileID: 6473048881952861178}
   - component: {fileID: 7391825631425375100}
+  - component: {fileID: 9123141983036956728}
   m_Layer: 0
   m_Name: Tank_GoussGun
   m_TagString: Enemy
@@ -1530,7 +1531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57591dde1b603f745b124d60b41855cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapArray: []
+  weapArray:
+  - {fileID: 4916062620204202205}
   Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
   speed: 1
   rotationSpeed: 1
@@ -1552,6 +1554,19 @@ MonoBehaviour:
   slider: {fileID: 6103080359647028930}
   movement: {fileID: 6473048881952861178}
   EnemyDespawnTime: 2
+--- !u!135 &9123141983036956728
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916497499417732535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4916537669037908365
 GameObject:
   m_ObjectHideFlags: 0

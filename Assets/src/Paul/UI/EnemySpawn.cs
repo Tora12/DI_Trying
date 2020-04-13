@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] private GameTriggers gameTriggers;
-    [SerializeField] private GameObject[] enemyArray;
-    [SerializeField] private float minSpawnArea = 0.0f;
-    [SerializeField] private float maxSpawnArea = 0.0f;
+    public GameTriggers gameTriggers;
+    public GameObject[] enemyArray;
+    public float minSpawnArea = 0.0f;
+    public float maxSpawnArea = 0.0f;
     public int minEnemyCount = 0;
     public int maxEnemyCount = 0;
 

@@ -4713,6 +4713,7 @@ GameObject:
   - component: {fileID: 7482442874420710489}
   - component: {fileID: 3111892827818954082}
   - component: {fileID: 5038334092547277769}
+  - component: {fileID: -7571804041403410897}
   m_Layer: 0
   m_Name: LaserGun
   m_TagString: Enemy
@@ -4769,6 +4770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   Health: 10
+  fireDelay: 1
   HealthBar: {fileID: 428172171719571002}
   slider: {fileID: 1704612412422285213}
   movement: {fileID: 5038334092547277769}
@@ -4807,6 +4809,19 @@ MonoBehaviour:
   Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
   speed: 1
   rotationSpeed: 1
+--- !u!135 &-7571804041403410897
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8781343355904072180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8781350381654827272
 GameObject:
   m_ObjectHideFlags: 0

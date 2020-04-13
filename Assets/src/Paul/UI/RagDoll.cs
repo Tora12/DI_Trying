@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RagDoll : MonoBehaviour
 {
-    [SerializeField] private GameObject doll;
+    public GameObject doll;
     // Start is called before the first frame update
     void Start()
     {
