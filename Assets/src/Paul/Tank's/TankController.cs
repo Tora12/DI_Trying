@@ -7,8 +7,12 @@ public class TankController : MonoBehaviour
 {
     public float maxHealth = 10;
     public float Health;
-    public int fireDelay = 1;
+    //public float fireDelay = 1;
+    public float minFireDelay = 0.1f;
+    public float maxFireDelay = 1.0f;
+    private float fireDelay;
     public GameObject HealthBar;
+    public GameObject canvas;
     public Slider slider;
     public TankMovement movement;
     public int EnemyDespawnTime = 2;
@@ -28,6 +32,7 @@ public class TankController : MonoBehaviour
     {
         if (Health < maxHealth)
         {
+            canvas.SetActive(true);
             HealthBar.SetActive(true);
         }
 
@@ -84,7 +89,13 @@ public class TankController : MonoBehaviour
         while (canFire)
         {
             movement.Fire();
+            randomFireDelay();
             yield return new WaitForSeconds(fireDelay);
         }
+    }
+
+    private void randomFireDelay()
+    {
+        fireDelay = Random.Range(minFireDelay, maxFireDelay);
     }
 }

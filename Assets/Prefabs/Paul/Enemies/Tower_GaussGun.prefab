@@ -54,7 +54,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3056032842688798650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -915,9 +915,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   Health: 10
-  fireDelay: 1
+  minFireDelay: 0.1
+  maxFireDelay: 1
   movement: {fileID: 8412517850681754927}
   HealthBar: {fileID: 7124270033597985904}
+  canvas: {fileID: 1232624806375166583}
   slider: {fileID: 460423508957464309}
 --- !u!135 &1045539088599321726
 SphereCollider:

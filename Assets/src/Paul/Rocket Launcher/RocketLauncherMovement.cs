@@ -24,30 +24,6 @@ public class RocketLauncherMovement : MonoBehaviour
 		rb = GetComponentInChildren<Rigidbody>();
 	}
 
-	void FixedUpdate()
-	{
-		if (Input.GetKeyDown("i"))
-		{
-			WalkForwad();
-		}
-		else if (Input.GetKeyDown("k"))
-		{
-			WalkBack();
-		}
-		else if (Input.GetKeyDown("u"))
-		{
-			TurnLeft();
-		}
-		else if (Input.GetKeyDown("o"))
-		{
-			TurnRight();
-		}
-		if (Input.GetKeyUp("i") || Input.GetKeyUp("k") || Input.GetKeyUp("j") || Input.GetKeyUp("l") || Input.GetKeyUp("u") || Input.GetKeyUp("o"))
-		{
-			Idle();
-		}
-	}
-
 	void OnAnimatorMove()
 	{
 		if (direction == forward)

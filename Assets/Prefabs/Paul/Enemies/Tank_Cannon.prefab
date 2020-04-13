@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8023607123632984812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -382,7 +382,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   Health: 10
+  minFireDelay: 0.1
+  maxFireDelay: 1
   HealthBar: {fileID: 4232726543972913846}
+  canvas: {fileID: 5128460721970637359}
   slider: {fileID: 4923787005059432175}
   movement: {fileID: 8681207540353348714}
   EnemyDespawnTime: 2

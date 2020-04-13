@@ -26,31 +26,6 @@ public class TankMovement : MonoBehaviour
 		rb = GetComponentInChildren<Rigidbody>();
     }
 
-	//Remove Once AI is in place
-	void FixedUpdate()
-	{
-		if (Input.GetKeyDown("i"))
-        {
-			WalkForwad();
-        }
-		else if (Input.GetKeyDown("k"))
-		{
-			WalkBack();
-		}
-		else if (Input.GetKeyDown("u"))
-		{
-			TurnLeft();
-		}
-		else if (Input.GetKeyDown("o"))
-		{
-			TurnRight();
-		}
-		if (Input.GetKeyUp("i") || Input.GetKeyUp("k") || Input.GetKeyUp("j") || Input.GetKeyUp("l") || Input.GetKeyUp("u") || Input.GetKeyUp("o"))
-		{
-			Idle();
-		}
-	}
-
 	//Handles Applying movement to the enemy.
 	void OnAnimatorMove()
 	{
