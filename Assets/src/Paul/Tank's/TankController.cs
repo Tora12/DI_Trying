@@ -42,7 +42,7 @@ public class TankController : MonoBehaviour
             //Prevents the Animation from constantly replaying.
             Dead = true;
             //Removes the Health Bar
-            Destroy(HealthBar);
+            //Destroy(HealthBar);
             //Generates a random number to play one of four death animations.
             float num = Random.value;
 

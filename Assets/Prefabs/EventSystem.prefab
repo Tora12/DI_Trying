@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3683821046299036505}
   - component: {fileID: 3683821046299036504}
   - component: {fileID: 3683821046299036500}
+  - component: {fileID: 1301291995}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -95,3 +96,18 @@ MonoBehaviour:
   pauseMenu: {fileID: 3666751517218414746, guid: 050360431da8d054699c1ac557c872e7,
     type: 3}
   player: {fileID: 0}
+--- !u!114 &1301291995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683821046299036507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb6b194c5e381742901a3754067da48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  slider: {fileID: 0}
+  slider1: {fileID: 0}

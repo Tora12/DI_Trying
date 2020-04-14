@@ -43,7 +43,7 @@ public class TowerController : MonoBehaviour
             //Prevents the Animation from constantly replaying.
             Dead = true;
             //Removes the Health Bar
-            Destroy(HealthBar);
+            //Destroy(HealthBar);
             Destroy(gameObject, EnemyDespawnTime);
         }
     }
