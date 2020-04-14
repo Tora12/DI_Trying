@@ -11,13 +11,13 @@ public class Pause : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetButtonDown("Escape") && !paused)
+        if (Input.GetButtonDown("Cancel") && !paused)
         {
             paused = true;
             player.SetActive(false);
             clone = Instantiate(pauseMenu);
         }
-        else if (Input.GetButtonDown("Escape") && paused)
+        else if (Input.GetButtonDown("Cancel") && paused)
         {
             resume();
         }

@@ -12,6 +12,6 @@ public class Conformation : MonoBehaviour
 
     public void yesMainMenu()
     {
-        SceneManager.LoadScene("Menu Scene");
+        SceneManager.LoadScene("Menu_Scene");
     }
 }
