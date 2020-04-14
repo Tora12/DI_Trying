@@ -10,6 +10,9 @@ TagManager:
   - EnemyBullet
   - Grapple
   - Door
+  - enemy
+  - Terrain
+  - VFX
   layers:
   - Default
   - TransparentFX
