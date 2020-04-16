@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 6933775140889637744}
   - component: {fileID: 5927473214536764795}
   - component: {fileID: 7291728045483450723}
+  - component: {fileID: 7261308190519419956}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1102,6 +1103,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7261308190519419956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339270996260520271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80b198223e54ea438a1adf7f4ad69fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2686108869153480190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,9 +1973,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3683821046299036500, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
-          type: 3}
-        m_MethodName: resume
+      - m_Target: {fileID: 7261308190519419956}
+        m_MethodName: click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
