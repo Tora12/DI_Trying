@@ -7,7 +7,6 @@ public class AutoCannonController : MonoBehaviour
 {
     public float maxHealth = 10;
     public float Health;
-    //public float fireDelay = 1;
     public float minFireDelay = 0.1f;
     public float maxFireDelay = 1.0f;
     private float fireDelay;
@@ -17,9 +16,10 @@ public class AutoCannonController : MonoBehaviour
     public AutoCannonMovement movement;
     public int EnemyDespawnTime = 2;
     private bool Dead = false;
-    private bool canFire = false;
+    public GameObject eye = null;
+    private float lastAttackTime;
 
-    private int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
+    private readonly int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +27,9 @@ public class AutoCannonController : MonoBehaviour
         Health = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = Health;
+        RandomFireDelay();
     }
-
+    
     void Update()
     {
         if (Health < maxHealth)
@@ -60,24 +61,45 @@ public class AutoCannonController : MonoBehaviour
             //Removes the enemy after the time has elepased.
             Destroy(gameObject, EnemyDespawnTime);
         }
+
+        // Bit shift the index of the layer (8) to get a bit mask
+        int layerMask = 1 << 8;
+
+        // This would cast rays only against colliders in layer 8.
+
+        if (eye != null)
+        {
+            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, 20, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
+            {
+                movement.Fire();
+                lastAttackTime = Time.time;
+                RandomFireDelay();
+            }
+        }
+        
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Bullet")
+        if (other.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
-            Health = Health - Damage;
+            Health -= Damage;
             slider.value = Health;
         }
 
-        if (other.tag == "Player")
+        /*
+        /if (other.tag == "Player")
         {
             canFire = true;
             fire();
         }
+        */
     }
-
+    
+    //Depercated
+    /*
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -86,7 +108,7 @@ public class AutoCannonController : MonoBehaviour
         }
     }
 
-    void fire()
+    private void fire()
     {
         StartCoroutine(fire_Coroutine());
     }
@@ -95,13 +117,17 @@ public class AutoCannonController : MonoBehaviour
     {
         while (canFire)
         {
+            //randomFireDelay();
+            //yield return new WaitForSeconds(fireDelay);
             movement.Fire();
-            randomFireDelay();
-            yield return new WaitForSeconds(fireDelay);
+            //randomFireDelay();
+            //yield return new WaitForSeconds(fireDelay);
+            yield return new WaitForSeconds(0);
         }
     }
+    */
 
-    private void randomFireDelay()
+    private void RandomFireDelay()
     {
         fireDelay = Random.Range(minFireDelay, maxFireDelay);
     }

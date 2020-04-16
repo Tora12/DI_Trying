@@ -32,7 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 2190007536883965796}
   m_Father: {fileID: 4920363373669024901}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -172,6 +172,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3269570212426255267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885054398369610934}
+  m_Layer: 0
+  m_Name: Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &885054398369610934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269570212426255267}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 6.309205, z: 0}
+  m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1.4999999}
+  m_Children: []
+  m_Father: {fileID: 4920363373669024901}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4748396145237054564
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +341,7 @@ Transform:
   - {fileID: 4920351126490228673}
   - {fileID: 4924199150082190399}
   m_Father: {fileID: 4920363373669024901}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4918070271857366113
 GameObject:
@@ -1628,7 +1658,6 @@ GameObject:
   - component: {fileID: 2358812986526723948}
   - component: {fileID: -8140120351811255891}
   - component: {fileID: -8078261269506855657}
-  - component: {fileID: 6782900604616981583}
   m_Layer: 0
   m_Name: Tower_RocketLauncher
   m_TagString: Enemy
@@ -1644,9 +1673,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4918583202832710215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.51715904, z: -4.8483686}
+  m_LocalPosition: {x: 0, y: 0.51715904, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
+  - {fileID: 885054398369610934}
   - {fileID: 5098375794688737182}
   - {fileID: 4920739011099461799}
   m_Father: {fileID: 0}
@@ -1704,19 +1734,7 @@ MonoBehaviour:
   HealthBar: {fileID: 7041978337125981102}
   canvas: {fileID: 2207466311158388445}
   slider: {fileID: 6620544569984743500}
---- !u!135 &6782900604616981583
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4918583202832710215}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 40
-  m_Center: {x: 0, y: 0, z: 0}
+  eye: {fileID: 3269570212426255267}
 --- !u!1 &4918672054922226307
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,8 @@ namespace SlimUI.ModernMenu{
 
 		[Header("Loaded Scene")]
 		[Tooltip("The name of the scene in the build settings that will load")]
-		public string sceneName = ""; 
+		public string tutorialName = ""; 
+		public string storyName = ""; 
 
 		[Header("Panels")]
 		[Tooltip("The UI Panel parenting all sub menus")]
@@ -92,8 +93,17 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void NewGame(){
-			if(sceneName != ""){
-				StartCoroutine(LoadAsynchronously(sceneName));
+			if(tutorialName != ""){
+				StartCoroutine(LoadAsynchronously(tutorialName));
+				//SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+			}
+		}
+
+		public void NewStory()
+        {
+			if (storyName != "")
+			{
+				StartCoroutine(LoadAsynchronously(storyName));
 				//SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 			}
 		}

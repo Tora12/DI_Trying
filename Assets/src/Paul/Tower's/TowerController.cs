@@ -7,7 +7,6 @@ public class TowerController : MonoBehaviour
 {
     public float maxHealth = 10;
     public float Health;
-    //public float fireDelay = 1;
     public float minFireDelay = 0.5f;
     public float maxFireDelay = 1.0f;
     private float fireDelay;
@@ -17,9 +16,10 @@ public class TowerController : MonoBehaviour
     public Slider slider;
     private int EnemyDespawnTime = 0;
     private bool Dead = false;
-    private bool canFire = false;
+    public GameObject eye = null;
+    private float lastAttackTime;
 
-    private int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
+    private readonly int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
 
     // Start is called before the first frame update
     void Start()
@@ -46,24 +46,33 @@ public class TowerController : MonoBehaviour
             //Destroy(HealthBar);
             Destroy(gameObject, EnemyDespawnTime);
         }
+
+        // Bit shift the index of the layer (8) to get a bit mask
+        // This would cast rays only against colliders in layer 8.
+        int layerMask = 1 << 8;
+
+        if (eye != null)
+        {
+            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, 20, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
+            {
+                movement.Fire();
+                lastAttackTime = Time.time;
+                RandomFireDelay();
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Bullet")
+        if (other.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
             Health = Health - Damage;
             slider.value = Health;
         }
-
-        if (other.tag == "Player")
-        {
-            canFire = true;
-            fire();
-        }
     }
 
+    /*
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -86,8 +95,9 @@ public class TowerController : MonoBehaviour
             yield return new WaitForSeconds(fireDelay);
         }
     }
+    */
 
-    private void randomFireDelay()
+    private void RandomFireDelay()
     {
         fireDelay = Random.Range(minFireDelay, maxFireDelay);
     }

@@ -19,6 +19,7 @@ public class AutoCannonMovement : MonoBehaviour
 	private int direction = 0;
 	private int roat = 0;
 	private new string name = "Gun_End";
+	
 
 	void Awake()
     {
@@ -61,9 +62,9 @@ public class AutoCannonMovement : MonoBehaviour
 			Transform spawn = weap.transform.FindDeepChild(name);
 			animatorWeap = weap.GetComponent<Animator>();
 			animatorWeap.SetBool("Fire", true);
-			GameObject clone = Instantiate(Bullet, spawn.position, Quaternion.identity);
+			GameObject clone = Instantiate(Bullet, spawn.position, transform.rotation);
 			Rigidbody cloneRB = clone.GetComponent<Rigidbody>();
-			cloneRB.velocity = Vector3.forward * 10;
+			cloneRB.velocity = transform.forward * 10;
 		}
 	}
 	public void stopFire()

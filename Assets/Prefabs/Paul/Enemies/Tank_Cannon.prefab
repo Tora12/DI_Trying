@@ -108,6 +108,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2648478633628909714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9101960148268099913}
+  m_Layer: 0
+  m_Name: Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9101960148268099913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2648478633628909714}
+  m_LocalRotation: {x: -0, y: 1, z: -0.000000021855694, w: 0}
+  m_LocalPosition: {x: 0, y: 4.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5549607661130582056}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4232726543972913846
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +259,7 @@ RectTransform:
   m_Children:
   - {fileID: 440804006582579539}
   m_Father: {fileID: 5549607661130582056}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -309,7 +339,6 @@ GameObject:
   - component: {fileID: 5551410099874203239}
   - component: {fileID: 749450666417471653}
   - component: {fileID: 8681207540353348714}
-  - component: {fileID: 6373138833162886735}
   m_Layer: 0
   m_Name: Tank_Cannon
   m_TagString: Enemy
@@ -328,6 +357,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
+  - {fileID: 9101960148268099913}
   - {fileID: 8023607123632984812}
   - {fileID: 5556277227952856306}
   m_Father: {fileID: 0}
@@ -389,6 +419,7 @@ MonoBehaviour:
   slider: {fileID: 4923787005059432175}
   movement: {fileID: 8681207540353348714}
   EnemyDespawnTime: 2
+  eye: {fileID: 2648478633628909714}
 --- !u!114 &8681207540353348714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,19 +437,6 @@ MonoBehaviour:
   Bullet: {fileID: 1018493861343558, guid: 6ccb6c09019cd1f48b8223f4f58468f0, type: 3}
   speed: 1
   rotationSpeed: 1
---- !u!135 &6373138833162886735
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5550971023945971154}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 40
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5551077980871313794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1271,7 @@ Transform:
   m_Children:
   - {fileID: 5556092410641744738}
   m_Father: {fileID: 5549607661130582056}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7840582248806603296
 GameObject:
