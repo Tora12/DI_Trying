@@ -1902,7 +1902,6 @@ GameObject:
   - component: {fileID: 6527136039885813366}
   - component: {fileID: 6418262402414357363}
   - component: {fileID: 4115667261285392450}
-  - component: {fileID: 6491793582890916128}
   m_Layer: 0
   m_Name: ACS17_MachineGun
   m_TagString: Untagged
@@ -1923,6 +1922,7 @@ Transform:
   m_Children:
   - {fileID: 7365176670644406831}
   - {fileID: 1420590128795326315}
+  - {fileID: 8284982898068335272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1979,7 +1979,6 @@ MonoBehaviour:
   Bullet: {fileID: 6713806701002191508, guid: b0692db48f2a3cf45ab2b174a34d4477, type: 3}
   speed: 1
   rotationSpeed: 1
-  collider: {fileID: 6491793582890916128}
 --- !u!114 &4115667261285392450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,19 +2000,7 @@ MonoBehaviour:
   slider: {fileID: 6917820957204407898}
   movement: {fileID: 6418262402414357363}
   EnemyDespawnTime: 2
---- !u!135 &6491793582890916128
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422176951229143677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 40
-  m_Center: {x: 0, y: 0, z: 0}
+  eye: {fileID: 0}
 --- !u!1 &1422181602392803531
 GameObject:
   m_ObjectHideFlags: 0
@@ -7459,6 +7446,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3973602156294664527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8284982898068335272}
+  m_Layer: 0
+  m_Name: Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8284982898068335272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973602156294664527}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 3.16, z: 0}
+  m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
+  m_Children: []
+  m_Father: {fileID: 1416570533568593951}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5325022837831009217
 GameObject:
   m_ObjectHideFlags: 0
