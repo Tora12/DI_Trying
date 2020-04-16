@@ -7,22 +7,25 @@ public class Loading : MonoBehaviour
 {
     public GameObject dataStoreObject = null;
     private DataStore dataStore = null;
-    public GameObject ui;
+    public GameObject ui = null;
     void Start()
     {
         dataStoreObject = GameObject.Find("DataStore");
-        dataStore = dataStoreObject.GetComponent<DataStore>();
-
-        ui = GameObject.Find("Canvas");
-
-        if (dataStore.ui)
-        {
-            ui.SetActive(true);
-        }
         
-        else if(!dataStore.ui) 
+        if (dataStoreObject != null)
         {
-            ui.SetActive(false);
+            dataStore = dataStoreObject.GetComponent<DataStore>();
+            ui = GameObject.Find("Canvas");
+            if (dataStore.ui)
+            {
+                ui.SetActive(true);
+            }
+            else if (!dataStore.ui)
+            {
+                ui.SetActive(false);
+            }
         }
+        else
+            Debug.LogWarning("Main Menu Scene not Loaded.\nYou can Safely ignore this message, added for better debug.");
     } 
 }

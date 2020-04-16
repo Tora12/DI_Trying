@@ -26,16 +26,28 @@ public class TowerController : MonoBehaviour
     void Start()
     {
         Health = maxHealth;
-        slider.maxValue = maxHealth;
-        slider.value = Health;
+        if(slider != null)
+        {
+            slider.maxValue = maxHealth;
+            slider.value = Health;
+        }
+        else
+            Debug.LogError("Health Bar not found.");
+        
     }
 
     void Update()
     {
         if (Health < maxHealth)
         {
-            canvas.SetActive(true);
-            HealthBar.SetActive(true);
+            if (canvas != null)
+                canvas.SetActive(true);
+            else
+                Debug.LogError("Canvas not Found.");
+            if (HealthBar != null)
+                HealthBar.SetActive(true);
+            else
+                Debug.LogError("Health Bar not Found.");
         }
 
         //Handles Enemy Death Animation Triggering.
@@ -61,6 +73,8 @@ public class TowerController : MonoBehaviour
                 RandomFireDelay();
             }
         }
+        else
+            Debug.LogError("Eye not found.");
     }
 
     void OnTriggerEnter(Collider other)

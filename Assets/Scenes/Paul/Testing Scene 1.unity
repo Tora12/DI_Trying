@@ -1945,50 +1945,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4190315718679096617, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: dashSpeed
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190315718679096617, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: dashDistance
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4893799887049348636, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
       propertyPath: m_Name
       value: MainCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169425377182209205, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169425377182209205, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169425377182209205, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.039485846
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169425377182209205, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99922013
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169425377182209205, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.5091419
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169425377182209205, guid: c720e47f5e1c8cb488838029d40cc3bf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 4.526
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
@@ -2909,7 +2869,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 3.7174377}
+  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -9602,10 +9562,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3814926007680296783, guid: 6c5cc35ee61054643a74f8d6eb2c83d5,
+    - target: {fileID: 3811305315005237499, guid: 6c5cc35ee61054643a74f8d6eb2c83d5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811305315005237499, guid: 6c5cc35ee61054643a74f8d6eb2c83d5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811305315005237499, guid: 6c5cc35ee61054643a74f8d6eb2c83d5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 3815435633530831125, guid: 6c5cc35ee61054643a74f8d6eb2c83d5,
         type: 3}
@@ -9676,31 +9646,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1416570533568593951, guid: df66855d997424b458192cda3f622820,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416570533568593951, guid: df66855d997424b458192cda3f622820,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416570533568593951, guid: df66855d997424b458192cda3f622820,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1422176951229143677, guid: df66855d997424b458192cda3f622820,
         type: 3}
       propertyPath: m_Name
       value: ACS17_MachineGun
       objectReference: {fileID: 0}
-    - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
+    - target: {fileID: 8284982898068335272, guid: df66855d997424b458192cda3f622820,
         type: 3}
-      propertyPath: collider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418262402414357363, guid: df66855d997424b458192cda3f622820,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 4081783694510104200, guid: 550520afb111648a8ae8f86b8450dd67,
-        type: 3}
-    - target: {fileID: 6491793582890916128, guid: df66855d997424b458192cda3f622820,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_LocalPosition.y
+      value: 2.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df66855d997424b458192cda3f622820, type: 3}

@@ -2000,7 +2000,7 @@ MonoBehaviour:
   slider: {fileID: 6917820957204407898}
   movement: {fileID: 6418262402414357363}
   EnemyDespawnTime: 2
-  eye: {fileID: 0}
+  eye: {fileID: 3973602156294664527}
 --- !u!1 &1422181602392803531
 GameObject:
   m_ObjectHideFlags: 0
