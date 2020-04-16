@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TowerController : MonoBehaviour
 {
+    public const int MaxDistance = 20;
     public float maxHealth = 10;
     public float Health;
     public float minFireDelay = 0.5f;
@@ -53,7 +54,7 @@ public class TowerController : MonoBehaviour
 
         if (eye != null)
         {
-            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, 20, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
+            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, MaxDistance, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
             {
                 movement.Fire();
                 lastAttackTime = Time.time;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TankController : MonoBehaviour
 {
+    public const int MaxDistance = 20;
     public float maxHealth = 10;
     public float Health;
     public float minFireDelay = 0.1f;
@@ -62,7 +63,7 @@ public class TankController : MonoBehaviour
 
         if (eye != null)
         {
-            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, 20, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
+            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, MaxDistance, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
             {
                 movement.Fire();
                 lastAttackTime = Time.time;
