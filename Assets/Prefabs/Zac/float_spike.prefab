@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5703291027839907407}
   - component: {fileID: 5703291027839907406}
   - component: {fileID: 5703291027839907400}
+  - component: {fileID: -3756564520754447338}
   m_Layer: 0
   m_Name: float_spike
   m_TagString: enemy
@@ -126,3 +127,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _distance: 1
   _direction: 0
+--- !u!114 &-3756564520754447338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703291027753772888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1f2afa7a68bfe4da3a8cd24d4fa38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
