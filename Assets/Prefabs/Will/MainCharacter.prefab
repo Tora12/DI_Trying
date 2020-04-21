@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 4655201592655507843}
   - component: {fileID: 4190315718679096617}
   - component: {fileID: -8561559958053490003}
+  - component: {fileID: 5565217528391260360}
   m_Layer: 8
   m_Name: MainCharacter
   m_TagString: Player
@@ -415,6 +416,20 @@ MonoBehaviour:
   HealthBar: {fileID: 2448733634389571492}
   canvas: {fileID: 5186774058531030325}
   slider: {fileID: 1662445539888242296}
+--- !u!114 &5565217528391260360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893799887049348636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2419692698cf3424ebff64fe328289c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleHook: {fileID: 1020027712226695416, guid: 95f97296e27eec3409b83642871c9dc4,
+    type: 3}
 --- !u!1 &4987463265327433592
 GameObject:
   m_ObjectHideFlags: 0

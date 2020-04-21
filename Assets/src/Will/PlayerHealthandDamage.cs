@@ -8,9 +8,9 @@ public class PlayerHealthandDamage : MonoBehaviour
     public float health=100.0f;
     public bool dead=false;
     [SerializeField] private GameObject doll=null;
-	[SerializeField] private GameObject HealthBar;
-    [SerializeField] private GameObject canvas;
-    [SerializeField] private Slider slider;
+	[SerializeField] private GameObject HealthBar=null;
+    [SerializeField] private GameObject canvas=null;
+    [SerializeField] private Slider slider=null;
 	
 	float max_health;
     // Start is called before the first frame update
