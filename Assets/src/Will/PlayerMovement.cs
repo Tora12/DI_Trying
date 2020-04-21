@@ -8,19 +8,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float MovingTurnSpeed = 720;
-    [SerializeField] float StationaryTurnSpeed = 720;
-    [SerializeField] float JumpPower = 10f;
-    [Range(1f, 4f)][SerializeField] float GravityMultiplier = 2f;
-    [SerializeField] float RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
+    
+    [SerializeField] float JumpPower = 10f; 
     [SerializeField] float MoveSpeedMultiplier = 1f;
     [SerializeField] float AirSpeed = 6f;
     [SerializeField] float dashSpeed = 24f;
 	[SerializeField] float dashDistance = 6f;
 	[SerializeField] float dashRecharge = 1f;
 	[SerializeField] float grappleSpeed = 6f;
+	[SerializeField] float grappleRange = 7f;
+	[Range(1f, 4f)][SerializeField] float GravityMultiplier = 2f;
     [SerializeField] float AnimSpeedMultiplier = 1f;
     [SerializeField] float GroundCheckDistance = 0.2f;
+	[SerializeField] float MovingTurnSpeed = 720;
+    [SerializeField] float StationaryTurnSpeed = 720;
+	[SerializeField] float RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
 
 
     Rigidbody rigidBody;
@@ -70,10 +72,7 @@ public class PlayerMovement : MonoBehaviour
         ForwardAmount=move.z;
         if((dash&&canDash) || dashing){
             HandleDashMovement(tempmove);
-		}else if(canUseGrapple && (GameObject.FindGameObjectsWithTag("Grapple").Length == 1)){
-			Hook = GameObject.FindGameObjectWithTag("Grapple");
-			HandleGrappleMovement();
-        }else{
+		}else{
             ApplyExtraTurnRotation();
             if(IsGrounded){
                 HandleGroundMovement(jump);
@@ -82,7 +81,13 @@ public class PlayerMovement : MonoBehaviour
             }
             UpdateAnimator(move);
         }
-        
+        if(canUseGrapple && (GameObject.FindGameObjectsWithTag("Grapple").Length == 1)){
+			Hook = GameObject.FindGameObjectWithTag("Grapple");
+			Vector3 point= -transform.position + Hook.transform.position;
+			if(point.magnitude<grappleRange){
+				HandleGrappleMovement();
+			}
+		}
     }
     void UpdateAnimator(Vector3 move){
 	Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);
@@ -208,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
 		Animator.SetBool("OnGround", false);
 		point.Normalize();
 		point*=grappleSpeed;
-		rigidBody.velocity=point;
+		rigidBody.velocity= point + rigidBody.velocity -rigidBody.velocity.y*Vector3.up;
+
 	}
 }
