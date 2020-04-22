@@ -6,6 +6,7 @@ public class Floaty_Effect : MonoBehaviour
 
     // Public variable to set the distance
     public float _distance;
+    public float _speed_x;
 
     // Variables for floating
     private Vector3 _top, _bottom;
@@ -39,12 +40,12 @@ public class Floaty_Effect : MonoBehaviour
         if (_direction == Direction.UP && _percent < 1)
         {
 
-            _percent += Time.deltaTime * _speed;
+            _percent += Time.deltaTime * _speed + _speed_x;
             transform.position = Vector3.Lerp(_top, _bottom, _percent);
         }
         else if (_direction == Direction.DOWN && _percent < 1)
         {
-            _percent += Time.deltaTime * _speed;
+            _percent += Time.deltaTime * _speed + _speed_x;
             transform.position = Vector3.Lerp(_bottom, _top, _percent);
         }
 
