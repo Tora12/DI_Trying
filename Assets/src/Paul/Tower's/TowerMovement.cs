@@ -12,6 +12,7 @@ public class TowerMovement : MonoBehaviour
 	private Animator animatorWeap;
 	private new readonly string name = "Gun_End";
 
+	//Shooting Animation Functions
 	public void Fire()
 	{
 		foreach (GameObject weap in weapArray)
@@ -24,8 +25,7 @@ public class TowerMovement : MonoBehaviour
 			cloneRB.velocity = transform.forward * 10;
 		}
 	}
-
-	public void stopFire()
+	public void StopFire()
 	{
 		foreach (GameObject weap in weapArray)
 		{

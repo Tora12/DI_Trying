@@ -58,7 +58,15 @@ public class TankMovement : MonoBehaviour
 		}
 	}
 
-	//These are the functions that set the different states of the animator.
+	public void Idle()
+	{
+		animator.SetBool("ACS_Idle", true);
+		animator.speed = 1;
+		direction = 0;
+		roat = 0;
+	}
+
+	//Shooting Animation Functions
 	public void Fire()
 	{
 		foreach (GameObject weap in weapArray)
@@ -71,7 +79,7 @@ public class TankMovement : MonoBehaviour
 			cloneRB.velocity = transform.forward * 10;
 		}
 	}
-	public void stopFire()
+	public void StopFire()
 	{
 		foreach (GameObject weap in weapArray)
 		{
@@ -80,6 +88,7 @@ public class TankMovement : MonoBehaviour
 		}
 	}
 
+	//Death Animation State Functions
 	public void Dead1()
 	{
 		animator.SetBool("ACS_Dead1", true);
@@ -88,25 +97,8 @@ public class TankMovement : MonoBehaviour
 	{
 		animator.SetBool("ACS_Dead2", true);
 	}
-	public void Idle()
-	{
-		animator.SetBool("ACS_Idle", true);
-		animator.speed = 1;
-		direction = 0;
-		roat = 0;
-	}
-	public void TurnLeft()
-	{
-		animator.SetBool("ACS_TurnLeft", true);
-		animator.speed = animator.speed * rotationSpeed;
-		roat = left;
-	}
-	public void TurnRight()
-	{
-		animator.SetBool("ACS_TurnRight", true);
-		animator.speed = animator.speed * rotationSpeed;
-		roat = right;
-	}
+
+	//Movement Animation Functions
 	public void WalkForwad()
 	{
 		animator.SetBool("ACS_WalkForwad", true);
@@ -118,5 +110,19 @@ public class TankMovement : MonoBehaviour
 		animator.SetBool("ACS_WalkBack", true);
 		animator.speed = animator.speed * speed;
 		direction = backward;
+	}
+
+	//Rotation Animation Functions
+	public void TurnLeft()
+	{
+		animator.SetBool("ACS_TurnLeft", true);
+		animator.speed = animator.speed * rotationSpeed;
+		roat = left;
+	}
+	public void TurnRight()
+	{
+		animator.SetBool("ACS_TurnRight", true);
+		animator.speed = animator.speed * rotationSpeed;
+		roat = right;
 	}
 }

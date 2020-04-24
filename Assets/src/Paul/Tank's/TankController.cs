@@ -31,6 +31,7 @@ public class TankController : MonoBehaviour
     //Private
     private float fireDelay;
     private float lastAttackTime;
+    private int layerMask = 1 << 8;
 
     [Header("AI")]
     //Public
@@ -47,14 +48,26 @@ public class TankController : MonoBehaviour
 
     void Start()
     {
+        //Set the value of Health to the Maximum
         Health = maxHealth;
-        slider.maxValue = maxHealth;
-        slider.value = Health;
+
+        //Checks if the slider has been assigned to.
+        if (slider != null)
+        {
+            //Set the Heath Bar Maximum value to the Maximum Health
+            slider.maxValue = maxHealth;
+            //Set the current Health Bar value to the current value of Health
+            slider.value = Health;
+        }
+        else
+            Debug.LogError("Health Bar not found.");
+
         RandomFireDelay();
     }
 
     void Update()
     {
+        //Activates the Health Bar
         if (Health < maxHealth)
         {
             canvas.SetActive(true);
@@ -66,8 +79,7 @@ public class TankController : MonoBehaviour
         {
             //Prevents the Animation from constantly replaying.
             Dead = true;
-            //Removes the Health Bar
-            //Destroy(HealthBar);
+
             //Generates a random number to play one of four death animations.
             float num = Random.value;
 
@@ -79,11 +91,7 @@ public class TankController : MonoBehaviour
             Destroy(gameObject, EnemyDespawnTime);
         }
 
-        // Bit shift the index of the layer (8) to get a bit mask
-        int layerMask = 1 << 8;
-
-        // This would cast rays only against colliders in layer 8.
-
+        //Handles the shooting
         if (eye != null)
         {
             if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, MaxDistance, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
@@ -105,32 +113,7 @@ public class TankController : MonoBehaviour
         }
     }
 
-    //Depercated
-    /*
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            canFire = false;
-        }
-    }
-
-    void fire()
-    {
-        StartCoroutine(fire_Coroutine());
-    }
-
-    IEnumerator fire_Coroutine()
-    {
-        while (canFire)
-        {
-            movement.Fire();
-            randomFireDelay();
-            yield return new WaitForSeconds(fireDelay);
-        }
-    }
-    */
-
+    //Assigns a random value within the range to publicly accessable varrible
     private void RandomFireDelay()
     {
         fireDelay = Random.Range(minFireDelay, maxFireDelay);

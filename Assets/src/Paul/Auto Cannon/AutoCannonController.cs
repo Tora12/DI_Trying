@@ -22,7 +22,6 @@ public class AutoCannonController : MonoBehaviour
     //Private
     private bool Dead = false;
     
-
     [Header("Shooting")]
     //Public
     public GameObject eye = null;
@@ -32,6 +31,7 @@ public class AutoCannonController : MonoBehaviour
     //Private
     private float fireDelay;
     private float lastAttackTime;
+    private int layerMask = 1 << 8;
 
     [Header("AI")]
     //Public
@@ -49,20 +49,31 @@ public class AutoCannonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Health = maxHealth;
-        slider.maxValue = maxHealth;
-        slider.value = Health;
-        RandomFireDelay();
-        RandomNavDelay();
+        //Checks if the slider has been assigned to.
+        if (slider != null)
+        {
+            //Set the Heath Bar Maximum value to the Maximum Health
+            slider.maxValue = maxHealth;
+            //Set the current Health Bar value to the current value of Health
+            slider.value = Health;
+        }
+        else
+            Debug.LogError("Health Bar not found.");
+        
+        //Checks if this Enemy is using a NavMesh.
         if (navPoints != null)
         {
             canNav = true;
             agent = GetComponent<NavMeshAgent>();
+            RandomNavDelay();
         }
+        
+        RandomFireDelay();
     }
     
     void Update()
     {
+        //Activates the Health Bar
         if (Health < maxHealth)
         {
             canvas.SetActive(true);
@@ -90,10 +101,8 @@ public class AutoCannonController : MonoBehaviour
             //Removes the enemy after the time has elepased.
             Destroy(gameObject, EnemyDespawnTime);
         }
-
-        // Bit shift the index of the layer (8) to get a bit mask
-        int layerMask = 1 << 8;
-
+        
+        //Handles the shooting
         if (eye != null)
         {
             if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, MaxDistance, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
@@ -104,6 +113,7 @@ public class AutoCannonController : MonoBehaviour
             }
         }
         
+        //Handles the Nav Mesh Agent
         if(canNav)
         {
             if((Time.time > lastNavTime + navDelay) && !Dead)
@@ -125,56 +135,25 @@ public class AutoCannonController : MonoBehaviour
             slider.value = Health;
         }
     }
-    
-    //Depercated
-    /*
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            canFire = false;
-        }
-    }
-
-    private void fire()
-    {
-        StartCoroutine(fire_Coroutine());
-    }
-
-    IEnumerator fire_Coroutine()
-    {
-        while (canFire)
-        {
-            //randomFireDelay();
-            //yield return new WaitForSeconds(fireDelay);
-            movement.Fire();
-            //randomFireDelay();
-            //yield return new WaitForSeconds(fireDelay);
-            yield return new WaitForSeconds(0);
-        }
-    }
-    */
-
+ 
+    //Assigns a random value within the range to publicly accessable varrible
     private void RandomFireDelay()
     {
         fireDelay = Random.Range(minFireDelay, maxFireDelay);
     }
-    
+
+    //Assigns a random value within the range to publicly accessable varrible
     private void RandomNavDelay()
     {
         navDelay = Random.Range(minNavDelay, maxNavDelay);
     }
 
+    //Returns a Vector3 position of the NavPoints placed on the map.
     private Vector3 NavPoint()
     {
         int navCount = navPoints.Length;
+        //Generates a random number between the number 0 and navCount-1 because int Random.Range is exclusive max
         int num = Random.Range(0, navCount);
-        if (num >= navCount)
-        {
-            Debug.LogError("FATIAL ERROR, in RANDOM.RANGE");
-            Debug.LogError(num);
-        }
-        
         return navPoints[num].transform.position;
     }
 }
