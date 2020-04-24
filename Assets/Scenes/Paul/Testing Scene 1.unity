@@ -9885,7 +9885,7 @@ PrefabInstance:
     - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
         type: 3}
       propertyPath: navPoints.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
         type: 3}

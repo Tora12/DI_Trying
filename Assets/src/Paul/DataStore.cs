@@ -11,7 +11,7 @@ public class DataStore : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
-        ui = false;
+        ui = true;
         bcmode = false;
     }
 
