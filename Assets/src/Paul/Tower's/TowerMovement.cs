@@ -3,10 +3,14 @@ using UnityEngine;
 
 public class TowerMovement : MonoBehaviour
 {
+	[Header("Game Objects")]
+	//Public
 	public GameObject[] weapArray;
 	public GameObject Bullet;
+
+	//Misc
 	private Animator animatorWeap;
-	private new string name = "Gun_End";
+	private new readonly string name = "Gun_End";
 
 	public void Fire()
 	{

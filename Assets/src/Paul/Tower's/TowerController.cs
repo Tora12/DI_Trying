@@ -2,23 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(TowerMovement))]
 public class TowerController : MonoBehaviour
 {
-    public const int MaxDistance = 20;
+    [Header("Scripts")]
+    //Public
+    public TowerMovement movement = null;
+
+    [Header("Health")]
+    //Public
     public float maxHealth = 10;
-    public float Health;
-    public float minFireDelay = 0.5f;
-    public float maxFireDelay = 1.0f;
-    private float fireDelay;
-    public TowerMovement movement;
     public GameObject HealthBar;
     public GameObject canvas;
     public Slider slider;
-    private int EnemyDespawnTime = 0;
+    [HideInInspector] public float Health;
+    //Private
     private bool Dead = false;
+    private readonly int EnemyDespawnTime = 0;
+    
+    [Header("Shooting")]
+    //Public
     public GameObject eye = null;
+    public float minFireDelay = 0.1f;
+    public float maxFireDelay = 1.0f;
+    public int MaxDistance = 20;
+    //Private
+    private float fireDelay;
     private float lastAttackTime;
+
+    [Header("AI")]
+    //Public
+    public GameObject[] navPoints = null;
+    public float minNavDelay = 3.0f;
+    public float maxNavDelay = 8.0f;
+    //Private
+    private NavMeshAgent agent;
+    private bool canNav = false;
+    private float lastNavTime;
+    private float navDelay;
 
     private readonly int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
 

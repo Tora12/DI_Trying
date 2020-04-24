@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    [Header("Scripts")]
+    //Public
     public GameTriggers gameTriggers;
+
+    [Header("Numbers")]
     public GameObject[] enemyArray;
     public float minSpawnArea = 0.0f;
     public float maxSpawnArea = 0.0f;
@@ -19,12 +23,6 @@ public class EnemySpawn : MonoBehaviour
         {
             Spawn();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Spawn()

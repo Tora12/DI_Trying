@@ -6,19 +6,30 @@ using UnityEngine;
 
 public class TankMovement : MonoBehaviour
 {
-	public GameObject[] weapArray;
+	[Header("Game Objects")]
+	//Public
 	public GameObject Bullet;
+	public GameObject[] weapArray;
+
+	[Header("Speed Values")]
+	//Public
 	public float speed = 1.0f;
 	public float rotationSpeed = 1.0f;
+
+	//Direction Codes
 	private const int forward = 1;
 	private const int backward = 2;
 	private const int left = 3;
 	private const int right = 4;
-    private Animator animator, animatorWeap;
-	private Rigidbody rb;
+
+	//Direction Indicators
 	private int direction = 0;
 	private int roat = 0;
-	private new string name = "Gun_End";
+
+	//Misc
+	private Animator animator, animatorWeap;
+	private Rigidbody rb;
+	private new readonly string name = "Gun_End";
 
 	void Awake()
     {

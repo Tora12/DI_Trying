@@ -2,23 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(TankMovement))]
 public class TankController : MonoBehaviour
 {
-    public const int MaxDistance = 20;
+    [Header("Scripts")]
+    //Public
+    public TankMovement movement = null;
+
+    [Header("Health")]
+    //Public
     public float maxHealth = 10;
-    public float Health;
-    public float minFireDelay = 0.1f;
-    public float maxFireDelay = 1.0f;
-    private float fireDelay;
     public GameObject HealthBar;
     public GameObject canvas;
     public Slider slider;
-    public TankMovement movement;
-    public int EnemyDespawnTime = 2;
+    public readonly int EnemyDespawnTime = 2;
+    [HideInInspector] public float Health;
+    //Private
     private bool Dead = false;
+    
+    [Header("Shooting")]
+    //Public
     public GameObject eye = null;
+    public float minFireDelay = 0.1f;
+    public float maxFireDelay = 1.0f;
+    public int MaxDistance = 20;
+    //Private
+    private float fireDelay;
     private float lastAttackTime;
+
+    [Header("AI")]
+    //Public
+    public GameObject[] navPoints = null;
+    public float minNavDelay = 3.0f;
+    public float maxNavDelay = 8.0f;
+    //Private
+    private NavMeshAgent agent;
+    private bool canNav = false;
+    private float lastNavTime;
+    private float navDelay;
 
     private readonly int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
 
