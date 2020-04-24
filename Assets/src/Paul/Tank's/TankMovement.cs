@@ -6,19 +6,30 @@ using UnityEngine;
 
 public class TankMovement : MonoBehaviour
 {
-	public GameObject[] weapArray;
+	[Header("Game Objects")]
+	//Public
 	public GameObject Bullet;
+	public GameObject[] weapArray;
+
+	[Header("Speed Values")]
+	//Public
 	public float speed = 1.0f;
 	public float rotationSpeed = 1.0f;
+
+	//Direction Codes
 	private const int forward = 1;
 	private const int backward = 2;
 	private const int left = 3;
 	private const int right = 4;
-    private Animator animator, animatorWeap;
-	private Rigidbody rb;
+
+	//Direction Indicators
 	private int direction = 0;
 	private int roat = 0;
-	private new string name = "Gun_End";
+
+	//Misc
+	private Animator animator, animatorWeap;
+	private Rigidbody rb;
+	private new readonly string name = "Gun_End";
 
 	void Awake()
     {
@@ -47,7 +58,15 @@ public class TankMovement : MonoBehaviour
 		}
 	}
 
-	//These are the functions that set the different states of the animator.
+	public void Idle()
+	{
+		animator.SetBool("ACS_Idle", true);
+		animator.speed = 1;
+		direction = 0;
+		roat = 0;
+	}
+
+	//Shooting Animation Functions
 	public void Fire()
 	{
 		foreach (GameObject weap in weapArray)
@@ -60,7 +79,7 @@ public class TankMovement : MonoBehaviour
 			cloneRB.velocity = transform.forward * 10;
 		}
 	}
-	public void stopFire()
+	public void StopFire()
 	{
 		foreach (GameObject weap in weapArray)
 		{
@@ -69,6 +88,7 @@ public class TankMovement : MonoBehaviour
 		}
 	}
 
+	//Death Animation State Functions
 	public void Dead1()
 	{
 		animator.SetBool("ACS_Dead1", true);
@@ -77,25 +97,8 @@ public class TankMovement : MonoBehaviour
 	{
 		animator.SetBool("ACS_Dead2", true);
 	}
-	public void Idle()
-	{
-		animator.SetBool("ACS_Idle", true);
-		animator.speed = 1;
-		direction = 0;
-		roat = 0;
-	}
-	public void TurnLeft()
-	{
-		animator.SetBool("ACS_TurnLeft", true);
-		animator.speed = animator.speed * rotationSpeed;
-		roat = left;
-	}
-	public void TurnRight()
-	{
-		animator.SetBool("ACS_TurnRight", true);
-		animator.speed = animator.speed * rotationSpeed;
-		roat = right;
-	}
+
+	//Movement Animation Functions
 	public void WalkForwad()
 	{
 		animator.SetBool("ACS_WalkForwad", true);
@@ -107,5 +110,19 @@ public class TankMovement : MonoBehaviour
 		animator.SetBool("ACS_WalkBack", true);
 		animator.speed = animator.speed * speed;
 		direction = backward;
+	}
+
+	//Rotation Animation Functions
+	public void TurnLeft()
+	{
+		animator.SetBool("ACS_TurnLeft", true);
+		animator.speed = animator.speed * rotationSpeed;
+		roat = left;
+	}
+	public void TurnRight()
+	{
+		animator.SetBool("ACS_TurnRight", true);
+		animator.speed = animator.speed * rotationSpeed;
+		roat = right;
 	}
 }
