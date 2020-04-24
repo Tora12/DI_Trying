@@ -49,6 +49,9 @@ public class AutoCannonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Set the value of Health to the Maximum
+        Health = maxHealth;
+
         //Checks if the slider has been assigned to.
         if (slider != null)
         {
@@ -61,7 +64,7 @@ public class AutoCannonController : MonoBehaviour
             Debug.LogError("Health Bar not found.");
         
         //Checks if this Enemy is using a NavMesh.
-        if (navPoints != null)
+        if (navPoints != null && navPoints.Length > 0)
         {
             canNav = true;
             agent = GetComponent<NavMeshAgent>();
@@ -154,6 +157,7 @@ public class AutoCannonController : MonoBehaviour
         int navCount = navPoints.Length;
         //Generates a random number between the number 0 and navCount-1 because int Random.Range is exclusive max
         int num = Random.Range(0, navCount);
+        //Debug.LogError(num);
         return navPoints[num].transform.position;
     }
 }

@@ -1736,13 +1736,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462905979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0.5, z: 166.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1003093588}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1001 &464941974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8150,6 +8150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 8781343355904072180, guid: d35777037027e2e48bc32da84702b6a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d35777037027e2e48bc32da84702b6a3, type: 3}
 --- !u!4 &1901083975 stripped
@@ -9885,7 +9890,7 @@ PrefabInstance:
     - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
         type: 3}
       propertyPath: navPoints.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
         type: 3}
@@ -9907,6 +9912,21 @@ PrefabInstance:
       propertyPath: navPoints.Array.data[3]
       value: 
       objectReference: {fileID: 791382611}
+    - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
+        type: 3}
+      propertyPath: minNavDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
+        type: 3}
+      propertyPath: maxNavDelay
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527136039885813366, guid: df66855d997424b458192cda3f622820,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8284982898068335272, guid: df66855d997424b458192cda3f622820,
         type: 3}
       propertyPath: m_LocalPosition.y
