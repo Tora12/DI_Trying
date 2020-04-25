@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.TestRunner;
 //needed to load the scene
 using UnityEngine.SceneManagement;
 //needed to load prefabs
@@ -10,8 +11,8 @@ using UnityEditor;
 
 namespace Tests
 {
-    public class TestScriptPaul
-    {
+	public class TestScriptPaul
+	{
 		//put scene set up common to all tests here
 		[SetUp]
 		public void Setup()
@@ -45,7 +46,7 @@ namespace Tests
 
 		[UnityTest]
 		public IEnumerator EnemyMovement()
-        {
+		{
 			GameObject enemy = GameObject.Find("LaserGun");
 			AutoCannonMovement movement = enemy.GetComponent<AutoCannonMovement>();
 			movement.StrafeLeft();
@@ -69,6 +70,6 @@ namespace Tests
 			yield return new WaitForSeconds(2);
 			movement.Idle();
 			yield return null;
-		}	
+		}
 	}
 }

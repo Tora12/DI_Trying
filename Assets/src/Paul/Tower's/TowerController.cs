@@ -9,13 +9,18 @@ public class TowerController : MonoBehaviour
 {
     [Header("Scripts")]
     //Public
+    [Tooltip("This is the script that contains the definitions for movement, and shooting.")]
     public TowerMovement movement = null;
 
     [Header("Health")]
     //Public
+    [Tooltip("The maximum ammount of health that the enemy can have.")]
     public float maxHealth = 10;
+    [Tooltip("The health bar slider GameObject.\nThis is for enabling and disabling the health bar.")]
     public GameObject HealthBar;
+    [Tooltip("The canvas that the health bar is attached to.")]
     public GameObject canvas;
+    [Tooltip("The slider that is the enemy health bar.\nThis is for updating the slider values.")]
     public Slider slider;
     [HideInInspector] public float Health;
     //Private
@@ -24,9 +29,13 @@ public class TowerController : MonoBehaviour
     
     [Header("Shooting")]
     //Public
+    [Tooltip("Where you would like the raycast to cast from.")]
     public GameObject eye = null;
+    [Tooltip("The shortest time between the enemy firing.")]
     public float minFireDelay = 0.1f;
+    [Tooltip("The longest time between the enemy firing.")]
     public float maxFireDelay = 1.0f;
+    [Tooltip("The \"agro\" range of the enemy.\nIt controls how far the raycast is shot out.")]
     public int MaxDistance = 20;
     //Private
     private float fireDelay;
@@ -35,8 +44,11 @@ public class TowerController : MonoBehaviour
 
     [Header("AI")]
     //Public
+    [Tooltip("An array where you place blank points in the world.\nThese are places that you want the enemy to move to.")]
     public GameObject[] navPoints = null;
+    [Tooltip("The shortest time that the enemy will stay at a location.")]
     public float minNavDelay = 3.0f;
+    [Tooltip("The longest time that the enemy will stay at a location.")]
     public float maxNavDelay = 8.0f;
     //Private
     private NavMeshAgent agent;

@@ -5,7 +5,9 @@ public class TowerMovement : MonoBehaviour
 {
 	[Header("Game Objects")]
 	//Public
+	[Tooltip("An array that contains the locations that you would like the enemy to fire from.")]
 	public GameObject[] weapArray;
+	[Tooltip("The prefab that you would like it to shoot.")]
 	public GameObject Bullet;
 
 	//Misc

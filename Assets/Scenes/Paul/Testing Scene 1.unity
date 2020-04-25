@@ -2899,7 +2899,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 7.7130376e+31, y: 1.7698646e+31, z: 1.9044912e+31,
+    w: 4.0515313e-11}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4979,7 +4980,7 @@ Transform:
   m_GameObject: {fileID: 1173765174}
   m_LocalRotation: {x: -0.70468545, y: -0.02110005, z: -0.005694089, w: 0.7091832}
   m_LocalPosition: {x: -0.0617591, y: 15.22337, z: 0.48510242}
-  m_LocalScale: {x: 1.0024202, y: 0.050553612, z: 34.736443}
+  m_LocalScale: {x: 7.28, y: 0.050553612, z: 34.736443}
   m_Children: []
   m_Father: {fileID: 1453807875}
   m_RootOrder: 2
@@ -8103,7 +8104,7 @@ PrefabInstance:
     - target: {fileID: 8779440871543236782, guid: d35777037027e2e48bc32da84702b6a3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -106.04
+      value: 109.2
       objectReference: {fileID: 0}
     - target: {fileID: 8779440871543236782, guid: d35777037027e2e48bc32da84702b6a3,
         type: 3}

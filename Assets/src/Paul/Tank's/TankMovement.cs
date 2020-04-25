@@ -8,12 +8,16 @@ public class TankMovement : MonoBehaviour
 {
 	[Header("Game Objects")]
 	//Public
-	public GameObject Bullet;
+	[Tooltip("An array that contains the locations that you would like the enemy to fire from.")]
 	public GameObject[] weapArray;
+	[Tooltip("The prefab that you would like it to shoot.")]
+	public GameObject Bullet;
 
 	[Header("Speed Values")]
 	//Public
+	[Tooltip("The scale of the speed that you would like the enemy to move at.")]
 	public float speed = 1.0f;
+	[Tooltip("The scale of the speed that you would like the enemy to rotate at.")]
 	public float rotationSpeed = 1.0f;
 
 	//Direction Codes
