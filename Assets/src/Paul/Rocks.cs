@@ -8,9 +8,20 @@ public class Rocks : MonoBehaviour
     public bool rolling = false;
     public bool bounce = false;
     public float damage = 10.0f;
+    public bool activate = false;
     private PlayerHealthandDamage playerHealth;
     private bool playerContact = false;
     private Collision player;
+    private new Rigidbody rigidbody;
+
+    private void Start()
+    {
+        if (rolling || bounce)
+        {
+            rigidbody = GetComponent<Rigidbody>();
+            rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
 
     private void FixedUpdate()
     {
