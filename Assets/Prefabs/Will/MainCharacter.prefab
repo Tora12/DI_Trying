@@ -1014,6 +1014,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2300018, guid: bff429107601444d59c67940e6ad78c4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01377584c22b84f819ecac7f4047c921, type: 2}
+    - target: {fileID: 2300072, guid: bff429107601444d59c67940e6ad78c4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5da68cd484f44ced9e11ab1ad6a9c1a, type: 2}
     - target: {fileID: 9500000, guid: bff429107601444d59c67940e6ad78c4, type: 3}
       propertyPath: m_Controller
       value: 
