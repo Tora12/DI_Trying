@@ -8,12 +8,15 @@ public class PlayerHealthandDamage : MonoBehaviour
     public float health=100.0f;
     public bool dead=false;
     [SerializeField] private GameObject doll=null;
-	[SerializeField] private GameObject HealthBar=null;
+	/*
+    [SerializeField] private GameObject HealthBar=null;
     [SerializeField] private GameObject canvas=null;
     [SerializeField] private Slider slider=null;
+    */
 	
 	float max_health;
     // Start is called before the first frame update
+    /*
     void Start()
     {
         max_health=health;
@@ -21,6 +24,7 @@ public class PlayerHealthandDamage : MonoBehaviour
         slider.value = health;
 		
     }
+    */
 
     // Update is called once per frame
     void Update()
@@ -32,12 +36,14 @@ public class PlayerHealthandDamage : MonoBehaviour
 			gameObject.SetActive(false);
             dead=true;
         }
+        /*
 		if (health < max_health)
         {
             canvas.SetActive(true);
             HealthBar.SetActive(true);
         }
 		slider.value=health;
+        */
     }
     void OnTriggerEnter(Collider other)
     {
@@ -55,7 +61,7 @@ public class PlayerHealthandDamage : MonoBehaviour
 		dead=false;
 		health=max_health;
 		gameObject.SetActive(true);
-		canvas.SetActive(false);
-        HealthBar.SetActive(false);
+		//canvas.SetActive(false);
+        //HealthBar.SetActive(false);
 	}
 }
