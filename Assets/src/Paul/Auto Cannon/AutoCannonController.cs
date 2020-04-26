@@ -17,16 +17,16 @@ public class AutoCannonController : MonoBehaviour
     [Tooltip("The maximum ammount of health that the enemy can have.")]
     public float maxHealth = 10;
     [Tooltip("The health bar slider GameObject.\nThis is for enabling and disabling the health bar.")]
-    public GameObject HealthBar;
+    public GameObject healthBar;
     [Tooltip("The canvas that the health bar is attached to.")]
     public GameObject canvas;
     [Tooltip("The slider that is the enemy health bar.\nThis is for updating the slider values.")]
     public Slider slider;
     [Tooltip("How long after the enemy dies, it is removed.")]
-    public readonly int EnemyDespawnTime = 2;
-    [HideInInspector] public float Health;
+    public readonly int enemyDespawnTime = 2;
+    [HideInInspector] public float health;
     //Private
-    private bool Dead = false;
+    private bool isDead = false;
     
     [Header("Shooting")]
     //Public
@@ -37,7 +37,7 @@ public class AutoCannonController : MonoBehaviour
     [Tooltip("The longest time between the enemy firing.")]
     public float maxFireDelay = 1.0f;
     [Tooltip("The \"agro\" range of the enemy.\nIt controls how far the raycast is shot out.")]
-    public int MaxDistance = 20;
+    public int maxDistance = 20;
     //Private
     private float fireDelay;
     private float lastAttackTime;
@@ -63,7 +63,7 @@ public class AutoCannonController : MonoBehaviour
     void Start()
     {
         //Set the value of Health to the Maximum
-        Health = maxHealth;
+        health = maxHealth;
 
         //Checks if the slider has been assigned to.
         if (slider != null)
@@ -71,7 +71,7 @@ public class AutoCannonController : MonoBehaviour
             //Set the Heath Bar Maximum value to the Maximum Health
             slider.maxValue = maxHealth;
             //Set the current Health Bar value to the current value of Health
-            slider.value = Health;
+            slider.value = health;
         }
         else
             Debug.LogError("Health Bar not found.");
@@ -90,17 +90,17 @@ public class AutoCannonController : MonoBehaviour
     void Update()
     {
         //Activates the Health Bar
-        if (Health < maxHealth)
+        if (health < maxHealth)
         {
             canvas.SetActive(true);
-            HealthBar.SetActive(true);
+            healthBar.SetActive(true);
         }
 
         //Handles Enemy Death Animation Triggering.
-        if(Health <= 0 && !Dead)
+        if(health <= 0 && !isDead)
         {
             //Prevents the Animation from constantly replaying.
-            Dead = true;
+            isDead = true;
             //Generates a random number to play one of four death animations.
             float num = Random.value;
 
@@ -115,13 +115,13 @@ public class AutoCannonController : MonoBehaviour
                 movement.Dead4();
             
             //Removes the enemy after the time has elepased.
-            Destroy(gameObject, EnemyDespawnTime);
+            Destroy(gameObject, enemyDespawnTime);
         }
         
         //Handles the shooting
         if (eye != null)
         {
-            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, MaxDistance, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
+            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, + maxDistance, layerMask) && !isDead && (Time.time > lastAttackTime + fireDelay))
             {
                 movement.Fire();
                 lastAttackTime = Time.time;
@@ -134,7 +134,7 @@ public class AutoCannonController : MonoBehaviour
         //Handles the Nav Mesh Agent
         if (canNav)
         {
-            if((Time.time > lastNavTime + navDelay) && !Dead)
+            if((Time.time > lastNavTime + navDelay) && !isDead)
             {
                 agent.SetDestination(NavPoint());
                 lastNavTime = Time.time;
@@ -148,8 +148,8 @@ public class AutoCannonController : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
-            Health -= Damage;
-            slider.value = Health;
+            health -= Damage;
+            slider.value = health;
         }
     }
  

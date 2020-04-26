@@ -9,9 +9,9 @@ public class TankMovement : MonoBehaviour
 	[Header("Game Objects")]
 	//Public
 	[Tooltip("An array that contains the locations that you would like the enemy to fire from.")]
-	public GameObject[] weapArray;
+	public GameObject[] weapons;
 	[Tooltip("The prefab that you would like it to shoot.")]
-	public GameObject Bullet;
+	public GameObject bullet;
 
 	[Header("Speed Values")]
 	//Public
@@ -31,34 +31,7 @@ public class TankMovement : MonoBehaviour
 	private int roat = 0;
 
 	//Misc
-	private Animator animator, animatorWeap;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	private Animator animator, animatorWeapon;
 	private Rigidbody rb;
 	private new readonly string name = "Gun_End";
 
@@ -100,22 +73,22 @@ public class TankMovement : MonoBehaviour
 	//Shooting Animation Functions
 	public void Fire()
 	{
-		foreach (GameObject weap in weapArray)
+		foreach (GameObject weapon in weapons)
 		{
-			Transform spawn = weap.transform.FindDeepChild(name);
-			animatorWeap = weap.GetComponent<Animator>();
-			animatorWeap.SetBool("Fire", true);
-			GameObject clone = Instantiate(Bullet, spawn.position, transform.rotation);
+			Transform spawn = weapon.transform.FindDeepChild(name);
+			animatorWeapon = weapon.GetComponent<Animator>();
+			animatorWeapon.SetBool("Fire", true);
+			GameObject clone = Instantiate(bullet, spawn.position, transform.rotation);
 			Rigidbody cloneRB = clone.GetComponent<Rigidbody>();
 			cloneRB.velocity = transform.forward * 10;
 		}
 	}
 	public void StopFire()
 	{
-		foreach (GameObject weap in weapArray)
+		foreach (GameObject weapon in weapons)
 		{
-			animatorWeap = weap.GetComponent<Animator>();
-			animatorWeap.SetBool("stopFire", true);
+			animatorWeapon = weapon.GetComponent<Animator>();
+			animatorWeapon.SetBool("stopFire", true);
 		}
 	}
 

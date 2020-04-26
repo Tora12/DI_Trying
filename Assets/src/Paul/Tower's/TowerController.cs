@@ -17,15 +17,15 @@ public class TowerController : MonoBehaviour
     [Tooltip("The maximum ammount of health that the enemy can have.")]
     public float maxHealth = 10;
     [Tooltip("The health bar slider GameObject.\nThis is for enabling and disabling the health bar.")]
-    public GameObject HealthBar;
+    public GameObject healthBar;
     [Tooltip("The canvas that the health bar is attached to.")]
     public GameObject canvas;
     [Tooltip("The slider that is the enemy health bar.\nThis is for updating the slider values.")]
     public Slider slider;
-    [HideInInspector] public float Health;
+    [HideInInspector] public float health;
     //Private
-    private bool Dead = false;
-    private readonly int EnemyDespawnTime = 0;
+    private bool isDead = false;
+    private readonly int enemyDespawnTime = 0;
     
     [Header("Shooting")]
     //Public
@@ -36,7 +36,7 @@ public class TowerController : MonoBehaviour
     [Tooltip("The longest time between the enemy firing.")]
     public float maxFireDelay = 1.0f;
     [Tooltip("The \"agro\" range of the enemy.\nIt controls how far the raycast is shot out.")]
-    public int MaxDistance = 20;
+    public int maxDistance = 20;
     //Private
     private float fireDelay;
     private float lastAttackTime;
@@ -62,7 +62,7 @@ public class TowerController : MonoBehaviour
     void Start()
     {
         //Set the value of Health to the Maximum
-        Health = maxHealth;
+        health = maxHealth;
 
         //Checks if the slider has been assigned to.
         if (slider != null)
@@ -70,7 +70,7 @@ public class TowerController : MonoBehaviour
             //Set the Heath Bar Maximum value to the Maximum Health
             slider.maxValue = maxHealth;
             //Set the current Health Bar value to the current value of Health
-            slider.value = Health;
+            slider.value = health;
         }
         else
             Debug.LogError("Health Bar not found.");
@@ -89,7 +89,7 @@ public class TowerController : MonoBehaviour
     void Update()
     {
         //Activates the Health Bar
-        if (Health < maxHealth)
+        if (health < maxHealth)
         {
             //Checks if the Canvas has been assigned to
             if (canvas != null)
@@ -98,24 +98,24 @@ public class TowerController : MonoBehaviour
                 Debug.LogError("Canvas not Found.");
 
             //Checks if the Heealthbar has been assigned to
-            if (HealthBar != null)
-                HealthBar.SetActive(true);
+            if (healthBar != null)
+                healthBar.SetActive(true);
             else
                 Debug.LogError("Health Bar not Found.");
         }
 
         //Handles Enemy Death Animation Triggering.
-        if (Health <= 0 && !Dead)
+        if (health <= 0 && !isDead)
         {
             //Prevents the Animation from constantly replaying.
-            Dead = true;
-            Destroy(gameObject, EnemyDespawnTime);
+            isDead = true;
+            Destroy(gameObject, enemyDespawnTime);
         }
 
         //Handles the shooting
         if (eye != null)
         {
-            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, MaxDistance, layerMask) && !Dead && (Time.time > lastAttackTime + fireDelay))
+            if (Physics.Raycast(eye.transform.position, transform.TransformDirection(Vector3.forward), out _, maxDistance, layerMask) && !isDead && (Time.time > lastAttackTime + fireDelay))
             {
                 movement.Fire();
                 lastAttackTime = Time.time;
@@ -128,7 +128,7 @@ public class TowerController : MonoBehaviour
         //Handles the Nav Mesh Agent
         if (canNav)
         {
-            if ((Time.time > lastNavTime + navDelay) && !Dead)
+            if ((Time.time > lastNavTime + navDelay) && !isDead)
             {
                 agent.SetDestination(NavPoint());
                 lastNavTime = Time.time;
@@ -142,8 +142,8 @@ public class TowerController : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
-            Health = Health - Damage;
-            slider.value = Health;
+            health = health - Damage;
+            slider.value = health;
         }
     }
 
