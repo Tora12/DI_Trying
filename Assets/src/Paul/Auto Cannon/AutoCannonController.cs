@@ -128,9 +128,11 @@ public class AutoCannonController : MonoBehaviour
                 RandomFireDelay();
             }
         }
-        
+        else
+            Debug.LogError("Eye not found.");
+
         //Handles the Nav Mesh Agent
-        if(canNav)
+        if (canNav)
         {
             if((Time.time > lastNavTime + navDelay) && !Dead)
             {
@@ -139,7 +141,6 @@ public class AutoCannonController : MonoBehaviour
                 RandomNavDelay();
             }
         }
-        
     }
 
     void OnTriggerEnter(Collider other)

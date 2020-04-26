@@ -75,6 +75,14 @@ public class TowerController : MonoBehaviour
         else
             Debug.LogError("Health Bar not found.");
 
+        //Checks if this Enemy is using a NavMesh.
+        if (navPoints != null && navPoints.Length > 0)
+        {
+            canNav = true;
+            agent = GetComponent<NavMeshAgent>();
+            RandomNavDelay();
+        }
+
         RandomFireDelay();
     }
 
@@ -116,6 +124,17 @@ public class TowerController : MonoBehaviour
         }
         else
             Debug.LogError("Eye not found.");
+
+        //Handles the Nav Mesh Agent
+        if (canNav)
+        {
+            if ((Time.time > lastNavTime + navDelay) && !Dead)
+            {
+                agent.SetDestination(NavPoint());
+                lastNavTime = Time.time;
+                RandomNavDelay();
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -132,5 +151,21 @@ public class TowerController : MonoBehaviour
     private void RandomFireDelay()
     {
         fireDelay = Random.Range(minFireDelay, maxFireDelay);
+    }
+
+    //Assigns a random value within the range to publicly accessable varrible
+    private void RandomNavDelay()
+    {
+        navDelay = Random.Range(minNavDelay, maxNavDelay);
+    }
+
+    //Returns a Vector3 position of the NavPoints placed on the map.
+    private Vector3 NavPoint()
+    {
+        int navCount = navPoints.Length;
+        //Generates a random number between the number 0 and navCount-1 because int Random.Range is exclusive max
+        int num = Random.Range(0, navCount);
+        //Debug.LogError(num);
+        return navPoints[num].transform.position;
     }
 }

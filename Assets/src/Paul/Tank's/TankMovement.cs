@@ -32,6 +32,33 @@ public class TankMovement : MonoBehaviour
 
 	//Misc
 	private Animator animator, animatorWeap;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private Rigidbody rb;
 	private new readonly string name = "Gun_End";
 
