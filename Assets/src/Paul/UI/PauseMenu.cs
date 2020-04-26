@@ -13,8 +13,8 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void click()
+    public void Click()
     {
-        pause.resume();
+        pause.Resume();
     }
 }

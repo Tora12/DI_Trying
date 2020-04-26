@@ -26,6 +26,4 @@ public class PlayerHealth : MonoBehaviour
         slider.value = playerHealth.health;
         slider1.value = playerHealth.health;
     }
-
-
 }

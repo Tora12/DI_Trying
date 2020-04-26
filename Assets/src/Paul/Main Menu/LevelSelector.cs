@@ -5,27 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelector : MonoBehaviour
 {
-    public string Scene = null;
-    // Start is called before the first frame update
-    void Start()
+    public string scene = null;
+    public void Levelloader()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private int random(int min, int max)
-    {
-        return Random.Range(min, max);
-    }
-
-    public void levelloader()
-    {
-        SceneManager.LoadScene(Scene);
-
+        SceneManager.LoadScene(scene);
     }
 }

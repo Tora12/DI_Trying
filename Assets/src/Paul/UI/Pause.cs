@@ -7,25 +7,25 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject player;
     private GameObject clone;
-    private bool paused = false;
+    private bool isPaused = false;
 
     void FixedUpdate()
     {
-        if (Input.GetButtonDown("Cancel") && !paused)
+        if (Input.GetButtonDown("Cancel") && !isPaused)
         {
-            paused = true;
+            isPaused = true;
             player.SetActive(false);
             clone = Instantiate(pauseMenu);
         }
-        else if (Input.GetButtonDown("Cancel") && paused)
+        else if (Input.GetButtonDown("Cancel") && isPaused)
         {
-            resume();
+            Resume();
         }
     }
 
-    public void resume()
+    public void Resume()
     {
-        paused = false;
+        isPaused = false;
         Destroy(clone);
         player.SetActive(true);
     }

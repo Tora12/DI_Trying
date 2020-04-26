@@ -15,7 +15,7 @@ public class DataStore : MonoBehaviour
         bcmode = false;
     }
 
-    public void uiToggle()
+    public void UiToggle()
     {
         if (ui)
             ui = false;
