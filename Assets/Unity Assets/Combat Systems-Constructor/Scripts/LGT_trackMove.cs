@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LGT_trackMove : MonoBehaviour {
+	/*
 	private Animator animator;
 	public float scrollSpeed=30;	
 	private Renderer rend;
@@ -28,4 +29,5 @@ public class LGT_trackMove : MonoBehaviour {
 			rend.material.mainTextureOffset = new Vector2 (0, offset);
 		}
 	}
+	*/
 }
