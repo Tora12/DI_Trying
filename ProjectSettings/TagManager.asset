@@ -13,6 +13,8 @@ TagManager:
   - enemy
   - Terrain
   - VFX
+  - SF_Door
+  - door_sparkles
   layers:
   - Default
   - TransparentFX
