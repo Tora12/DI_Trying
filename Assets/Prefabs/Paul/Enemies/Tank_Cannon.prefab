@@ -339,7 +339,6 @@ GameObject:
   - component: {fileID: 5551410099874203239}
   - component: {fileID: 749450666417471653}
   - component: {fileID: 8681207540353348714}
-  - component: {fileID: 97157607873485725}
   m_Layer: 0
   m_Name: Tank_Cannon
   m_TagString: Enemy
@@ -411,19 +410,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd7ac43ad23f31439104438d1deb71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 8681207540353348714}
   maxHealth: 10
-  healthBar: {fileID: 4232726543972913846}
-  canvas: {fileID: 5128460721970637359}
-  slider: {fileID: 4923787005059432175}
-  health: 0
-  eye: {fileID: 2648478633628909714}
+  Health: 10
   minFireDelay: 0.1
   maxFireDelay: 1
-  maxDistance: 20
-  navPoints: []
-  minNavDelay: 3
-  maxNavDelay: 8
+  HealthBar: {fileID: 4232726543972913846}
+  canvas: {fileID: 5128460721970637359}
+  slider: {fileID: 4923787005059432175}
+  movement: {fileID: 8681207540353348714}
+  EnemyDespawnTime: 2
+  eye: {fileID: 2648478633628909714}
 --- !u!114 &8681207540353348714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,33 +432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57591dde1b603f745b124d60b41855cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
+  weapArray:
   - {fileID: 5552464576076793988}
-  bullet: {fileID: 6713806701002191508, guid: b0692db48f2a3cf45ab2b174a34d4477, type: 3}
+  Bullet: {fileID: 1018493861343558, guid: 6ccb6c09019cd1f48b8223f4f58468f0, type: 3}
   speed: 1
   rotationSpeed: 1
---- !u!195 &97157607873485725
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5550971023945971154}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 4.99
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 5.78
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &5551077980871313794
 GameObject:
   m_ObjectHideFlags: 0

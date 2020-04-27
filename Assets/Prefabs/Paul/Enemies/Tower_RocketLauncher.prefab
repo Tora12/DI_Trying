@@ -1710,10 +1710,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05a6057c66145b45bd38dd709703ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
+  weapArray:
   - {fileID: 4918698321574273439}
   - {fileID: 4918985533909949791}
-  bullet: {fileID: 1402852929791362, guid: 9b4810dfc275b8b40a542807a0b1c4cf, type: 3}
+  Bullet: {fileID: 1018493861343558, guid: 6ccb6c09019cd1f48b8223f4f58468f0, type: 3}
 --- !u!114 &-8078261269506855657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,19 +1726,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47da7ba6badf04242bae4cd997fc8f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: -8140120351811255891}
   maxHealth: 10
-  healthBar: {fileID: 7041978337125981102}
-  canvas: {fileID: 2207466311158388445}
-  slider: {fileID: 6620544569984743500}
-  health: 0
-  eye: {fileID: 3269570212426255267}
+  Health: 10
   minFireDelay: 0.5
   maxFireDelay: 1
-  maxDistance: 20
-  navPoints: []
-  minNavDelay: 3
-  maxNavDelay: 8
+  movement: {fileID: -8140120351811255891}
+  HealthBar: {fileID: 7041978337125981102}
+  canvas: {fileID: 2207466311158388445}
+  slider: {fileID: 6620544569984743500}
+  eye: {fileID: 3269570212426255267}
 --- !u!1 &4918672054922226307
 GameObject:
   m_ObjectHideFlags: 0
