@@ -71,5 +71,25 @@ namespace Tests
 			movement.Idle();
 			yield return null;
 		}
+
+		[UnityTest]
+		public IEnumerator EnemyStressTest()
+		{
+			GameObject enemy = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Paul/Enemies/AutoCannon.prefab");
+			//there is no error message if the path is wrong so check that the call worked
+			if (enemy != null)
+			{
+				GameObject mainCharacter = GameObject.FindGameObjectWithTag("Player");
+				for (int i = 0; i < 100; i++)
+				{
+					GameObject.Instantiate(enemy);
+					yield return new WaitForSeconds(1);
+				}
+				
+			}
+			else Debug.Log("Bullet Not Loaded\n");
+
+			yield return null;
+		}
 	}
 }
