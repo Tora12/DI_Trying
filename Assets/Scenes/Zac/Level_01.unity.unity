@@ -15339,7 +15339,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.8021881, g: 0.110137045, b: 0.9339623, a: 1}
   m_Intensity: 1
-  m_Range: 11
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -15387,6 +15387,18 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &986035235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986035233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b0b2fb61480aa44a131bdd6110cb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &986769237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8430912549724654549, guid: 219bc480b4b62ac4baa0cc31ad1bf09f,
