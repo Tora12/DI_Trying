@@ -41,7 +41,7 @@ public class TankController : MonoBehaviour
     //Private
     private float fireDelay;
     private float lastAttackTime;
-    private int layerMask = 1 << 8;
+    int layerMask = 1 << 8;
 
     [Header("AI")]
     //Public

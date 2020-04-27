@@ -41,7 +41,6 @@ public class AutoCannonController : MonoBehaviour
     //Private
     private float fireDelay;
     private float lastAttackTime;
-    private int layerMask = 1 << 8;
 
     [Header("AI")]
     //Public
@@ -117,7 +116,9 @@ public class AutoCannonController : MonoBehaviour
             //Removes the enemy after the time has elepased.
             Destroy(gameObject, enemyDespawnTime);
         }
-        
+
+        int layerMask = 1 << 8;
+
         //Handles the shooting
         if (eye != null)
         {
