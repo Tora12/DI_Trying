@@ -15,6 +15,7 @@ TagManager:
   - VFX
   - SF_Door
   - door_sparkles
+  - audio_trigger
   layers:
   - Default
   - TransparentFX
