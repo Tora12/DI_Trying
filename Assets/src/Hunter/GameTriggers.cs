@@ -4,54 +4,57 @@ using UnityEngine;
 
 public class GameTriggers : MonoBehaviour
 {
-    public void spawnEntity(GameObject toSpawn, Vector3 location, int delay)
+    public void spawnEntity(GameObject entity, Vector3 location, int delay)
     {
-        StartCoroutine(spawnEntity_Coroutine(toSpawn, location, delay));
+        StartCoroutine(spawnEntity_Coroutine(entity, location, delay));
     }
 
-    IEnumerator spawnEntity_Coroutine(GameObject toSpawn, Vector3 location, int delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Instantiate(toSpawn, location, Quaternion.identity);
-    }
-
-    public void despawnEntity(GameObject toDespawn, int delay)
-    {
-        StartCoroutine(despawnEntity_Coroutine(toDespawn, delay));
-    }
-
-    IEnumerator despawnEntity_Coroutine(GameObject toDespawn, int delay)
+    IEnumerator spawnEntity_Coroutine(GameObject entity, Vector3 location, int delay)
     {
         yield return new WaitForSeconds(delay);
-        Destroy(toDespawn);
+        Instantiate(entity, location, Quaternion.identity);
     }
 
-    public void respawnPlayer(Vector3 location, int delay)
+    public void despawnEntity(GameObject entity, int delay)
     {
-        StartCoroutine(respawnPlayer_Coroutine(location, delay));
+        StartCoroutine(despawnEntity_Coroutine(entity, delay));
     }
 
-    IEnumerator respawnPlayer_Coroutine(Vector3 location, int delay)
-    {
-        yield return new WaitForSeconds(delay);
-    }
-
-    public void despawnPlayer(int delay)
-    {
-        StartCoroutine(despawnPlayer_Coroutine(delay));
-    }
-
-    IEnumerator despawnPlayer_Coroutine(int delay)
+    IEnumerator despawnEntity_Coroutine(GameObject entity, int delay)
     {
         yield return new WaitForSeconds(delay);
+        Destroy(entity);
     }
 
-    public void enterRoom(GameObject player, Vector3 location, int[] temp, int delay)
+    public void respawnPlayer(GameObject player, Vector3 location, int delay)
     {
-        StartCoroutine(enterRoom_Coroutine(player, location, temp, delay));
+        StartCoroutine(respawnPlayer_Coroutine(player, location, delay));
     }
 
-    IEnumerator enterRoom_Coroutine(GameObject player, Vector3 location, int[] temp, int delay)
+    IEnumerator respawnPlayer_Coroutine(GameObject player, Vector3 location, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.GetComponent<PlayerHealthandDamage>().respawnPlayer();
+        player.transform.position = location;
+    }
+
+    public void despawnPlayer(GameObject player, int delay)
+    {
+        StartCoroutine(despawnPlayer_Coroutine(player, delay));
+    }
+
+    IEnumerator despawnPlayer_Coroutine(GameObject player, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.SetActive(false);
+    }
+
+    public void enterRegion(GameObject player, Vector3 location, int[] temp, int delay)
+    {
+        StartCoroutine(enterRegion_Coroutine(player, location, temp, delay));
+    }
+
+    IEnumerator enterRegion_Coroutine(GameObject player, Vector3 location, int[] temp, int delay)
     {
         yield return new WaitForSeconds(delay);
         player.transform.position = location;

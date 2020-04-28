@@ -4,6 +4,7 @@ using System.Collections;
 
 public class door : MonoBehaviour
 {
+    /*
 	GameObject the_door;
     GameObject sparkles;
     void OnTriggerEnter( Collider obj  )
@@ -25,4 +26,5 @@ public class door : MonoBehaviour
         yield return new WaitForSeconds(3);
         the_door.GetComponent<Animation>().Play("close");
     }
+    */
 }

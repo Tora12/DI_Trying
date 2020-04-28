@@ -6,8 +6,25 @@ public class DoorController : MonoBehaviour
 {
     public Vector3 teleportLocation;
 
-    public Vector3 getTeleportLocation()
+    public void openDoor(int delay)
     {
-        return teleportLocation;
+        StartCoroutine(openDoor_Coroutine(delay));
+    }
+
+    IEnumerator openDoor_Coroutine(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GetComponentInChildren<Animation>().Play("open");
+    }
+
+    public void closeDoor(int delay)
+    {
+        StartCoroutine(closeDoor_Coroutine(delay));
+    }
+
+    IEnumerator closeDoor_Coroutine(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GetComponentInChildren<Animation>().Play("close");
     }
 }
