@@ -8,6 +8,7 @@ public class play_sound : MonoBehaviour
     public float Volume;
     AudioSource audio;
     public bool alreadyPlayed = false;
+    //public AudioSource bob;
 
     private void Start()
     {
@@ -18,6 +19,8 @@ public class play_sound : MonoBehaviour
     {
         if (!alreadyPlayed)
         {
+
+            //bob.volume = 0;
             audio.PlayOneShot(SoundToPlay, Volume);
             alreadyPlayed = true;
         }

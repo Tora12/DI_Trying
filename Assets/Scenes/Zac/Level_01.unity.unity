@@ -4268,7 +4268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundToPlay: {fileID: 8300000, guid: 125015f32e8ad334bbd6aaba66b697b4, type: 3}
-  Volume: 0.5
+  Volume: 1
   alreadyPlayed: 0
 --- !u!65 &232948218
 BoxCollider:
