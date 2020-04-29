@@ -32,13 +32,13 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-            currentHealth -= 2.0f;
+            currentHealth -= 0.0f;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-            currentHealth -= 10.0f;
+            currentHealth -= 0.0f;
     }
 
     private void OnTriggerStay(Collider collider)

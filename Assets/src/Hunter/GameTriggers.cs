@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameTriggers : MonoBehaviour
 {
+    public void startGame(GameObject player, Vector3 location, int delay)
+    {
+        StartCoroutine(startGame_Coroutine(player, location, delay));
+    }
+
+    IEnumerator startGame_Coroutine(GameObject player, Vector3 location, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.transform.position = location;
+    }
+
     public GameObject spawnEntity(GameObject entity, Vector3 location)
     {
         GameObject entityCopy = Instantiate(entity, location, Quaternion.identity);

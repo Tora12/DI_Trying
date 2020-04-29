@@ -1,27 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public Vector3 endpoint;
-    public Vector3[] checkpoints;
-    public float collisionCheckDistance;
+    public Vector3 startLocation = Vector3.zero;
+    public Vector3 endLocation = Vector3.zero;
+    public Vector3[] checkpointLocations = new Vector3[1];
+
+    [HideInInspector] public Vector3 respawnLocation;
     [HideInInspector] public int[] AI_Data;
 
     private GameObject player;
     private RaycastHit raycastHit;
     private new Rigidbody rigidbody;
-    private Vector3 respawnLocation;
     private GameTriggers gameTriggers;
+    private float collisionCheckDistance;
+    private float checkpointReachedDistance;
 
     [SerializeField] private GameObject ragDoll = null;
 
     void Start()
     {
+        checkpointLocations[0] = startLocation;
+        respawnLocation = startLocation;
         player = GameObject.FindWithTag("Player");
         rigidbody = player.GetComponent<Rigidbody>();
         gameTriggers = GameObject.Find("EventSystem").GetComponent<GameTriggers>();
+        collisionCheckDistance = 1.0f;
+        checkpointReachedDistance = 0.2f;
+        gameTriggers.startGame(player, startLocation, 0);
     }
 
     void Update()
@@ -45,13 +54,12 @@ public class GameController : MonoBehaviour
                 doorController.closeDoor(3);
             }
         }
+        
+        foreach (Vector3 i in checkpointLocations)
+            if (Vector3.Distance(player.transform.position, i) <= checkpointReachedDistance)
+                respawnLocation = i;
 
-        if(checkpoints != null && checkpoints.Length != 0)
-            foreach (Vector3 i in checkpoints)
-                if (Vector3.Distance(player.transform.position, i) <= 0.2)
-                    respawnLocation = i;
-
-        if (Vector3.Distance(player.transform.position, endpoint) <= 0.2)
+        if (Vector3.Distance(player.transform.position, endLocation) <= checkpointReachedDistance)
             gameTriggers.finishGame(3);
     }
 }
