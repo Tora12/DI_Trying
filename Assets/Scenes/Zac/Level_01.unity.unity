@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 961234791580073929, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000017094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 961234791580073929, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
@@ -31868,7 +31868,7 @@ PrefabInstance:
     - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: checkpoints.Array.data[2].x
-      value: -0.0000017094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
@@ -31883,7 +31883,7 @@ PrefabInstance:
     - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: checkpoints.Array.data[0].x
-      value: -0.0000017094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
@@ -31903,7 +31903,7 @@ PrefabInstance:
     - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: checkpoints.Array.data[1].x
-      value: -0.0000017094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3683821046299036500, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
