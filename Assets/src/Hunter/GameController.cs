@@ -1,25 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject player;
-    public float collisionCheckDistance;
-    public int[] AI_Data;
+    public Vector3 endpoint;
     public Vector3[] checkpoints;
-    
-    private Rigidbody rigidbody;
-    private RaycastHit raycastHit;
-    private Vector3 respawnLocation;
+    public float collisionCheckDistance;
+    [HideInInspector] public int[] AI_Data;
 
-    [SerializeField] private GameObject ragDoll;
-    [SerializeField] private GameTriggers gameTriggers;
+    private GameObject player;
+    private RaycastHit raycastHit;
+    private new Rigidbody rigidbody;
+    private Vector3 respawnLocation;
+    private GameTriggers gameTriggers;
+
+    [SerializeField] private GameObject ragDoll = null;
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         rigidbody = player.GetComponent<Rigidbody>();
+        gameTriggers = GameObject.Find("EventSystem").GetComponent<GameTriggers>();
     }
 
     void Update()
@@ -44,8 +46,12 @@ public class GameController : MonoBehaviour
             }
         }
 
-        foreach (Vector3 i in checkpoints)
-            if (Vector3.Distance(player.transform.position, i) <= 0.2)
-                respawnLocation = i;
+        if(checkpoints != null && checkpoints.Length != 0)
+            foreach (Vector3 i in checkpoints)
+                if (Vector3.Distance(player.transform.position, i) <= 0.2)
+                    respawnLocation = i;
+
+        if (Vector3.Distance(player.transform.position, endpoint) <= 0.2)
+            gameTriggers.finishGame(3);
     }
 }

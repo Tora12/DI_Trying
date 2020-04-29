@@ -8919,6 +8919,21 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[0].z
       value: -2.335838
       objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: endpoint.x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: endpoint.y
+      value: 15.01859
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: endpoint.z
+      value: 218
+      objectReference: {fileID: 0}
     - target: {fileID: 3683821045436065936, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: ui

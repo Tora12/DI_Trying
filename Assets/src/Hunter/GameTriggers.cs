@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTriggers : MonoBehaviour
 {
@@ -46,5 +47,17 @@ public class GameTriggers : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         player.transform.position = location;
+    }
+
+    public void finishGame(int delay)
+    {
+        StartCoroutine(finishGame_Coroutine(delay));
+    }
+
+    IEnumerator finishGame_Coroutine(int delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("Menu_Scene");
     }
 }
