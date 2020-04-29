@@ -39,12 +39,12 @@ public class PlayerController : MonoBehaviour
             currentHealth -= 10.0f;
     }
 
-    private void OnTriggerStay(Collider collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "EnemyBullet")
         {
             currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
-            gameTriggers.despawnEntity(collider.gameObject, 0);
+            Destroy(collider.gameObject);
         }
     }
 }
