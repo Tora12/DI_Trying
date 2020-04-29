@@ -188,6 +188,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 5872706162850552040, guid: c720e47f5e1c8cb488838029d40cc3bf,
+        type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872706162850552040, guid: c720e47f5e1c8cb488838029d40cc3bf,
+        type: 3}
+      propertyPath: gameTriggers
+      value: 
+      objectReference: {fileID: 1301291990}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
 --- !u!4 &22294091 stripped
@@ -6531,6 +6541,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 886777}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1708920111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5872706162850552040, guid: c720e47f5e1c8cb488838029d40cc3bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 886777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708920109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5659cd17c4c9447a346cf3d7fbbd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1725035464
 GameObject:
   m_ObjectHideFlags: 0
@@ -8726,7 +8748,7 @@ PrefabInstance:
     - target: {fileID: 1301291995, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1708920111}
     - target: {fileID: 1301291995, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
       propertyPath: slider
       value: 
@@ -8735,6 +8757,42 @@ PrefabInstance:
       propertyPath: slider1
       value: 
       objectReference: {fileID: 663992768}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1708920109}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: collisionCheckDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: ragDoll
+      value: 
+      objectReference: {fileID: 5234630441100487884, guid: c251fc6fa19fde84aa34f50ccb667474,
+        type: 3}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].y
+      value: -0.03141117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].z
+      value: -2.335838
+      objectReference: {fileID: 0}
     - target: {fileID: 3683821045436065936, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: ui
