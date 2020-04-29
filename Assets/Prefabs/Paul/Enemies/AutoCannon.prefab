@@ -1842,6 +1842,7 @@ GameObject:
   - component: {fileID: 1518310025}
   - component: {fileID: 221547542}
   - component: {fileID: 221547541}
+  - component: {fileID: 4502294355038329292}
   m_Layer: 0
   m_Name: AutoCannon
   m_TagString: Enemy
@@ -1913,16 +1914,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57d3160c31b2a84b8f564a024e91237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 221547541}
   maxHealth: 10
-  Health: 10
-  minFireDelay: 0.1
-  maxFireDelay: 1
-  HealthBar: {fileID: 7207965011693246825}
+  healthBar: {fileID: 7207965011693246825}
   canvas: {fileID: 6876852566527728222}
   slider: {fileID: 1352975018188982396}
-  movement: {fileID: 221547541}
-  EnemyDespawnTime: 2
+  health: 0
   eye: {fileID: 3549522244046713977}
+  minFireDelay: 0.1
+  maxFireDelay: 1
+  maxDistance: 20
+  navPoints: []
+  minNavDelay: 3
+  maxNavDelay: 8
 --- !u!114 &221547541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,11 +1939,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220d5f153a3df614dad971b3b9c3ef4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapArray:
+  weapons:
   - {fileID: 6867268760070232963}
   Bullet: {fileID: 1127454497954148, guid: 6cf168a8c2c54cf4ea524a63779cb5be, type: 3}
   speed: 1
   rotationSpeed: 1
+--- !u!195 &4502294355038329292
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718216284738640588}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 5.9
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 9.64
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4770094795883074775
 GameObject:
   m_ObjectHideFlags: 0

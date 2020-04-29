@@ -4743,6 +4743,7 @@ GameObject:
   - component: {fileID: 8686014034431233946}
   - component: {fileID: 7482442874420710489}
   - component: {fileID: 5038334092547277769}
+  - component: {fileID: 1939659669050934595}
   m_Layer: 0
   m_Name: LaserGun
   m_TagString: Enemy
@@ -4816,14 +4817,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 5038334092547277769}
   maxHealth: 10
-  HealthBar: {fileID: 428172171719571002}
+  healthBar: {fileID: 428172171719571002}
   canvas: {fileID: 4485480868467894321}
   slider: {fileID: 1704612412422285213}
-  Health: 10
+  health: 0
   eye: {fileID: 220203416510419254}
   minFireDelay: 0.5
   maxFireDelay: 1
-  MaxDistance: 20
+  maxDistance: 20
   navPoints: []
   minNavDelay: 3
   maxNavDelay: 8
@@ -4839,12 +4840,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220d5f153a3df614dad971b3b9c3ef4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
-  weapArray:
+  weapons:
   - {fileID: 8781123868773845090}
   - {fileID: 8781192389449509988}
+  Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
   speed: 1
   rotationSpeed: 1
+--- !u!195 &1939659669050934595
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8781343355904072180}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 5.42
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 8.77
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8781350381654827272
 GameObject:
   m_ObjectHideFlags: 0
