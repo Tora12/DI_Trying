@@ -5,22 +5,24 @@ using System.Linq;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject player;
+    public Vector3[] checkpoints = new Vector3[1];
     public float collisionCheckDistance;
-    public int[] AI_Data;
-    public Vector3[] checkpoints;
-    
-    private Rigidbody rigidbody;
+    [HideInInspector] public int[] AI_Data = new int[0];
+
+    private GameObject player;
     private RaycastHit raycastHit;
+    private new Rigidbody rigidbody;
     private Vector3 respawnLocation;
+    private GameTriggers gameTriggers;
 
     [SerializeField] private GameObject ragDoll = null;
-    [SerializeField] private GameTriggers gameTriggers = null;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         rigidbody = player.GetComponent<Rigidbody>();
+        respawnLocation = checkpoints[0];
+        gameTriggers = GameObject.Find("EventSystem").GetComponent<GameTriggers>();
     }
 
     void Update()
