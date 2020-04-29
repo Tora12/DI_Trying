@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         rigidbody = player.GetComponent<Rigidbody>();
-        respawnLocation = checkpoints[0];
     }
 
     void Update()
