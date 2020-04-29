@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class GameController : MonoBehaviour
 {
-    public Vector3[] checkpoints = new Vector3[1];
+    public Vector3 endpoint;
+    public Vector3[] checkpoints;
     public float collisionCheckDistance;
-    [HideInInspector] public int[] AI_Data = new int[0];
+    [HideInInspector] public int[] AI_Data;
 
     private GameObject player;
     private RaycastHit raycastHit;
@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         rigidbody = player.GetComponent<Rigidbody>();
-        respawnLocation = checkpoints[0];
         gameTriggers = GameObject.Find("EventSystem").GetComponent<GameTriggers>();
     }
 
@@ -51,5 +50,8 @@ public class GameController : MonoBehaviour
             foreach (Vector3 i in checkpoints)
                 if (Vector3.Distance(player.transform.position, i) <= 0.2)
                     respawnLocation = i;
+
+        if (Vector3.Distance(player.transform.position, endpoint) <= 0.2)
+            gameTriggers.finishGame(3);
     }
 }

@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("EnemyBullet"))
         {
-            currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
+            //currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
             gameTriggers.despawnEntity(collider.gameObject, 0);
         }
     }
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("EnemyBullet"))
         {
-            currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
+            //currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
             gameTriggers.despawnEntity(collider.gameObject, 0);
         }
     }
