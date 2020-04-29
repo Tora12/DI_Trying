@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7245945854573260281}
   - component: {fileID: 4655201592655507843}
   - component: {fileID: 4190315718679096617}
-  - component: {fileID: -8561559958053490003}
+  - component: {fileID: 5872706162850552040}
   - component: {fileID: 5565217528391260360}
   m_Layer: 8
   m_Name: MainCharacter
@@ -126,7 +126,7 @@ MonoBehaviour:
   MovingTurnSpeed: 720
   StationaryTurnSpeed: 720
   RunCycleLegOffset: 0.2
---- !u!114 &-8561559958053490003
+--- !u!114 &5872706162850552040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,15 +135,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4893799887049348636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5583d6b4cb9fd464a9c9773551cb124d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b5659cd17c4c9447a346cf3d7fbbd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  dead: 0
-  doll: {fileID: 5234630441100487884, guid: c251fc6fa19fde84aa34f50ccb667474, type: 3}
-  HealthBar: {fileID: 0}
-  canvas: {fileID: 0}
-  slider: {fileID: 0}
+  maxHealth: 100
+  isDead: 0
+  gameTriggers: {fileID: 0}
 --- !u!114 &5565217528391260360
 MonoBehaviour:
   m_ObjectHideFlags: 0

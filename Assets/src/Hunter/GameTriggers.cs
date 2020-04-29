@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class GameTriggers : MonoBehaviour
 {
-    public void spawnEntity(GameObject entity, Vector3 location, int delay)
+    public GameObject spawnEntity(GameObject entity, Vector3 location)
     {
-        StartCoroutine(spawnEntity_Coroutine(entity, location, delay));
-    }
-
-    IEnumerator spawnEntity_Coroutine(GameObject entity, Vector3 location, int delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Instantiate(entity, location, Quaternion.identity);
+        GameObject entityCopy = Instantiate(entity, location, Quaternion.identity);
+        return entityCopy;
     }
 
     public void despawnEntity(GameObject entity, int delay)
@@ -26,27 +21,20 @@ public class GameTriggers : MonoBehaviour
         Destroy(entity);
     }
 
-    public void respawnPlayer(GameObject player, Vector3 location, int delay)
+    public void respawnPlayer(GameObject player, GameObject ragDoll, Vector3 location, int delay)
     {
-        StartCoroutine(respawnPlayer_Coroutine(player, location, delay));
+        StartCoroutine(respawnPlayer_Coroutine(player, ragDoll, location, delay));
     }
 
-    IEnumerator respawnPlayer_Coroutine(GameObject player, Vector3 location, int delay)
+    IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject ragDoll, Vector3 location, int delay)
     {
-        yield return new WaitForSeconds(delay);
-        player.GetComponent<PlayerHealthandDamage>().respawnPlayer();
-        player.transform.position = location;
-    }
-
-    public void despawnPlayer(GameObject player, int delay)
-    {
-        StartCoroutine(despawnPlayer_Coroutine(player, delay));
-    }
-
-    IEnumerator despawnPlayer_Coroutine(GameObject player, int delay)
-    {
-        yield return new WaitForSeconds(delay);
         player.SetActive(false);
+        player.GetComponent<PlayerController>().Reset();
+        GameObject ragDollCopy = spawnEntity(ragDoll, player.transform.position);
+        yield return new WaitForSeconds(delay);
+        player.transform.position = location;
+        despawnEntity(ragDollCopy, 0);
+        player.SetActive(true);
     }
 
     public void enterRegion(GameObject player, Vector3 location, int[] temp, int delay)
