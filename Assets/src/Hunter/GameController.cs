@@ -7,9 +7,9 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public float collisionCheckDistance;
     public int[] AI_Data;
-
-
+    
     private Rigidbody rigidbody;
+    private RaycastHit raycastHit;
     private Vector3 respawnLocation;
 
     [SerializeField] private GameObject ragDoll;
@@ -18,12 +18,11 @@ public class GameController : MonoBehaviour
     void Start()
     {
         rigidbody = player.GetComponent<Rigidbody>();
+        respawnLocation = new Vector3(-1.7094e-06f, 17.1f, 268.4f);
     }
 
     void Update()
     {
-        RaycastHit raycastHit;
-
         if (player.GetComponent<PlayerController>().isDead)
             gameTriggers.respawnPlayer(player, ragDoll, respawnLocation, 3);
 

@@ -31,6 +31,6 @@ public class EnemySpawn : MonoBehaviour
         int num = Random.Range(0, enemyCount);
         Vector3 spawn;
         spawn = new Vector3(0.0f, 0.5f, Random.Range(minSpawnArea, maxSpawnArea));
-        gameTriggers.spawnEntity(enemyArray[num], spawn, 0);
+        gameTriggers.spawnEntity(enemyArray[num], spawn);
     }
 }

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class GameTriggers : MonoBehaviour
 {
-    public void spawnEntity(GameObject entity, Vector3 location, int delay)
+    public GameObject spawnEntity(GameObject entity, Vector3 location)
     {
-        StartCoroutine(spawnEntity_Coroutine(entity, location, delay));
-    }
-
-    IEnumerator spawnEntity_Coroutine(GameObject entity, Vector3 location, int delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Instantiate(entity, location, Quaternion.identity);
+        GameObject entityCopy = Instantiate(entity, location, Quaternion.identity);
+        return entityCopy;
     }
 
     public void despawnEntity(GameObject entity, int delay)
@@ -35,23 +30,11 @@ public class GameTriggers : MonoBehaviour
     {
         player.SetActive(false);
         player.GetComponent<PlayerController>().Reset();
-        spawnEntity(ragDoll, player.transform.position, 0);
+        GameObject ragDollCopy = spawnEntity(ragDoll, player.transform.position);
         yield return new WaitForSeconds(delay);
         player.transform.position = location;
-        despawnEntity(ragDoll, 0);
+        despawnEntity(ragDollCopy, 0);
         player.SetActive(true);
-    }
-
-    public void despawnPlayer(GameObject player, GameObject ragDoll, int delay)
-    {
-        StartCoroutine(despawnPlayer_Coroutine(player, ragDoll, delay));
-    }
-
-    IEnumerator despawnPlayer_Coroutine(GameObject player, GameObject ragDoll, int delay)
-    {
-        yield return new WaitForSeconds(delay);
-        
-        //despawnEntity(ragDoll, 3);
     }
 
     public void enterRegion(GameObject player, Vector3 location, int[] temp, int delay)

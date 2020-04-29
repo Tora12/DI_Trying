@@ -2709,7 +2709,7 @@ MonoBehaviour:
   player: {fileID: 2098073145}
   collisionCheckDistance: 1
   AI_Data: 
-  ragDoll: {fileID: 0}
+  ragDoll: {fileID: 5234630441100487884, guid: c251fc6fa19fde84aa34f50ccb667474, type: 3}
   gameTriggers: {fileID: 661273578}
 --- !u!1001 &667364883
 PrefabInstance:
@@ -9387,7 +9387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isDead: 0
-  gameTriggers: {fileID: 0}
+  gameTriggers: {fileID: 661273578}
 --- !u!1001 &2107564314
 PrefabInstance:
   m_ObjectHideFlags: 0

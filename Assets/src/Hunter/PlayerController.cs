@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float maxHealth;
+    public float maxHealth, currentHealth;
     public bool isDead;
 
-    private float currentHealth;
     [SerializeField] private GameTriggers gameTriggers;
 
     void Start()
