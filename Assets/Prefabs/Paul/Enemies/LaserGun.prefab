@@ -4824,7 +4824,7 @@ MonoBehaviour:
   eye: {fileID: 220203416510419254}
   minFireDelay: 0.5
   maxFireDelay: 1
-  maxDistance: 20
+  maxDistance: 10
   navPoints: []
   minNavDelay: 3
   maxNavDelay: 8
