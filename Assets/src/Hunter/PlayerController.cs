@@ -36,9 +36,18 @@ public class PlayerController : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "Enemy")
+            currentHealth -= 2.0f;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "EnemyBullet")
         {
-            Debug.Log("ENEMY");
-            currentHealth -= 1.0f;
+            currentHealth -= collision.gameObject.GetComponent<EnemyBullet>().damage;
+            gameTriggers.despawnEntity(collision.gameObject, 0);
         }
+
+        if (collision.gameObject.tag == "Enemy")
+            currentHealth -= 10.0f;
     }
 }

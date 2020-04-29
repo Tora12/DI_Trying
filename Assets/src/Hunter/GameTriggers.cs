@@ -37,12 +37,12 @@ public class GameTriggers : MonoBehaviour
         player.SetActive(true);
     }
 
-    public void enterRegion(GameObject player, Vector3 location, int[] temp, int delay)
+    public void enterRegion(GameObject player, Vector3 location, int[] AI_Data, int delay)
     {
-        StartCoroutine(enterRegion_Coroutine(player, location, temp, delay));
+        StartCoroutine(enterRegion_Coroutine(player, location, AI_Data, delay));
     }
 
-    IEnumerator enterRegion_Coroutine(GameObject player, Vector3 location, int[] temp, int delay)
+    IEnumerator enterRegion_Coroutine(GameObject player, Vector3 location, int[] AI_Data, int delay)
     {
         yield return new WaitForSeconds(delay);
         player.transform.position = location;
