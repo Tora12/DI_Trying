@@ -2211,7 +2211,7 @@ PrefabInstance:
     - target: {fileID: 5703291027839907400, guid: 665b48879344bf243ae03a8a52cc683f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5703291027839907407, guid: 665b48879344bf243ae03a8a52cc683f,
         type: 3}
@@ -31826,6 +31826,11 @@ PrefabInstance:
       objectReference: {fileID: 427294129}
     - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
+      propertyPath: checkpoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1387299646}
@@ -31855,6 +31860,51 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5234630441100487884, guid: c251fc6fa19fde84aa34f50ccb667474,
         type: 3}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[2].z
+      value: 284.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[2].x
+      value: -0.0000017094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[2].y
+      value: 15.16253
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].y
+      value: -10.82193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].x
+      value: -0.0000017094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].z
+      value: 244.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[1].z
+      value: 368.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[1].y
+      value: -10.82193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[1].x
+      value: -0.0000017094
+      objectReference: {fileID: 0}
     - target: {fileID: 3683821046299036500, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: player

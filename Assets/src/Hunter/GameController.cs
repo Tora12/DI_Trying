@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
     public GameObject player;
     public float collisionCheckDistance;
     public int[] AI_Data;
+    public Vector3[] checkpoints;
     
     private Rigidbody rigidbody;
     private RaycastHit raycastHit;
@@ -18,7 +20,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         rigidbody = player.GetComponent<Rigidbody>();
-        respawnLocation = new Vector3(-1.7094e-06f, 17.1f, 268.4f);
+        respawnLocation = checkpoints[0];
     }
 
     void Update()
@@ -42,5 +44,9 @@ public class GameController : MonoBehaviour
                 doorController.closeDoor(3);
             }
         }
+
+        foreach (Vector3 i in checkpoints)
+            if (Vector3.Distance(player.transform.position, i) <= 0.2)
+                respawnLocation = i;
     }
 }
