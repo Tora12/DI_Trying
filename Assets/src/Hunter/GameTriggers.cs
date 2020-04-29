@@ -26,27 +26,32 @@ public class GameTriggers : MonoBehaviour
         Destroy(entity);
     }
 
-    public void respawnPlayer(GameObject player, Vector3 location, int delay)
+    public void respawnPlayer(GameObject player, GameObject ragDoll, Vector3 location, int delay)
     {
-        StartCoroutine(respawnPlayer_Coroutine(player, location, delay));
+        StartCoroutine(respawnPlayer_Coroutine(player, ragDoll, location, delay));
     }
 
-    IEnumerator respawnPlayer_Coroutine(GameObject player, Vector3 location, int delay)
+    IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject ragDoll, Vector3 location, int delay)
     {
-        yield return new WaitForSeconds(delay);
-        player.GetComponent<PlayerHealthandDamage>().respawnPlayer();
-        player.transform.position = location;
-    }
-
-    public void despawnPlayer(GameObject player, int delay)
-    {
-        StartCoroutine(despawnPlayer_Coroutine(player, delay));
-    }
-
-    IEnumerator despawnPlayer_Coroutine(GameObject player, int delay)
-    {
-        yield return new WaitForSeconds(delay);
         player.SetActive(false);
+        player.GetComponent<PlayerController>().Reset();
+        spawnEntity(ragDoll, player.transform.position, 0);
+        yield return new WaitForSeconds(delay);
+        player.transform.position = location;
+        despawnEntity(ragDoll, 0);
+        player.SetActive(true);
+    }
+
+    public void despawnPlayer(GameObject player, GameObject ragDoll, int delay)
+    {
+        StartCoroutine(despawnPlayer_Coroutine(player, ragDoll, delay));
+    }
+
+    IEnumerator despawnPlayer_Coroutine(GameObject player, GameObject ragDoll, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        
+        //despawnEntity(ragDoll, 3);
     }
 
     public void enterRegion(GameObject player, Vector3 location, int[] temp, int delay)

@@ -16,6 +16,8 @@ public class Spikes : MonoBehaviour
         {            
             playerHealth.health -= damage;
         }
+
+
     }
 
     private void OnCollisionEnter(Collision collision)

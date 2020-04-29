@@ -10,15 +10,13 @@ public class GameController : MonoBehaviour
 
 
     private Rigidbody rigidbody;
-    public Vector3 respawnLocation;
+    private Vector3 respawnLocation;
 
+    [SerializeField] private GameObject ragDoll;
     [SerializeField] private GameTriggers gameTriggers;
 
     void Start()
     {
-        //       Vector3 test = new Vector3(-0.058f, 0.51f, -90f);
-        //       gameTriggers.enterRoom(player, test, temp, 5);
-
         rigidbody = player.GetComponent<Rigidbody>();
     }
 
@@ -26,8 +24,8 @@ public class GameController : MonoBehaviour
     {
         RaycastHit raycastHit;
 
-        if(player.GetComponent<PlayerHealthandDamage>().dead)
-            gameTriggers.respawnPlayer(player, respawnLocation, 0);
+        if (player.GetComponent<PlayerController>().isDead)
+            gameTriggers.respawnPlayer(player, ragDoll, respawnLocation, 3);
 
         if (rigidbody.SweepTest(rigidbody.transform.TransformDirection(Vector3.forward), out raycastHit, collisionCheckDistance))
         {
