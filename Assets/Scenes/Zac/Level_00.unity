@@ -8759,6 +8759,11 @@ PrefabInstance:
       objectReference: {fileID: 663992768}
     - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
+      propertyPath: checkpoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1708920109}
@@ -8773,6 +8778,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5234630441100487884, guid: c251fc6fa19fde84aa34f50ccb667474,
         type: 3}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].y
+      value: -0.03141117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpoints.Array.data[0].z
+      value: -2.335838
+      objectReference: {fileID: 0}
     - target: {fileID: 3683821045436065936, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: ui
