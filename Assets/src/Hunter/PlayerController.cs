@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float maxHealth, currentHealth;
     public bool isDead;
 
-    [SerializeField] private GameTriggers gameTriggers;
+    [SerializeField] private GameTriggers gameTriggers = null;
 
     void Start()
     {
@@ -29,25 +29,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "EnemyBullet")
-        {
-            currentHealth -= collision.gameObject.GetComponent<EnemyBullet>().damage;
-            gameTriggers.despawnEntity(collision.gameObject, 0);
-        }
-
         if (collision.gameObject.tag == "Enemy")
             currentHealth -= 2.0f;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "EnemyBullet")
-        {
-            currentHealth -= collision.gameObject.GetComponent<EnemyBullet>().damage;
-            gameTriggers.despawnEntity(collision.gameObject, 0);
-        }
-
         if (collision.gameObject.tag == "Enemy")
             currentHealth -= 10.0f;
+    }
+
+    private void OnTriggerStay(Collider collider)
+    {
+        if (collider.gameObject.tag == "EnemyBullet")
+        {
+            currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
+            gameTriggers.despawnEntity(collider.gameObject, 0);
+        }
     }
 }

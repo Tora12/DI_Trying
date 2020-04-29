@@ -14,11 +14,12 @@ public class GameController : MonoBehaviour
     private RaycastHit raycastHit;
     private Vector3 respawnLocation;
 
-    [SerializeField] private GameObject ragDoll;
-    [SerializeField] private GameTriggers gameTriggers;
+    [SerializeField] private GameObject ragDoll = null;
+    [SerializeField] private GameTriggers gameTriggers = null;
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         rigidbody = player.GetComponent<Rigidbody>();
     }
 
@@ -44,8 +45,9 @@ public class GameController : MonoBehaviour
             }
         }
 
-        foreach (Vector3 i in checkpoints)
-            if (Vector3.Distance(player.transform.position, i) <= 0.2)
-                respawnLocation = i;
+        if(checkpoints != null && checkpoints.Length != 0)
+            foreach (Vector3 i in checkpoints)
+                if (Vector3.Distance(player.transform.position, i) <= 0.2)
+                    respawnLocation = i;
     }
 }
