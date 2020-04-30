@@ -163,13 +163,6 @@ public class GameManager : Singleton<GameManager>
             {
                 despawnEntity(raycastHit.transform.gameObject, 0);
             }
-
-            /*
-            if (raycastHit.transform.gameObject.CompareTag("AudioStuffz"))
-            {
-                SoundManager.Instance.playSound();
-            }
-            */
         }
     }
 
@@ -230,7 +223,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     /// <param name="position">The position to spawn the enemy drop at.</param>
     /// <param name="delay">The delay before executing this function.</param>
-    /// <returns>The spawned copy of the random enemy drop.</returns>
+    /// <returns>The spawned copy of the random enemy drop or null if no enemy drop was spawned.</returns>
     public GameObject spawnEnemyDrop(Vector3 position, int delay)
     {
         Random.InitState(System.DateTime.Now.Millisecond);
