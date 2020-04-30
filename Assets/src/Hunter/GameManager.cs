@@ -73,11 +73,22 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
     }
+    /// <summary>
+    /// Exits the game and returns to the main menu.
+    /// </summary>
+    /// <param name="delay">The delay before executing this function.</param>
     private IEnumerator finishGame_Coroutine(int delay)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("Menu_Scene");
     }
+    /// <summary>
+    /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
+    /// </summary>
+    /// <param name="player">The player that the user controls.</param>
+    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="position">The position to move the player to.</param>
+    /// <param name="delay">The delay before executing this function.</param>
     private IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject doll, Vector3 position, int delay)
     {
         player.SetActive(false);
@@ -100,7 +111,7 @@ public class GameManager : Singleton<GameManager>
     /// Moves the player to the specified position and initializes the game after the given delay.
     /// </summary>
     /// <param name="player">The player that the user controls.</param>
-    /// <param name="position">The location to move the player to.</param>
+    /// <param name="position">The position to move the player to.</param>
     /// <param name="delay">The delay before executing this function.</param>
     private IEnumerator startGame_Coroutine(GameObject player, Vector3 position, int delay)
     {
@@ -158,10 +169,21 @@ public class GameManager : Singleton<GameManager>
     {
         StartCoroutine(enterRegion_Coroutine(player, position, data, delay));
     }
+    /// <summary>
+    /// Exits the game and returns to the main menu.
+    /// </summary>
+    /// <param name="delay">The delay before executing this function.</param>
     public void finishGame(int delay)
     {
         StartCoroutine(finishGame_Coroutine(delay));
     }
+    /// <summary>
+    /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
+    /// </summary>
+    /// <param name="player">The player that the user controls.</param>
+    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="position">The position to move the player to.</param>
+    /// <param name="delay">The delay before executing this function.</param>
     public void respawnPlayer(GameObject player, GameObject doll, Vector3 position, int delay)
     {
         StartCoroutine(respawnPlayer_Coroutine(player, doll, position, delay));
@@ -184,7 +206,7 @@ public class GameManager : Singleton<GameManager>
     /// Moves the player to the specified position and initializes the game after the given delay.
     /// </summary>
     /// <param name="player">The player that the user controls.</param>
-    /// <param name="position">The location to move the player to.</param>
+    /// <param name="position">The position to move the player to.</param>
     /// <param name="delay">The delay before executing this function.</param>
     public void startGame(GameObject player, Vector3 position, int delay)
     {
