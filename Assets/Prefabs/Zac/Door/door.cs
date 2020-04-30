@@ -1,3 +1,4 @@
+// Note Dealy Trigger was found https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
 using UnityEngine;
 using System.Collections;
 
