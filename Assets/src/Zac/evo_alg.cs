@@ -29,6 +29,20 @@ using System.Linq;
 
 public class evo_alg : MonoBehaviour
 {
+    private static evo_alg _evo_algInstance;
+
+    private void Awake()
+    {
+        if (_evo_algInstance != null && _evo_algInstance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _evo_algInstance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
     //r-c
     // This is the initial individual
     public float[,] room_composition = new float[8, 6]
