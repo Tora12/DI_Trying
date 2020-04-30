@@ -1,34 +1,49 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    //A boolean that indicates if the user is in the game
     private bool inGame;
+    //The rag doll that will spawn at the player's location upon death
     private GameObject doll;
+    //The player that the user will control
     private GameObject player;
+    //The object that collides with the player in a sweep test
     private RaycastHit raycastHit;
+    //The rigidbody of the player that senses collision
     private Rigidbody playerRigidbody;
 
-    public float checkpointDistance;
-    public float sweepTestDistance;
-    public int closeDoorDelay;
-    public int enterRegionDelay;
-    public int finishGameDelay;
-    public int respawnPlayerDelay;
-    public int[] data;
-    public Vector3 playerStartLocation;
-    public Vector3 playerRespawnLocation;
-    public Vector3 playerFinishLocation;
-    public Vector3[] checkpointLocation;
+    //The maximum distance the player can be from a checkpoint and still count it as reached
+    [HideInInspector] public float checkpointDistance;
+    //The maximum distance of the rigidbody sweep test
+    [HideInInspector] public float sweepTestDistance;
+    //The delay for any call to close a door
+    [HideInInspector] public int closeDoorDelay;
+    //The delay for any call to enter a region
+    [HideInInspector] public int enterRegionDelay;
+    //The delay for any call to finish the game
+    [HideInInspector] public int finishGameDelay;
+    //The delay for any call to respawn the player
+    [HideInInspector] public int respawnPlayerDelay;
+    //An array of integers used to adapt the enemies' A.I. between regions
+    [HideInInspector] public int[] data;
+    //The location the player will spawn at the start of the game
+    [HideInInspector] public Vector3 playerStartLocation;
+    //The location the player will respawn at upon death
+    [HideInInspector] public Vector3 playerRespawnLocation;
+    //The location the player must reach to complete the level and finish the game
+    [HideInInspector] public Vector3 playerFinishLocation;
+    //An array of locations that will update the player's respawn location if reached
+    [HideInInspector] public Vector3[] checkpointLocations;
 
 
     protected GameManager() {}
     private void FixedUpdate()
     {
-        if (inGame)
+        if (inGame) // checks if the user is in the game
         {
             checkPlayerState();
             checkPlayerCollision();
@@ -37,19 +52,17 @@ public class GameManager : Singleton<GameManager>
     }
     public void Start()
     {
-        if ((player = GameObject.Find("MainCharacter")) != null)
+        if ((player = GameObject.Find("MainCharacter")) != null) // tries to find an object in the hierarchy called MainCharacter, then checks if one was found
         {
-            inGame = true;
-            doll = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/PlayerRagdoll.prefab", typeof(GameObject));
+            inGame = true; // means that the user is in the game
+            doll = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/PlayerRagdoll.prefab", typeof(GameObject)); // finds the PlayerRagdoll prefab in the directory
             playerRigidbody = player.GetComponent<Rigidbody>();
             playerRespawnLocation = playerStartLocation;
             startGame(player, playerStartLocation, 0);
         }
-        else
-            inGame = false;
+        else // if a MainCharacter object wasn't found
+            inGame = false; // means that the user ins't in the game
     }
-
-
     private IEnumerator despawnEntity_Coroutine(GameObject entity, int delay)
     {
         yield return new WaitForSeconds(delay);
@@ -60,11 +73,22 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
     }
+    /// <summary>
+    /// Exits the game and returns to the main menu.
+    /// </summary>
+    /// <param name="delay">The delay before executing this function.</param>
     private IEnumerator finishGame_Coroutine(int delay)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("Menu_Scene");
     }
+    /// <summary>
+    /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
+    /// </summary>
+    /// <param name="player">The player that the user controls.</param>
+    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="position">The position to move the player to.</param>
+    /// <param name="delay">The delay before executing this function.</param>
     private IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject doll, Vector3 position, int delay)
     {
         player.SetActive(false);
@@ -75,10 +99,20 @@ public class GameManager : Singleton<GameManager>
         despawnEntity(spawnedDoll, 0);
         player.SetActive(true);
     }
+    /// <summary>
+    /// Spawns a copy of the given entity at the specified position and rotation after the given delay.
+    /// </summary>
+    /// <param name="delay">The delay before executing this function.</param>
     private IEnumerator spawnEntity_Coroutine(int delay)
     {
         yield return new WaitForSeconds(delay);
     }
+    /// <summary>
+    /// Moves the player to the specified position and initializes the game after the given delay.
+    /// </summary>
+    /// <param name="player">The player that the user controls.</param>
+    /// <param name="position">The position to move the player to.</param>
+    /// <param name="delay">The delay before executing this function.</param>
     private IEnumerator startGame_Coroutine(GameObject player, Vector3 position, int delay)
     {
         yield return new WaitForSeconds(delay);
@@ -101,6 +135,13 @@ public class GameManager : Singleton<GameManager>
                 doorController.openDoor(0);
                 enterRegion(player, doorController.teleportLocation, data, enterRegionDelay);
             }
+
+            /*
+            if (raycastHit.transform.gameObject.CompareTag("AudioStuffz"))
+            {
+                SoundManager.Instance.playSound();
+            }
+            */
         }
     }
     private void checkPlayerState()
@@ -113,15 +154,13 @@ public class GameManager : Singleton<GameManager>
         if (Vector3.Distance(player.transform.position, playerStartLocation) <= checkpointDistance)
             playerRespawnLocation = playerStartLocation;
 
-        foreach (Vector3 vector3 in checkpointLocation)
+        foreach (Vector3 vector3 in checkpointLocations)
             if (Vector3.Distance(player.transform.position, vector3) <= checkpointDistance)
                 playerRespawnLocation = vector3;
 
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
             finishGame(finishGameDelay);
     }
-
-
     public void despawnEntity(GameObject entity, int delay)
     {
         StartCoroutine(despawnEntity_Coroutine(entity, delay));
@@ -130,22 +169,47 @@ public class GameManager : Singleton<GameManager>
     {
         StartCoroutine(enterRegion_Coroutine(player, position, data, delay));
     }
+    /// <summary>
+    /// Exits the game and returns to the main menu.
+    /// </summary>
+    /// <param name="delay">The delay before executing this function.</param>
     public void finishGame(int delay)
     {
         StartCoroutine(finishGame_Coroutine(delay));
     }
+    /// <summary>
+    /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
+    /// </summary>
+    /// <param name="player">The player that the user controls.</param>
+    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="position">The position to move the player to.</param>
+    /// <param name="delay">The delay before executing this function.</param>
     public void respawnPlayer(GameObject player, GameObject doll, Vector3 position, int delay)
     {
         StartCoroutine(respawnPlayer_Coroutine(player, doll, position, delay));
     }
+    /// <summary>
+    /// Spawns a copy of the given entity at the specified position and rotation after the given delay.
+    /// </summary>
+    /// <param name="entity">The entity to spawn.</param>
+    /// <param name="position">The position to spawn the entity at.</param>
+    /// <param name="rotation">The rotation to spawn the entity with.</param>
+    /// <param name="delay">The delay before executing this function.</param>
+    /// <returns></returns>
     public GameObject spawnEntity(GameObject entity, Vector3 position, Quaternion rotation, int delay)
     {
         StartCoroutine(spawnEntity_Coroutine(delay));
         GameObject spawnedEntity = Instantiate(entity, position, rotation);
         return spawnedEntity;
     }
-    public void startGame(GameObject player, Vector3 location, int delay)
+    /// <summary>
+    /// Moves the player to the specified position and initializes the game after the given delay.
+    /// </summary>
+    /// <param name="player">The player that the user controls.</param>
+    /// <param name="position">The position to move the player to.</param>
+    /// <param name="delay">The delay before executing this function.</param>
+    public void startGame(GameObject player, Vector3 position, int delay)
     {
-        StartCoroutine(startGame_Coroutine(player, location, delay));
+        StartCoroutine(startGame_Coroutine(player, position, delay));
     }
 }
