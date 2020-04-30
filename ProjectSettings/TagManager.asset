@@ -17,6 +17,7 @@ TagManager:
   - door_sparkles
   - Area_Door
   - Region_Door
+  - Enemy_Drop
   layers:
   - Default
   - TransparentFX
