@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 3683821046299036503}
   - component: {fileID: 3683821046299036502}
   - component: {fileID: 3683821046299036505}
-  - component: {fileID: 2488412701908918425}
-  - component: {fileID: 3683821046299036504}
   - component: {fileID: 3683821046299036500}
   - component: {fileID: 1301291995}
   - component: {fileID: 3683821045436065936}
   - component: {fileID: 8450735332020780413}
+  - component: {fileID: 5602306995083274080}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -72,34 +71,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &2488412701908918425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3683821046299036507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f38eb9846f1d594d9b47cab62334107, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  collisionCheckDistance: 0
-  temp: 
-  gameTriggers: {fileID: 3683821046299036504}
---- !u!114 &3683821046299036504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3683821046299036507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b772981337fd44f43a78c904b043acd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3683821046299036500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +127,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f156df7d480584b9e48cec4d4372eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5602306995083274080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683821046299036507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5ce1a0e67883d49a263452690decd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointDistance: 0
+  sweepTestDistance: 0
+  closeDoorDelay: 0
+  enterRegionDelay: 0
+  finishGameDelay: 0
+  respawnPlayerDelay: 0
+  playerStartLocation: {x: 0, y: 0, z: 0}
+  playerFinishLocation: {x: 0, y: 0, z: 0}
+  checkpointLocation: []

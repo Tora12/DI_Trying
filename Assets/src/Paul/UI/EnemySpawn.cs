@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [Header("Scripts")]
-    //Public
-    public GameTriggers gameTriggers;
-
     [Header("Numbers")]
     public GameObject[] enemyArray;
     public float minSpawnArea = 0.0f;
@@ -31,6 +27,6 @@ public class EnemySpawn : MonoBehaviour
         int num = Random.Range(0, enemyCount);
         Vector3 spawn;
         spawn = new Vector3(0.0f, 0.5f, Random.Range(minSpawnArea, maxSpawnArea));
-        gameTriggers.spawnEntity(enemyArray[num], spawn);
+        GameManager.Instance.spawnEntity(enemyArray[num], spawn, Quaternion.identity, 0);
     }
 }

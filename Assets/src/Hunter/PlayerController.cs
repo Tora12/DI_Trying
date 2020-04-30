@@ -8,13 +8,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float currentHealth;
     [HideInInspector] public bool isDead;
 
-    private GameTriggers gameTriggers;
-
     void Start()
     {
         currentHealth = maxHealth;
         isDead = false;
-        gameTriggers = GameObject.Find("EventSystem").GetComponent<GameTriggers>();
     }
 
     void Update()
@@ -32,30 +29,21 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-            currentHealth -= 0.0f;
+            currentHealth -= 1.0f;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-            currentHealth -= 0.0f;
-    }
-
-    private void OnTriggerStay(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("EnemyBullet"))
-        {
-            //currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
-            gameTriggers.despawnEntity(collider.gameObject, 0);
-        }
+            currentHealth -= 10.0f;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("EnemyBullet"))
         {
-            //currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
-            gameTriggers.despawnEntity(collider.gameObject, 0);
+            currentHealth -= collider.gameObject.GetComponent<EnemyBullet>().damage;
+            GameManager.Instance.despawnEntity(collider.gameObject, 0);
         }
     }
 }

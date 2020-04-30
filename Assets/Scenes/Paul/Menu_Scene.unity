@@ -386,6 +386,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a44daee2cdaf941b4fcca5737bde8c, type: 3}
+--- !u!1 &1077376041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1765218894482248, guid: e4a44daee2cdaf941b4fcca5737bde8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077376040}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077376042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077376041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5ce1a0e67883d49a263452690decd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGame: 0
+  checkpointDistance: 0
+  sweepTestDistance: 0
+  closeDoorDelay: 0
+  enterRegionDelay: 0
+  finishGameDelay: 0
+  respawnPlayerDelay: 0
+  playerStartLocation: {x: 0, y: 0, z: 0}
+  playerFinishLocation: {x: 0, y: 0, z: 0}
+  checkpointLocation: []
 --- !u!4 &1368191429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4029688786263620, guid: e4a44daee2cdaf941b4fcca5737bde8c,

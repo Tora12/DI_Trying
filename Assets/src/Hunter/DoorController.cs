@@ -6,12 +6,12 @@ public class DoorController : MonoBehaviour
 {
     public Vector3 teleportLocation;
 
-    public void openDoor(int delay)
+    private IEnumerator closeDoor_Coroutine(int delay)
     {
-        StartCoroutine(openDoor_Coroutine(delay));
+        yield return new WaitForSeconds(delay);
+        GetComponentInChildren<Animation>().Play("close");
     }
-
-    IEnumerator openDoor_Coroutine(int delay)
+    private IEnumerator openDoor_Coroutine(int delay)
     {
         yield return new WaitForSeconds(delay);
         GetComponentInChildren<Animation>().Play("open");
@@ -21,10 +21,8 @@ public class DoorController : MonoBehaviour
     {
         StartCoroutine(closeDoor_Coroutine(delay));
     }
-
-    IEnumerator closeDoor_Coroutine(int delay)
+    public void openDoor(int delay)
     {
-        yield return new WaitForSeconds(delay);
-        GetComponentInChildren<Animation>().Play("close");
+        StartCoroutine(openDoor_Coroutine(delay));
     }
 }

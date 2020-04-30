@@ -197,7 +197,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameTriggers
       value: 
-      objectReference: {fileID: 1301291990}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
 --- !u!4 &22294091 stripped
@@ -5170,18 +5170,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1301291990 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3683821046299036504, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3683821045436065934}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b772981337fd44f43a78c904b043acd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1316516997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9084,6 +9072,111 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: sweepTestDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: closeDoorDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: enterRegionDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: finishGameDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: respawnPlayerDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerStartLocation.x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerStartLocation.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerStartLocation.z
+      value: -2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerFinishLocation.x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerFinishLocation.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerFinishLocation.z
+      value: 217
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.data[0].x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.data[1].x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.data[2].x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.data[0].z
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.data[1].y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocation.Array.data[1].z
+      value: 134
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: inGame
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
 --- !u!1001 &5414096814005413698
@@ -9212,7 +9305,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameTriggers
       value: 
-      objectReference: {fileID: 1301291990}
+      objectReference: {fileID: 0}
     - target: {fileID: 5414096814793878946, guid: 5a4b53b2a7ea3094ba6debd68d1a19fa,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
