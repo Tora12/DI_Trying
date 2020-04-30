@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float JumpPower = 10f; 
     [SerializeField] float MoveSpeedMultiplier = 1f;
     [SerializeField] float AirSpeed = 6f;
-    [SerializeField] float dashSpeed = 24f;
+    [SerializeField] public float dashSpeed = 24f;
 	[SerializeField] float dashDistance = 6f;
 	[SerializeField] float dashRecharge = 1f;
 	[SerializeField] float grappleSpeed = 6f;
@@ -90,23 +90,23 @@ public class PlayerMovement : MonoBehaviour
 		}
     }
     void UpdateAnimator(Vector3 move){
-	Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);
-	Animator.SetFloat("Turn", TurnAmount, 0.1f, Time.deltaTime);
-	Animator.SetBool("Crouch", false);
-	Animator.SetBool("OnGround", IsGrounded);
-	if (!IsGrounded){
-		Animator.SetFloat("Jump", rigidBody.velocity.y);
-	}
-	float runCycle =Mathf.Repeat(Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + RunCycleLegOffset, 1);
-	float jumpLeg = (runCycle < k_Half ? 1 : -1) * ForwardAmount;		
-	if (IsGrounded){
-		Animator.SetFloat("JumpLeg", jumpLeg);
-	}
-	if (IsGrounded && move.magnitude > 0){
-		Animator.speed = AnimSpeedMultiplier;
-	}else{
-		Animator.speed = 1;
-	}
+		Animator.SetFloat("Forward", ForwardAmount, 0.1f, Time.deltaTime);
+		Animator.SetFloat("Turn", TurnAmount, 0.1f, Time.deltaTime);
+		Animator.SetBool("Crouch", false);
+		Animator.SetBool("OnGround", IsGrounded);
+		if (!IsGrounded){
+			Animator.SetFloat("Jump", rigidBody.velocity.y);
+		}
+		float runCycle =Mathf.Repeat(Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + RunCycleLegOffset, 1);
+		float jumpLeg = (runCycle < k_Half ? 1 : -1) * ForwardAmount;		
+		if (IsGrounded){
+			Animator.SetFloat("JumpLeg", jumpLeg);
+		}
+		if (IsGrounded && move.magnitude > 0){
+			Animator.speed = AnimSpeedMultiplier;
+		}else{
+			Animator.speed = 1;
+		}
     }
     void ApplyExtraTurnRotation(){
 	float turnSpeed = Mathf.Lerp(StationaryTurnSpeed, MovingTurnSpeed, ForwardAmount);

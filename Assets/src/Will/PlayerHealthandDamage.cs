@@ -16,15 +16,17 @@ public class PlayerHealthandDamage : MonoBehaviour
 	
 	float max_health;
     // Start is called before the first frame update
-    /*
+    
     void Start()
     {
         max_health=health;
+		/*
 		slider.maxValue = max_health;
         slider.value = health;
+		*/
 		
     }
-    */
+    
 
     // Update is called once per frame
     void Update()
@@ -52,16 +54,30 @@ public class PlayerHealthandDamage : MonoBehaviour
 			health -=other.GetComponent<EnemyBullet>().damage;
             Destroy(other.gameObject);
             
-        }
+        }/*else if (other.tag == "Hazard")
+        {
+			health -=other.GetComponent<Hazard>().damage;     
+        }*/
     }
+	void OnTriggerStay(Collider other){
+		/*if (other.tag == "Hazard")
+        {
+			health -=other.GetComponent<Hazard>().damage;     
+        }*/
+	}
 	public void killPlayer(){
 		health=0.0f;
 	}
-	public void respawnPlayer(){
+	public void resetPlayer(){
 		dead=false;
 		health=max_health;
 		gameObject.SetActive(true);
 		//canvas.SetActive(false);
         //HealthBar.SetActive(false);
+		
+		/*GameObject[] ragDolls =  GameObject.FindGameObjectsWithTag ("RagDoll");
+		for(int i = 0 ; i < ragDolls.Length ; i ++)
+			Destroy(ragDolls[i]);
+		*/
 	}
 }
