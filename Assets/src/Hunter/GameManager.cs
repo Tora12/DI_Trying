@@ -40,6 +40,7 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public Vector3[] checkpointLocations;
 
 
+
     protected GameManager() {}
     private void FixedUpdate()
     {
@@ -63,16 +64,21 @@ public class GameManager : Singleton<GameManager>
         else // if a MainCharacter object wasn't found
             inGame = false; // means that the user ins't in the game
     }
+
+
+
     private IEnumerator despawnEntity_Coroutine(GameObject entity, int delay)
     {
         yield return new WaitForSeconds(delay);
         Destroy(entity);
     }
+
     private IEnumerator enterRegion_Coroutine(GameObject player, Vector3 position, int[] data, int delay)
     {
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
     }
+
     /// <summary>
     /// Exits the game and returns to the main menu.
     /// </summary>
@@ -82,6 +88,7 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("Menu_Scene");
     }
+
     /// <summary>
     /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
     /// </summary>
@@ -99,6 +106,18 @@ public class GameManager : Singleton<GameManager>
         despawnEntity(spawnedDoll, 0);
         player.SetActive(true);
     }
+
+    /// <summary>
+    /// Spawns a copy of the given enemy drop at the specified position after the given delay.
+    /// </summary>
+    /// <param name="enemyDrop">The enemy drop to spawn.</param>
+    /// <param name="position">The position to spawn the enemy drop at.</param>
+    /// <param name="delay">The delay before executing this function.</param>
+    private IEnumerator spawnEnemyDrop_Coroutine(GameObject enemyDrop, Vector3 position, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
+
     /// <summary>
     /// Spawns a copy of the given entity at the specified position and rotation after the given delay.
     /// </summary>
@@ -107,6 +126,7 @@ public class GameManager : Singleton<GameManager>
     {
         yield return new WaitForSeconds(delay);
     }
+
     /// <summary>
     /// Moves the player to the specified position and initializes the game after the given delay.
     /// </summary>
@@ -118,6 +138,7 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
     }
+
     private void checkPlayerCollision()
     {
         if (playerRigidbody.SweepTest(playerRigidbody.transform.TransformDirection(Vector3.forward), out raycastHit, sweepTestDistance))
@@ -144,11 +165,13 @@ public class GameManager : Singleton<GameManager>
             */
         }
     }
+
     private void checkPlayerState()
     {
         if (player.GetComponent<PlayerController>().isDead)
             respawnPlayer(player, doll, playerRespawnLocation, respawnPlayerDelay);
     }
+
     private void checkPlayerLocation()
     {
         if (Vector3.Distance(player.transform.position, playerStartLocation) <= checkpointDistance)
@@ -161,14 +184,19 @@ public class GameManager : Singleton<GameManager>
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
             finishGame(finishGameDelay);
     }
+
+
+
     public void despawnEntity(GameObject entity, int delay)
     {
         StartCoroutine(despawnEntity_Coroutine(entity, delay));
     }
+
     public void enterRegion(GameObject player, Vector3 position, int[] data, int delay)
     {
         StartCoroutine(enterRegion_Coroutine(player, position, data, delay));
     }
+
     /// <summary>
     /// Exits the game and returns to the main menu.
     /// </summary>
@@ -177,6 +205,7 @@ public class GameManager : Singleton<GameManager>
     {
         StartCoroutine(finishGame_Coroutine(delay));
     }
+
     /// <summary>
     /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
     /// </summary>
@@ -188,6 +217,28 @@ public class GameManager : Singleton<GameManager>
     {
         StartCoroutine(respawnPlayer_Coroutine(player, doll, position, delay));
     }
+
+    /// <summary>
+    /// Spawns a copy of a random enemy drop at the specified position after the given delay.
+    /// </summary>
+    /// <param name="position">The position to spawn the enemy drop at.</param>
+    /// <param name="delay">The delay before executing this function.</param>
+    /// <returns>The spawned copy of the random enemy drop.</returns>
+    public GameObject spawnEnemyDrop(Vector3 position, int delay)
+    {
+        Object[] prefabs = AssetDatabase.LoadAllAssetsAtPath("Assets/Prefabs/Hunter/EnemyDrops");
+        int random = Random.Range(0, (prefabs.Length * 2));
+
+        if (random < prefabs.Length)
+        {
+            GameObject enemyDrop = (GameObject)prefabs[random];
+            GameObject spawnedEnemyDrop = spawnEntity(enemyDrop, position, Quaternion.identity, delay);
+            return spawnedEnemyDrop;
+        }
+        
+        return null;
+    }
+
     /// <summary>
     /// Spawns a copy of the given entity at the specified position and rotation after the given delay.
     /// </summary>
@@ -195,13 +246,14 @@ public class GameManager : Singleton<GameManager>
     /// <param name="position">The position to spawn the entity at.</param>
     /// <param name="rotation">The rotation to spawn the entity with.</param>
     /// <param name="delay">The delay before executing this function.</param>
-    /// <returns></returns>
+    /// <returns>The spawned copy of the given entity.</returns>
     public GameObject spawnEntity(GameObject entity, Vector3 position, Quaternion rotation, int delay)
     {
         StartCoroutine(spawnEntity_Coroutine(delay));
         GameObject spawnedEntity = Instantiate(entity, position, rotation);
         return spawnedEntity;
     }
+
     /// <summary>
     /// Moves the player to the specified position and initializes the game after the given delay.
     /// </summary>
