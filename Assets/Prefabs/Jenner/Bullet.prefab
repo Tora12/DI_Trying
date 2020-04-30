@@ -144,5 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f50a15540f15441a90c5476beae26b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
-  speed: 10
+  hitCombo: 0
+  levelUp: 10
+  damage: 20
+  speed: 20

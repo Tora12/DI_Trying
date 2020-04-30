@@ -4,35 +4,40 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-  public int damage = 40;
-  public float speed = 10f;
-  private Rigidbody rb;
+  public int hitCombo = 0;
+  public int levelUp = 10;
+  public int damage = 20;
+  public float speed = 20f;
+  private Rigidbody rigidBody;
   private Vector3 cameraBounds;
 
     // Start is called before the first frame update
     void Start() {
+      rigidBody = this.GetComponent<Rigidbody>();
+      rigidBody.velocity = transform.forward * speed;
+    }
 
-      rb = this.GetComponent<Rigidbody>();
-      //rb.velocity = new Vector3(0, 0, 1);
-      rb.velocity = transform.forward * speed;
-      // Trying to calculate camera borders to despawn prefabs
-      //cameraBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    void Update() {
+      Destroy(gameObject, 1);
+
+      if(hitCombo >= levelUp) {
+        damage += 5;
+        levelUp *= 2;
+        hitCombo = 0;
+      }
     }
 
     void OnTriggerEnter(Collider hitInfo) {
 
       AutoCannonController enemy = hitInfo.GetComponent<AutoCannonController>();
 
-      // check if prefab still in camera's bounds
-      if(transform.position.z > cameraBounds.x * -2) {
-        Destroy(gameObject);
-      }
+      //Debug.Log(hitInfo.name);
 
       if(enemy != null) {
-        // enemy.takeDamage(damage);
+        //enemy.takeDamage(damage);
+        hitCombo++;
       }
-      Destroy(gameObject);
+
     }
 
 }
