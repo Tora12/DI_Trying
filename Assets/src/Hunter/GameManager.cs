@@ -102,6 +102,7 @@ public class GameManager : Singleton<GameManager>
     {
         player.SetActive(false);
         player.GetComponent<PlayerHealthandDamage>().resetPlayer();
+        //player.transform.scale
         GameObject spawnedDoll = spawnEntity(doll, player.transform.position, player.transform.rotation, 0);
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
@@ -166,9 +167,10 @@ public class GameManager : Singleton<GameManager>
         if (Vector3.Distance(player.transform.position, playerStartLocation) <= checkpointDistance)
             playerRespawnLocation = playerStartLocation;
 
-        foreach (Vector3 vector3 in checkpointLocations)
-            if (Vector3.Distance(player.transform.position, vector3) <= checkpointDistance)
-                playerRespawnLocation = vector3;
+        if(checkpointLocations != null && checkpointLocations.Length > 0)
+            foreach (Vector3 position in checkpointLocations)
+                if (Vector3.Distance(player.transform.position, position) <= checkpointDistance)
+                    playerRespawnLocation = position;
 
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
             finishGame(finishGameDelay);

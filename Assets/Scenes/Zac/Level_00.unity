@@ -200,6 +200,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
+--- !u!114 &886778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7875288220142691782, guid: c720e47f5e1c8cb488838029d40cc3bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 886777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708920109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d6b4cb9fd464a9c9773551cb124d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &22294091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9,
@@ -6642,34 +6654,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 886777}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1708920110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708920109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5583d6b4cb9fd464a9c9773551cb124d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  dead: 0
-  doll: {fileID: 0}
-  max_health: 100
---- !u!114 &1708920111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5872706162850552040, guid: c720e47f5e1c8cb488838029d40cc3bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 886777}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708920109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b5659cd17c4c9447a346cf3d7fbbd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1725035464
 GameObject:
   m_ObjectHideFlags: 0
@@ -8878,7 +8862,7 @@ PrefabInstance:
     - target: {fileID: 1301291995, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 1708920111}
+      objectReference: {fileID: 886778}
     - target: {fileID: 1301291995, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
       propertyPath: slider
       value: 

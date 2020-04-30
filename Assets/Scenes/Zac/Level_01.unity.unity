@@ -24647,18 +24647,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 886777}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1387299648 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5872706162850552040, guid: c720e47f5e1c8cb488838029d40cc3bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 886777}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387299646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b5659cd17c4c9447a346cf3d7fbbd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1392106750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26419,7 +26407,7 @@ PrefabInstance:
     - target: {fileID: 1301291995, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 1387299648}
+      objectReference: {fileID: 1526236073}
     - target: {fileID: 1301291995, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
       propertyPath: slider
       value: 
@@ -26574,9 +26562,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: sweepTestDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: closeDoorDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: enemyDropRate
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: enterRegionDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: finishGameDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: respawnPlayerDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerStartLocation.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerStartLocation.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: playerFinishLocation.y
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3683821046299036504, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
-    - {fileID: 2488412701908918425, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
 --- !u!114 &1526236070 stripped
 MonoBehaviour:
@@ -26584,39 +26622,24 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1526236069}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526236071}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6f156df7d480584b9e48cec4d4372eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1526236071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3683821046299036507, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+--- !u!114 &1526236073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8839097681537364218, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
     type: 3}
   m_PrefabInstance: {fileID: 1526236069}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1526236072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526236071}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5ce1a0e67883d49a263452690decd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5583d6b4cb9fd464a9c9773551cb124d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointDistance: 0.1
-  sweepTestDistance: 1
-  closeDoorDelay: 3
-  enterRegionDelay: 3
-  finishGameDelay: 3
-  respawnPlayerDelay: 3
-  playerStartLocation: {x: 0, y: 10, z: 10}
-  playerFinishLocation: {x: 0, y: 0, z: 0}
-  checkpointLocations: []
 --- !u!4 &1532064352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5703291027753286520, guid: 361b0d2f981b8cc409650d7599e23e40,
