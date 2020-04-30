@@ -20,7 +20,7 @@ public class CameraBehavoirScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(mainCharacter.GetComponent<PlayerController>().isDead) return;
+		if(mainCharacter.GetComponent<PlayerHealthandDamage>().dead) return;
         transform.position=new Vector3(Mathf.Cos(Angle)*Distance,mainCharacter.transform.position.y+Mathf.Sin(Angle)*Distance,mainCharacter.transform.position.z+zOffset);
     }
 }

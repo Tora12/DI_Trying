@@ -101,23 +101,12 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject doll, Vector3 position, int delay)
     {
         player.SetActive(false);
-        player.GetComponent<PlayerController>().Reset();
+        player.GetComponent<PlayerHealthandDamage>().resetPlayer();
         GameObject spawnedDoll = spawnEntity(doll, player.transform.position, player.transform.rotation, 0);
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
         despawnEntity(spawnedDoll, 0);
         player.SetActive(true);
-    }
-
-    /// <summary>
-    /// Spawns a copy of the given enemy drop at the specified position after the given delay.
-    /// </summary>
-    /// <param name="enemyDrop">The enemy drop to spawn.</param>
-    /// <param name="position">The position to spawn the enemy drop at.</param>
-    /// <param name="delay">The delay before executing this function.</param>
-    private IEnumerator spawnEnemyDrop_Coroutine(GameObject enemyDrop, Vector3 position, int delay)
-    {
-        yield return new WaitForSeconds(delay);
     }
 
     /// <summary>
@@ -168,7 +157,7 @@ public class GameManager : Singleton<GameManager>
 
     private void checkPlayerState()
     {
-        if (player.GetComponent<PlayerController>().isDead)
+        if (player.GetComponent<PlayerHealthandDamage>().dead)
             respawnPlayer(player, doll, playerRespawnLocation, respawnPlayerDelay);
     }
 

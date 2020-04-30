@@ -7,14 +7,14 @@ public class PlayerHealthandDamage : MonoBehaviour
 {
     public float health=100.0f;
     public bool dead=false;
-    [SerializeField] private GameObject doll=null;
+    //[SerializeField] private GameObject doll=null;
 	/*
     [SerializeField] private GameObject HealthBar=null;
     [SerializeField] private GameObject canvas=null;
     [SerializeField] private Slider slider=null;
     */
 	
-	float max_health;
+	public float max_health;
     // Start is called before the first frame update
     
     void Start()
@@ -34,8 +34,8 @@ public class PlayerHealthandDamage : MonoBehaviour
 		
 		if(transform.position.y<-20) health=0;
         if(health<=0 && !dead){
-            Instantiate(doll, transform.position, transform.rotation);
-			gameObject.SetActive(false);
+            //Instantiate(doll, transform.position, transform.rotation);
+			//gameObject.SetActive(false);
             dead=true;
         }
         /*
@@ -71,7 +71,7 @@ public class PlayerHealthandDamage : MonoBehaviour
 	public void resetPlayer(){
 		dead=false;
 		health=max_health;
-		gameObject.SetActive(true);
+		//gameObject.SetActive(true);
 		//canvas.SetActive(false);
         //HealthBar.SetActive(false);
 		

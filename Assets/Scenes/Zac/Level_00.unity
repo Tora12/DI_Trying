@@ -6642,6 +6642,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 886777}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1708920110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708920109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583d6b4cb9fd464a9c9773551cb124d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  dead: 0
+  doll: {fileID: 0}
+  max_health: 100
 --- !u!114 &1708920111 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5872706162850552040, guid: c720e47f5e1c8cb488838029d40cc3bf,
