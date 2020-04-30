@@ -34,9 +34,9 @@ namespace FlyweightPattern
                 //newSpikes.rightPositions = GetBodyPositions();
 
                 //With flyweight
-                newSpikes.centerPositions = centerPositions;
-                newSpikes.leftPositions = leftPositions;
-                newSpikes.rightPositions = rightPositions;
+                //newSpikes.centerPositions = centerPositions;
+                //newSpikes.leftPositions = leftPositions;
+                //newSpikes.rightPositions = rightPositions;
 
                 allSpikes.Add(newSpikes);
             }
