@@ -157,6 +157,11 @@ public class GameManager : Singleton<GameManager>
                 enterRegion(player, doorController.teleportLocation, data, enterRegionDelay);
             }
 
+            if (raycastHit.transform.gameObject.CompareTag("Enemy_Drop"))
+            {
+                despawnEntity(raycastHit.transform.gameObject, 0);
+            }
+
             /*
             if (raycastHit.transform.gameObject.CompareTag("AudioStuffz"))
             {
