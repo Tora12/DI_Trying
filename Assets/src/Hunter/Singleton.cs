@@ -1,5 +1,5 @@
-﻿/* Singleton Pattern Code found at
- * https://wiki.unity3d.com/index.php/Singleton
+﻿/* Singleton Pattern Code found at:
+ * http://wiki.unity3d.com/index.php?title=Singleton&oldid=20231
  */
 using UnityEngine;
 

@@ -26,6 +26,15 @@ public class GameManager : Singleton<GameManager>
 
 
     protected GameManager() {}
+    private void FixedUpdate()
+    {
+        if (inGame)
+        {
+            checkPlayerState();
+            checkPlayerCollision();
+            checkPlayerLocation();
+        }
+    }
     public void Start()
     {
         if ((player = GameObject.Find("MainCharacter")) != null)
@@ -38,15 +47,6 @@ public class GameManager : Singleton<GameManager>
         }
         else
             inGame = false;
-    }
-    private void FixedUpdate()
-    {
-        if (inGame)
-        {
-            checkPlayerState();
-            checkPlayerCollision();
-            checkPlayerLocation();
-        }
     }
 
 
@@ -102,15 +102,6 @@ public class GameManager : Singleton<GameManager>
                 enterRegion(player, doorController.teleportLocation, data, enterRegionDelay);
             }
         }
-    }
-    private bool checkGameState()
-    {
-        if (SceneManager.GetActiveScene().name != "Menu_Scene")
-            inGame = false;
-        else
-            inGame = true;
-
-        return inGame;
     }
     private void checkPlayerState()
     {
