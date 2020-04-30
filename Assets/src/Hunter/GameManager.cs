@@ -22,6 +22,8 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public float sweepTestDistance;
     //The delay for any call to close a door
     [HideInInspector] public int closeDoorDelay;
+    //The rate that enemy drops will spawn upon killing an enemy
+    [HideInInspector] [Range(0, 100)] public int enemyDropRate;
     //The delay for any call to enter a region
     [HideInInspector] public int enterRegionDelay;
     //The delay for any call to finish the game
@@ -232,14 +234,13 @@ public class GameManager : Singleton<GameManager>
     public GameObject spawnEnemyDrop(Vector3 position, int delay)
     {
         Random.InitState(System.DateTime.Now.Millisecond);
-        GameObject[] prefabs = (PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops")).ToArray();
-        int random = Random.Range(0, (prefabs.Length * 2));
-        Debug.Log(random);
+        int dropRate = Random.Range(1, 100);
+        Debug.Log(dropRate);
 
-        if (random < prefabs.Length)
+        if (dropRate < enemyDropRate)
         {
-            GameObject enemyDrop = prefabs[random];
-            GameObject spawnedEnemyDrop = spawnEntity(enemyDrop, position, Quaternion.identity, delay);
+            GameObject[] prefabs = (PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops")).ToArray();
+            GameObject spawnedEnemyDrop = spawnEntity(prefabs[Random.Range(0, prefabs.Length)], position, Quaternion.identity, delay);
             return spawnedEnemyDrop;
         }
         

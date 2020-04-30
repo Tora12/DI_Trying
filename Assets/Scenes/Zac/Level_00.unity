@@ -9177,6 +9177,11 @@ PrefabInstance:
       propertyPath: inGame
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: enemyDropRate
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
 --- !u!1001 &5414096814005413698

@@ -8,6 +8,8 @@ public class EventManager : MonoBehaviour
     public float sweepTestDistance;
     [Tooltip("The delay for any call to close a door.")]
     public int closeDoorDelay;
+    [Tooltip("The rate that enemy drops will spawn upon killing an enemy")]
+    [Range(0, 100)] public int enemyDropRate;
     [Tooltip("The delay for any call to enter a region.")]
     public int enterRegionDelay;
     [Tooltip("The delay for any call to finish the game.")]
@@ -24,6 +26,7 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.checkpointDistance = checkpointDistance;
+        GameManager.Instance.enemyDropRate = enemyDropRate;
         GameManager.Instance.sweepTestDistance = sweepTestDistance;
         GameManager.Instance.closeDoorDelay = closeDoorDelay;
         GameManager.Instance.enterRegionDelay = enterRegionDelay;
