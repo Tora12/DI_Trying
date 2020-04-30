@@ -231,12 +231,14 @@ public class GameManager : Singleton<GameManager>
     /// <returns>The spawned copy of the random enemy drop.</returns>
     public GameObject spawnEnemyDrop(Vector3 position, int delay)
     {
-        Object[] prefabs = AssetDatabase.LoadAllAssetsAtPath("Assets/Prefabs/Hunter/EnemyDrops");
+        Random.InitState(System.DateTime.Now.Millisecond);
+        GameObject[] prefabs = (PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops")).ToArray();
         int random = Random.Range(0, (prefabs.Length * 2));
+        Debug.Log(random);
 
         if (random < prefabs.Length)
         {
-            GameObject enemyDrop = (GameObject)prefabs[random];
+            GameObject enemyDrop = prefabs[random];
             GameObject spawnedEnemyDrop = spawnEntity(enemyDrop, position, Quaternion.identity, delay);
             return spawnedEnemyDrop;
         }
