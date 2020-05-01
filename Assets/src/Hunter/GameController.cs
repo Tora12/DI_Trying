@@ -3,6 +3,45 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public class GameController : MonoBehaviour
+{
+    [Tooltip("The maximum distance the player can be from a checkpoint and still count it as reached.")]
+    public float checkpointDistance;
+    [Tooltip("The maximum distance of the rigidbody sweep test.")]
+    public float sweepTestDistance;
+    [Tooltip("The delay for any call to close a door.")]
+    public int closeDoorDelay;
+    [Tooltip("The rate that enemy drops will spawn upon killing an enemy")]
+    [Range(0, 100)] public int enemyDropRate;
+    [Tooltip("The delay for any call to enter a region.")]
+    public int enterRegionDelay;
+    [Tooltip("The delay for any call to finish the game.")]
+    public int finishGameDelay;
+    [Tooltip("The delay for any call to respawn the player.")]
+    public int respawnPlayerDelay;
+    [Tooltip("The location the player will spawn at the start of the game.")]
+    public Vector3 playerStartLocation;
+    [Tooltip("The location the player must reach to complete the level and finish the game.")]
+    public Vector3 playerFinishLocation;
+    [Tooltip("An array of locations where the player will respawn at upon death if reached.")]
+    public Vector3[] checkpointLocations;
+
+    void Start()
+    {
+        GameManager.Instance.checkpointDistance = checkpointDistance;
+        GameManager.Instance.enemyDropRate = enemyDropRate;
+        GameManager.Instance.sweepTestDistance = sweepTestDistance;
+        GameManager.Instance.closeDoorDelay = closeDoorDelay;
+        GameManager.Instance.enterRegionDelay = enterRegionDelay;
+        GameManager.Instance.finishGameDelay = finishGameDelay;
+        GameManager.Instance.respawnPlayerDelay = respawnPlayerDelay;
+        GameManager.Instance.playerStartLocation = playerStartLocation;
+        GameManager.Instance.playerFinishLocation = playerFinishLocation;
+        GameManager.Instance.checkpointLocations = checkpointLocations;
+        GameManager.Instance.Start();
+    }
+}
+
 public class GameManager : Singleton<GameManager>
 {
     //A boolean that indicates if the user is in the game
@@ -45,7 +84,7 @@ public class GameManager : Singleton<GameManager>
 
 
 
-    protected GameManager() {}
+    protected GameManager() { }
     private void FixedUpdate()
     {
         if (inGame) // checks if the user is in the game
@@ -166,7 +205,7 @@ public class GameManager : Singleton<GameManager>
         if (Vector3.Distance(player.transform.position, playerStartLocation) <= checkpointDistance)
             playerRespawnLocation = playerStartLocation;
 
-        if(checkpointLocations != null && checkpointLocations.Length > 0)
+        if (checkpointLocations != null && checkpointLocations.Length > 0)
             foreach (Vector3 position in checkpointLocations)
                 if (Vector3.Distance(player.transform.position, position) <= checkpointDistance)
                     playerRespawnLocation = position;
@@ -226,7 +265,7 @@ public class GameManager : Singleton<GameManager>
             GameObject spawnedEnemyDrop = spawnEntity(prefabs[Random.Range(0, prefabs.Length)], position, Quaternion.identity, delay);
             return spawnedEnemyDrop;
         }
-        
+
         return null;
     }
 
