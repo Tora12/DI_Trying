@@ -134,7 +134,7 @@ namespace Tests {
               yield break; // returns success
             }
           }
-          GameObject.Instantiate(bullet, Vector3.forward, Quaternion.FromToRotation(Vector3.forward, Vector3.down));
+          GameObject.Instantiate(bullet, Vector3.forward, Quaternion.FromToRotation(Vector3.forward, Vector3.back));
           yield return new WaitForSeconds(spawnTime);
 				}
 

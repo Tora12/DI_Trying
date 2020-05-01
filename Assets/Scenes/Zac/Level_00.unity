@@ -128,6 +128,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1698130374, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
+      propertyPath: maxAmmo
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698130374, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 961772575}
+    - target: {fileID: 1698130374, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4081783694510104200, guid: 550520afb111648a8ae8f86b8450dd67,
+        type: 3}
     - target: {fileID: 961234791580073929, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -202,6 +215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: gameTriggers
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6169425377182209205, guid: c720e47f5e1c8cb488838029d40cc3bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c720e47f5e1c8cb488838029d40cc3bf, type: 3}
@@ -3672,6 +3690,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 71f6b54e2e708df4db10865532ccfe85,
     type: 3}
   m_PrefabInstance: {fileID: 1052594549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &961772575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7466586950220874094, guid: c720e47f5e1c8cb488838029d40cc3bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 886777}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &965759375
 GameObject:
