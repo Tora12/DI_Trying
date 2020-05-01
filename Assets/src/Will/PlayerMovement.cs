@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 {
     
     [SerializeField] float JumpPower = 10f; 
-    [SerializeField] float MoveSpeedMultiplier = 1f;
+    [SerializeField] public float MoveSpeedMultiplier = 1f;
     [SerializeField] float AirSpeed = 6f;
     [SerializeField] public float dashSpeed = 24f;
 	[SerializeField] float dashDistance = 6f;

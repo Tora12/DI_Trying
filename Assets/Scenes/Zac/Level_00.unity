@@ -183,6 +183,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4190315718679096617, guid: c720e47f5e1c8cb488838029d40cc3bf,
+        type: 3}
+      propertyPath: MoveSpeedMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4893799887049348636, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
       propertyPath: m_Name
@@ -9180,7 +9185,7 @@ PrefabInstance:
     - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: enemyDropRate
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}

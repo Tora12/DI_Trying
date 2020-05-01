@@ -1,17 +1,114 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
-public class EnemyDrop : MonoBehaviour
+public abstract class EnemyDrop
 {
-    [SerializeField] private GameObject drop = null;
+    protected GameObject player;
+    public int effectDuration;
+    public float effectStat;
 
-    public int spawnDropDelay;
+    public virtual void enemyDropEffect() { }
+}
 
-    public virtual void spawnDrop(Vector3 position, Quaternion rotation)
+public class EffectDurationDecorator : EnemyDrop
+{
+    public virtual void changeEffectDuration() { }
+    public override void enemyDropEffect() { }
+}
+
+public class IncreaseDuration : EffectDurationDecorator
+{
+    private EnemyDrop enemyDrop;
+    private int durationIncrease;
+
+    public IncreaseDuration(EnemyDrop enemyDrop, int durationIncrease)
     {
-        GameManager.Instance.spawnEntity(drop, position, rotation, spawnDropDelay);
+        this.enemyDrop = enemyDrop;
+        this.durationIncrease = durationIncrease;
+    }
+
+    public override void enemyDropEffect()
+    {
+        changeEffectDuration();
+        enemyDrop.enemyDropEffect();
+    }
+
+    public override void changeEffectDuration()
+    {
+        enemyDrop.effectDuration += durationIncrease;
+    }
+}
+
+public class DecreaseDuration : EffectDurationDecorator
+{
+    private EnemyDrop enemyDrop;
+    private int durationDecrease;
+
+    public DecreaseDuration(EnemyDrop enemyDrop, int durationDecrease)
+    {
+        this.enemyDrop = enemyDrop;
+        this.durationDecrease = durationDecrease;
+    }
+
+    public override void enemyDropEffect()
+    {
+        changeEffectDuration();
+        enemyDrop.enemyDropEffect();
+    }
+
+    public override void changeEffectDuration()
+    {
+        enemyDrop.effectDuration += durationDecrease;
+    }
+}
+
+public class EffectStatDecorator : EnemyDrop
+{
+    public virtual void changeEffectStat() { }
+    public override void enemyDropEffect() { }
+}
+
+public class IncreaseStat : EffectStatDecorator
+{
+    private EnemyDrop enemyDrop;
+    private float statIncrease;
+
+    public IncreaseStat(EnemyDrop enemyDrop, float statIncrease)
+    {
+        this.enemyDrop = enemyDrop;
+        this.statIncrease = statIncrease;
+    }
+
+    public override void enemyDropEffect()
+    {
+        changeEffectStat();
+        enemyDrop.enemyDropEffect();
+    }
+
+    public override void changeEffectStat()
+    {
+        enemyDrop.effectStat += statIncrease;
+    }
+}
+
+public class DecreaseStat : EffectStatDecorator
+{
+    private EnemyDrop enemyDrop;
+    private float statDecrease;
+
+    public DecreaseStat(EnemyDrop enemyDrop, float statDecrease)
+    {
+        this.enemyDrop = enemyDrop;
+        this.statDecrease = statDecrease;
+    }
+
+    public override void enemyDropEffect()
+    {
+        changeEffectStat();
+        enemyDrop.enemyDropEffect();
+    }
+
+    public override void changeEffectStat()
+    {
+        enemyDrop.effectStat += statDecrease;
     }
 }

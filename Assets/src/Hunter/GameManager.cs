@@ -7,10 +7,12 @@ public class GameManager : Singleton<GameManager>
 {
     //A boolean that indicates if the user is in the game
     private bool inGame;
-    //The rag doll that will spawn at the player's location upon death
-    private GameObject doll;
+    //The drone corpse that will spawn at the drone's location upon death
+    private GameObject droneCorpse;
     //The player that the user will control
     private GameObject player;
+    //The player corpse that will spawn at the player's location upon death
+    private GameObject playerCorpse;
     //The object that collides with the player in a sweep test
     private RaycastHit raycastHit;
     //The rigidbody of the player that senses collision
@@ -58,7 +60,8 @@ public class GameManager : Singleton<GameManager>
         if ((player = GameObject.Find("MainCharacter")) != null) // tries to find an object in the hierarchy called MainCharacter, then checks if one was found
         {
             inGame = true; // means that the user is in the game
-            doll = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/PlayerRagdoll.prefab", typeof(GameObject)); // finds the PlayerRagdoll prefab in the directory
+            droneCorpse = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Jenner/robotSphere.prefab", typeof(GameObject));
+            playerCorpse = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/PlayerRagdoll.prefab", typeof(GameObject)); // finds the PlayerRagdoll prefab in the directory
             playerRigidbody = player.GetComponent<Rigidbody>();
             playerRespawnLocation = playerStartLocation;
             startGame(player, playerStartLocation, 0);
@@ -95,18 +98,19 @@ public class GameManager : Singleton<GameManager>
     /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
     /// </summary>
     /// <param name="player">The player that the user controls.</param>
-    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="playerCorpse">The player corpse to spawn upon death.</param>
     /// <param name="position">The position to move the player to.</param>
     /// <param name="delay">The delay before executing this function.</param>
-    private IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject doll, Vector3 position, int delay)
+    private IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject playerCorpse, Vector3 position, int delay)
     {
         player.SetActive(false);
         player.GetComponent<PlayerHealthandDamage>().resetPlayer();
-        //player.transform.scale
-        GameObject spawnedDoll = spawnEntity(doll, player.transform.position, player.transform.rotation, 0);
+        //GameObject spawnedDroneCorpse = spawnEntity(droneCorpse, player.transform.position, player.transform.rotation, 0);
+        GameObject spawnedPlayerCorpse = spawnEntity(playerCorpse, player.transform.position, player.transform.rotation, 0);
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
-        despawnEntity(spawnedDoll, 0);
+        //despawnEntity(spawnedDroneCorpse, 0);
+        despawnEntity(spawnedPlayerCorpse, 0);
         player.SetActive(true);
     }
 
@@ -148,18 +152,13 @@ public class GameManager : Singleton<GameManager>
                 doorController.openDoor(0);
                 enterRegion(player, doorController.teleportLocation, data, enterRegionDelay);
             }
-
-            if (raycastHit.transform.gameObject.CompareTag("Enemy_Drop"))
-            {
-                despawnEntity(raycastHit.transform.gameObject, 0);
-            }
         }
     }
 
     private void checkPlayerState()
     {
         if (player.GetComponent<PlayerHealthandDamage>().dead)
-            respawnPlayer(player, doll, playerRespawnLocation, respawnPlayerDelay);
+            respawnPlayer(player, playerCorpse, playerRespawnLocation, respawnPlayerDelay);
     }
 
     private void checkPlayerLocation()
@@ -201,12 +200,12 @@ public class GameManager : Singleton<GameManager>
     /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
     /// </summary>
     /// <param name="player">The player that the user controls.</param>
-    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="playerCorpse">The player corpse to spawn upon death.</param>
     /// <param name="position">The position to move the player to.</param>
     /// <param name="delay">The delay before executing this function.</param>
-    public void respawnPlayer(GameObject player, GameObject doll, Vector3 position, int delay)
+    public void respawnPlayer(GameObject player, GameObject playerCorpse, Vector3 position, int delay)
     {
-        StartCoroutine(respawnPlayer_Coroutine(player, doll, position, delay));
+        StartCoroutine(respawnPlayer_Coroutine(player, playerCorpse, position, delay));
     }
 
     /// <summary>
@@ -218,12 +217,12 @@ public class GameManager : Singleton<GameManager>
     public GameObject spawnEnemyDrop(Vector3 position, int delay)
     {
         Random.InitState(System.DateTime.Now.Millisecond);
-        int dropRate = Random.Range(1, 100);
-        Debug.Log(dropRate);
+        int percent = Random.Range(1, 100);
 
-        if (dropRate < enemyDropRate)
+        if (percent <= enemyDropRate)
         {
-            GameObject[] prefabs = (PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops")).ToArray();
+            GameObject[] prefabs = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops").ToArray();
+            Random.InitState(System.DateTime.Now.Millisecond);
             GameObject spawnedEnemyDrop = spawnEntity(prefabs[Random.Range(0, prefabs.Length)], position, Quaternion.identity, delay);
             return spawnedEnemyDrop;
         }
@@ -244,6 +243,11 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(spawnEntity_Coroutine(delay));
         GameObject spawnedEntity = Instantiate(entity, position, rotation);
         return spawnedEntity;
+    }
+
+    public void startCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
     }
 
     /// <summary>
