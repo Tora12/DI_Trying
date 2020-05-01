@@ -40,7 +40,7 @@ namespace Tests
             {
                 if(enemyDrops.Length > 0)
                 {
-                    for(int i = 1; i > 0; i++)
+                    for(int i = 0; i < 500; i++)
                     {
                         foreach (GameObject enemyDrop in enemyDrops)
                             GameObject.Instantiate(enemyDrop, Vector3.zero, Quaternion.identity);
