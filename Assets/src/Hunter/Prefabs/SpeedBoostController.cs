@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/* SpeedBoostController.cs should be placed on an asset to create the prefab.
+ * Edit the enemyDropEffect() function of the SpeedBoost class to change how to item works.
+ * Use the decorators found in EnemyDrop.cs to implement variability in the speed boosts you spawn.
+ * Other than that, the GameManager will handle spawning the prefab.
+ */
+using System.Collections;
 using UnityEngine;
 
 public class SpeedBoostController : MonoBehaviour

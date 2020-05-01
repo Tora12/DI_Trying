@@ -9108,6 +9108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
+      propertyPath: checkpointLocations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
       propertyPath: checkpointDistance
       value: 0.5
       objectReference: {fileID: 0}
@@ -9144,7 +9149,7 @@ PrefabInstance:
     - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: playerStartLocation.y
-      value: 0.3
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
@@ -9210,6 +9215,36 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyDropRate
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocations.Array.data[0].x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocations.Array.data[0].y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocations.Array.data[0].z
+      value: 81.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocations.Array.data[1].x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocations.Array.data[1].y
+      value: 11.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
+        type: 3}
+      propertyPath: checkpointLocations.Array.data[1].z
+      value: 142.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f, type: 3}
