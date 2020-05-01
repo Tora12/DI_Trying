@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     [Tooltip("An array of locations where the player will respawn at upon death if reached.")]
     public Vector3[] checkpointLocations;
 
-    void Start()
+    private void Start()
     {
         GameManager.Instance.checkpointDistance = checkpointDistance;
         GameManager.Instance.enemyDropRate = enemyDropRate;

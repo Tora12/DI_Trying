@@ -9,7 +9,7 @@ public abstract class EnemyDrop
     public virtual void enemyDropEffect() { }
 }
 
-public class EffectDurationDecorator : EnemyDrop
+public abstract class EffectDurationDecorator : EnemyDrop
 {
     public virtual void changeEffectDuration() { }
     public override void enemyDropEffect() { }
@@ -61,7 +61,7 @@ public class DecreaseDuration : EffectDurationDecorator
     }
 }
 
-public class EffectStatDecorator : EnemyDrop
+public abstract class EffectStatDecorator : EnemyDrop
 {
     public virtual void changeEffectStat() { }
     public override void enemyDropEffect() { }
