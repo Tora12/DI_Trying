@@ -127,8 +127,9 @@ public class GameManager : Singleton<GameManager>
     /// Exits the game and returns to the main menu.
     /// </summary>
     /// <param name="delay">The delay before executing this function.</param>
-    private IEnumerator finishGame_Coroutine(int delay)
+    private IEnumerator finishGame_Coroutine(GameObject player, int delay)
     {
+        player.SetActive(false);
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("Menu_Scene");
     }
@@ -211,7 +212,7 @@ public class GameManager : Singleton<GameManager>
                     playerRespawnLocation = position;
 
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
-            finishGame(finishGameDelay);
+            finishGame(player, finishGameDelay);
     }
 
 
@@ -230,9 +231,9 @@ public class GameManager : Singleton<GameManager>
     /// Exits the game and returns to the main menu.
     /// </summary>
     /// <param name="delay">The delay before executing this function.</param>
-    public void finishGame(int delay)
+    public void finishGame(GameObject player, int delay)
     {
-        StartCoroutine(finishGame_Coroutine(delay));
+        StartCoroutine(finishGame_Coroutine(player, delay));
     }
 
     /// <summary>
