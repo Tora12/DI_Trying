@@ -261,9 +261,9 @@ public class GameManager : Singleton<GameManager>
 
         if (percent <= enemyDropRate)
         {
-            GameObject[] prefabs = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops").ToArray();
+            GameObject[] enemyDrops = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops").ToArray();
             Random.InitState(System.DateTime.Now.Millisecond);
-            GameObject spawnedEnemyDrop = spawnEntity(prefabs[Random.Range(0, prefabs.Length)], position, Quaternion.identity, delay);
+            GameObject spawnedEnemyDrop = spawnEntity(enemyDrops[Random.Range(0, enemyDrops.Length)], position, Quaternion.identity, delay);
             return spawnedEnemyDrop;
         }
 
