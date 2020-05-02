@@ -18,6 +18,7 @@ TagManager:
   - Area_Door
   - Region_Door
   - Enemy_Drop
+  - Ability_Unlock
   layers:
   - Default
   - TransparentFX
