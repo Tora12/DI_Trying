@@ -22,10 +22,6 @@ public class SpeedBoostController : MonoBehaviour
         GameManager.Instance.despawnEntity(gameObject, speedBoostLifetime);
         player = GameObject.Find("MainCharacter");
         speedBoost = new SpeedBoost(player, speedBoostDuration, speedBoostStat);
-        //speedBoost = new IncreaseDuration(speedBoost, 10);
-        //speedBoost = new DecreaseDuration(speedBoost, 5);
-        //speedBoost = new IncreaseStat(speedBoost, 10.0f);
-        //speedBoost = new DecreaseStat(speedBoost, 5.0f);
     }
 
     private void OnCollisionEnter(Collision collision)

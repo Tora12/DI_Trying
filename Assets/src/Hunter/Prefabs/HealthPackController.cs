@@ -20,8 +20,6 @@ public class HealthPackController : MonoBehaviour
         GameManager.Instance.despawnEntity(gameObject, healthPackLifetime);
         player = GameObject.Find("MainCharacter");
         healthPack = new HealthPack(player, healthPackStat);
-        //healthPack = new IncreaseStat(healthPack, 10.0f);
-        //healthPack = new DecreaseStat(healthPack, 5.0f);
     }
 
     private void OnCollisionEnter(Collision collision)
