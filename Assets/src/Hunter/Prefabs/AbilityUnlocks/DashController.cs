@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DashController : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collider.gameObject.GetComponent<PlayerMovement>().UnlockMovementAbillity("Dash");
+            collision.gameObject.GetComponent<PlayerMovement>().UnlockMovementAbillity("Dash");
+            GameManager.Instance.despawnEntity(gameObject, 0);
         }
     }
 }

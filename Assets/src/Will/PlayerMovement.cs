@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     bool canDoubleJump=true;
 	bool airJump=true;
 	
-    bool canDash=true;
+    bool canDash=false;
     bool dashing=false;
 	float lastDashTime=0;
 	bool airDash=false;

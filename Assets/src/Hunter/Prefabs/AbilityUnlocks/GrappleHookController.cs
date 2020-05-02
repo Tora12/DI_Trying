@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GrappleHookController : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collider.gameObject.GetComponent<PlayerMovement>().UnlockMovementAbillity("GrappleHook");
+            collision.gameObject.GetComponent<PlayerMovement>().UnlockMovementAbillity("GrappleHook");
+            GameManager.Instance.despawnEntity(gameObject, 0);
         }
     }
 }
