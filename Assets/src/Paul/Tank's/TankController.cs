@@ -110,6 +110,7 @@ public class TankController : MonoBehaviour
                 movement.Dead2();
 
             Destroy(gameObject, enemyDespawnTime);
+            GameManager.Instance.spawnEnemyDrop(eye.transform.position, enemyDespawnTime);
         }
 
         //Handles the shooting

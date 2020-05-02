@@ -3,14 +3,55 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public class GameController : MonoBehaviour
+{
+    [Tooltip("The maximum distance the player can be from a checkpoint and still count it as reached.")]
+    public float checkpointDistance;
+    [Tooltip("The maximum distance of the rigidbody sweep test.")]
+    public float sweepTestDistance;
+    [Tooltip("The delay for any call to close a door.")]
+    public int closeDoorDelay;
+    [Tooltip("The rate that enemy drops will spawn upon killing an enemy")]
+    [Range(0, 100)] public int enemyDropRate;
+    [Tooltip("The delay for any call to enter a region.")]
+    public int enterRegionDelay;
+    [Tooltip("The delay for any call to finish the game.")]
+    public int finishGameDelay;
+    [Tooltip("The delay for any call to respawn the player.")]
+    public int respawnPlayerDelay;
+    [Tooltip("The location the player will spawn at the start of the game.")]
+    public Vector3 playerStartLocation;
+    [Tooltip("The location the player must reach to complete the level and finish the game.")]
+    public Vector3 playerFinishLocation;
+    [Tooltip("An array of locations where the player will respawn at upon death if reached.")]
+    public Vector3[] checkpointLocations;
+
+    private void Start()
+    {
+        GameManager.Instance.checkpointDistance = checkpointDistance;
+        GameManager.Instance.enemyDropRate = enemyDropRate;
+        GameManager.Instance.sweepTestDistance = sweepTestDistance;
+        GameManager.Instance.closeDoorDelay = closeDoorDelay;
+        GameManager.Instance.enterRegionDelay = enterRegionDelay;
+        GameManager.Instance.finishGameDelay = finishGameDelay;
+        GameManager.Instance.respawnPlayerDelay = respawnPlayerDelay;
+        GameManager.Instance.playerStartLocation = playerStartLocation;
+        GameManager.Instance.playerFinishLocation = playerFinishLocation;
+        GameManager.Instance.checkpointLocations = checkpointLocations;
+        GameManager.Instance.Start();
+    }
+}
+
 public class GameManager : Singleton<GameManager>
 {
     //A boolean that indicates if the user is in the game
     private bool inGame;
-    //The rag doll that will spawn at the player's location upon death
-    private GameObject doll;
+    //The drone corpse that will spawn at the drone's location upon death
+    private GameObject droneCorpse;
     //The player that the user will control
     private GameObject player;
+    //The player corpse that will spawn at the player's location upon death
+    private GameObject playerCorpse;
     //The object that collides with the player in a sweep test
     private RaycastHit raycastHit;
     //The rigidbody of the player that senses collision
@@ -22,6 +63,8 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public float sweepTestDistance;
     //The delay for any call to close a door
     [HideInInspector] public int closeDoorDelay;
+    //The rate that enemy drops will spawn upon killing an enemy
+    [HideInInspector] [Range(0, 100)] public int enemyDropRate;
     //The delay for any call to enter a region
     [HideInInspector] public int enterRegionDelay;
     //The delay for any call to finish the game
@@ -41,7 +84,7 @@ public class GameManager : Singleton<GameManager>
 
 
 
-    protected GameManager() {}
+    protected GameManager() { }
     private void FixedUpdate()
     {
         if (inGame) // checks if the user is in the game
@@ -56,7 +99,8 @@ public class GameManager : Singleton<GameManager>
         if ((player = GameObject.Find("MainCharacter")) != null) // tries to find an object in the hierarchy called MainCharacter, then checks if one was found
         {
             inGame = true; // means that the user is in the game
-            doll = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/PlayerRagdoll.prefab", typeof(GameObject)); // finds the PlayerRagdoll prefab in the directory
+            droneCorpse = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Jenner/robotSphere.prefab", typeof(GameObject));
+            playerCorpse = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/PlayerRagdoll.prefab", typeof(GameObject)); // finds the PlayerRagdoll prefab in the directory
             playerRigidbody = player.GetComponent<Rigidbody>();
             playerRespawnLocation = playerStartLocation;
             startGame(player, playerStartLocation, 0);
@@ -83,8 +127,9 @@ public class GameManager : Singleton<GameManager>
     /// Exits the game and returns to the main menu.
     /// </summary>
     /// <param name="delay">The delay before executing this function.</param>
-    private IEnumerator finishGame_Coroutine(int delay)
+    private IEnumerator finishGame_Coroutine(GameObject player, int delay)
     {
+        player.SetActive(false);
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("Menu_Scene");
     }
@@ -93,29 +138,20 @@ public class GameManager : Singleton<GameManager>
     /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
     /// </summary>
     /// <param name="player">The player that the user controls.</param>
-    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="playerCorpse">The player corpse to spawn upon death.</param>
     /// <param name="position">The position to move the player to.</param>
     /// <param name="delay">The delay before executing this function.</param>
-    private IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject doll, Vector3 position, int delay)
+    private IEnumerator respawnPlayer_Coroutine(GameObject player, GameObject playerCorpse, Vector3 position, int delay)
     {
         player.SetActive(false);
-        player.GetComponent<PlayerController>().Reset();
-        GameObject spawnedDoll = spawnEntity(doll, player.transform.position, player.transform.rotation, 0);
+        player.GetComponent<PlayerHealthandDamage>().resetPlayer();
+        //GameObject spawnedDroneCorpse = spawnEntity(droneCorpse, player.transform.position, player.transform.rotation, 0);
+        GameObject spawnedPlayerCorpse = spawnEntity(playerCorpse, player.transform.position, player.transform.rotation, 0);
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
-        despawnEntity(spawnedDoll, 0);
+        //despawnEntity(spawnedDroneCorpse, 0);
+        despawnEntity(spawnedPlayerCorpse, 0);
         player.SetActive(true);
-    }
-
-    /// <summary>
-    /// Spawns a copy of the given enemy drop at the specified position after the given delay.
-    /// </summary>
-    /// <param name="enemyDrop">The enemy drop to spawn.</param>
-    /// <param name="position">The position to spawn the enemy drop at.</param>
-    /// <param name="delay">The delay before executing this function.</param>
-    private IEnumerator spawnEnemyDrop_Coroutine(GameObject enemyDrop, Vector3 position, int delay)
-    {
-        yield return new WaitForSeconds(delay);
     }
 
     /// <summary>
@@ -156,25 +192,13 @@ public class GameManager : Singleton<GameManager>
                 doorController.openDoor(0);
                 enterRegion(player, doorController.teleportLocation, data, enterRegionDelay);
             }
-
-            if (raycastHit.transform.gameObject.CompareTag("Enemy_Drop"))
-            {
-                despawnEntity(raycastHit.transform.gameObject, 0);
-            }
-
-            /*
-            if (raycastHit.transform.gameObject.CompareTag("AudioStuffz"))
-            {
-                SoundManager.Instance.playSound();
-            }
-            */
         }
     }
 
     private void checkPlayerState()
     {
-        if (player.GetComponent<PlayerController>().isDead)
-            respawnPlayer(player, doll, playerRespawnLocation, respawnPlayerDelay);
+        if (player.GetComponent<PlayerHealthandDamage>().dead)
+            respawnPlayer(player, playerCorpse, playerRespawnLocation, respawnPlayerDelay);
     }
 
     private void checkPlayerLocation()
@@ -182,12 +206,13 @@ public class GameManager : Singleton<GameManager>
         if (Vector3.Distance(player.transform.position, playerStartLocation) <= checkpointDistance)
             playerRespawnLocation = playerStartLocation;
 
-        foreach (Vector3 vector3 in checkpointLocations)
-            if (Vector3.Distance(player.transform.position, vector3) <= checkpointDistance)
-                playerRespawnLocation = vector3;
+        if (checkpointLocations != null && checkpointLocations.Length > 0)
+            foreach (Vector3 position in checkpointLocations)
+                if (Vector3.Distance(player.transform.position, position) <= checkpointDistance)
+                    playerRespawnLocation = position;
 
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
-            finishGame(finishGameDelay);
+            finishGame(player, finishGameDelay);
     }
 
 
@@ -206,21 +231,21 @@ public class GameManager : Singleton<GameManager>
     /// Exits the game and returns to the main menu.
     /// </summary>
     /// <param name="delay">The delay before executing this function.</param>
-    public void finishGame(int delay)
+    public void finishGame(GameObject player, int delay)
     {
-        StartCoroutine(finishGame_Coroutine(delay));
+        StartCoroutine(finishGame_Coroutine(player, delay));
     }
 
     /// <summary>
     /// Deactivates the player and spawns a rag doll at the player's position, then after the given delay moves the player to the specified position.
     /// </summary>
     /// <param name="player">The player that the user controls.</param>
-    /// <param name="doll">The rag doll to spawn upon death.</param>
+    /// <param name="playerCorpse">The player corpse to spawn upon death.</param>
     /// <param name="position">The position to move the player to.</param>
     /// <param name="delay">The delay before executing this function.</param>
-    public void respawnPlayer(GameObject player, GameObject doll, Vector3 position, int delay)
+    public void respawnPlayer(GameObject player, GameObject playerCorpse, Vector3 position, int delay)
     {
-        StartCoroutine(respawnPlayer_Coroutine(player, doll, position, delay));
+        StartCoroutine(respawnPlayer_Coroutine(player, playerCorpse, position, delay));
     }
 
     /// <summary>
@@ -228,19 +253,20 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     /// <param name="position">The position to spawn the enemy drop at.</param>
     /// <param name="delay">The delay before executing this function.</param>
-    /// <returns>The spawned copy of the random enemy drop.</returns>
+    /// <returns>The spawned copy of the random enemy drop or null if no enemy drop was spawned.</returns>
     public GameObject spawnEnemyDrop(Vector3 position, int delay)
     {
-        Object[] prefabs = AssetDatabase.LoadAllAssetsAtPath("Assets/Prefabs/Hunter/EnemyDrops");
-        int random = Random.Range(0, (prefabs.Length * 2));
+        Random.InitState(System.DateTime.Now.Millisecond);
+        int percent = Random.Range(1, 100);
 
-        if (random < prefabs.Length)
+        if (percent <= enemyDropRate)
         {
-            GameObject enemyDrop = (GameObject)prefabs[random];
-            GameObject spawnedEnemyDrop = spawnEntity(enemyDrop, position, Quaternion.identity, delay);
+            GameObject[] enemyDrops = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops").ToArray();
+            Random.InitState(System.DateTime.Now.Millisecond);
+            GameObject spawnedEnemyDrop = spawnEntity(enemyDrops[Random.Range(0, enemyDrops.Length)], position, Quaternion.identity, delay);
             return spawnedEnemyDrop;
         }
-        
+
         return null;
     }
 
@@ -257,6 +283,11 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(spawnEntity_Coroutine(delay));
         GameObject spawnedEntity = Instantiate(entity, position, rotation);
         return spawnedEntity;
+    }
+
+    public void startCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
     }
 
     /// <summary>

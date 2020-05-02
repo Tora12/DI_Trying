@@ -1,5 +1,7 @@
-﻿/* Singleton Pattern Code found at:
+﻿/* Singleton.cs code found at:
  * http://wiki.unity3d.com/index.php?title=Singleton&oldid=20231
+ * Licensed under Creative Commons Attribution Share Alike:
+ * https://creativecommons.org/licenses/by-sa/3.0/
  */
 using UnityEngine;
 

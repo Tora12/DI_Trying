@@ -116,6 +116,9 @@ public class AutoCannonController : MonoBehaviour
             
             //Removes the enemy after the time has elepased.
             Destroy(gameObject, enemyDespawnTime);
+
+            //Spawns Enemy Drops
+            GameManager.Instance.spawnEnemyDrop(eye.transform.position, enemyDespawnTime);
         }
         
         //Handles the shooting

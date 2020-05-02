@@ -1,27 +1,62 @@
-﻿using System.Collections;
+﻿using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.TestRunner;
 using UnityEngine.TestTools;
 
 namespace Tests
 {
     public class TestScriptHunter
     {
-        // A Test behaves as an ordinary method
-        [Test]
-        public void TestScriptHunterSimplePasses()
+        [SetUp]
+        public void Setup()
         {
-            // Use the Assert class to test conditions
+            SceneManager.LoadScene("Level_00", LoadSceneMode.Single);
         }
-
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator TestScriptHunterWithEnumeratorPasses()
+        [TearDown]
+        public void Teardown()
         {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
+
+        }
+        [UnityTest]
+        public IEnumerator EnemyDropSpawnBoundaryTest()
+        {
+            yield return null;
+        }
+        [UnityTest]
+        public IEnumerator boundTwo()
+        {
+            yield return null;
+        }
+        [UnityTest]
+        public IEnumerator EnemyDropSpawnStressTest()
+        {
+            GameObject[] enemyDrops = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops").ToArray();
+
+            if(enemyDrops != null)
+            {
+                if(enemyDrops.Length > 0)
+                {
+                    for(int i = 0; i < 500; i++)
+                    {
+                        foreach (GameObject enemyDrop in enemyDrops)
+                            GameObject.Instantiate(enemyDrop, Vector3.zero, Quaternion.identity);
+                    }
+
+                    Debug.Log("Test passed.");
+                    yield break;
+                }
+                else
+                    Debug.Log("Couldn't find any enemy drop prefabs.");
+            }
+            else
+                Debug.Log("Couldn't load enemy drop prefabs.");
+
+            Debug.Log("Test failed.");
+            Assert.Fail();
             yield return null;
         }
     }

@@ -110,6 +110,7 @@ public class TowerController : MonoBehaviour
             //Prevents the Animation from constantly replaying.
             isDead = true;
             Destroy(gameObject, enemyDespawnTime);
+            GameManager.Instance.spawnEnemyDrop(eye.transform.position, enemyDespawnTime);
         }
 
         //Handles the shooting

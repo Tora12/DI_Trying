@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3992019409121453125}
   - component: {fileID: 3992019409121453122}
   - component: {fileID: 3992019409121453123}
+  - component: {fileID: 2724355094819137691}
+  - component: {fileID: 2754125107996309063}
   m_Layer: 0
   m_Name: HealthPack
   m_TagString: Enemy_Drop
@@ -93,3 +95,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2724355094819137691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992019409121453120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c709bc02497524992c0ae6a0649fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPackLifetime: 10
+  healthPackStat: 10
+--- !u!114 &2754125107996309063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992019409121453120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2897e4e212711514c8f4cb807a3e035d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 0.1
+  _speed_x: 0.002
+  _direction: 0

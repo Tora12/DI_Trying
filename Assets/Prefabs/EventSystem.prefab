@@ -142,9 +142,10 @@ MonoBehaviour:
   checkpointDistance: 0
   sweepTestDistance: 0
   closeDoorDelay: 0
+  enemyDropRate: 0
   enterRegionDelay: 0
   finishGameDelay: 0
   respawnPlayerDelay: 0
   playerStartLocation: {x: 0, y: 0, z: 0}
   playerFinishLocation: {x: 0, y: 0, z: 0}
-  checkpointLocation: []
+  checkpointLocations: []
