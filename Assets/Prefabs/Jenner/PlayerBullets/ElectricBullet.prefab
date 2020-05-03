@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4591600064170075811}
   - component: {fileID: 6410227398147994465}
   - component: {fileID: 2036800824480907575}
+  - component: {fileID: 5934847327226227987}
   m_Layer: 0
   m_Name: ElectricBullet
   m_TagString: Bullet
@@ -149,3 +150,17 @@ MonoBehaviour:
   electricBulletSpeedStat: 20
   electricBulletEffectDuration: 0
   electricBulletLifetime: 1
+--- !u!114 &5934847327226227987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430685662790921585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0521f5f7e9f434a668f8d49b3cb73947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 1
+  maxAmmo: 5

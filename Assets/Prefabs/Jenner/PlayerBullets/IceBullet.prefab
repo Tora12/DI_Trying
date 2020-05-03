@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5494497772141843802}
   - component: {fileID: 3102259591965196440}
   - component: {fileID: -7196685553345031475}
+  - component: {fileID: -1942043935185351597}
   m_Layer: 0
   m_Name: IceBullet
   m_TagString: Bullet
@@ -149,3 +150,17 @@ MonoBehaviour:
   iceBulletSpeedStat: 20
   iceBulletEffectDuration: 0
   iceBulletLifetime: 1
+--- !u!114 &-1942043935185351597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081783694510104200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0521f5f7e9f434a668f8d49b3cb73947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.1
+  maxAmmo: 5

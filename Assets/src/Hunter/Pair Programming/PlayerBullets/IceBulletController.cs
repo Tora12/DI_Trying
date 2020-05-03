@@ -5,19 +5,18 @@ using UnityEngine;
 public class IceBulletController : MonoBehaviour
 {
     private PlayerBullet iceBullet;
-    
+
     public float iceBulletDamageStat;
     public float iceBulletEffectStat;
     public float iceBulletSpeedStat;
     public int iceBulletEffectDuration;
-    public int iceBulletFireDelay;
     public int iceBulletLifetime;
-    public int iceBulletMaxAmmo;
+
 
     private void Start()
     {
         GameManager.Instance.despawnEntity(gameObject, iceBulletLifetime);
-        iceBullet = new IceBullet(GetComponent<Rigidbody>(), iceBulletDamageStat, iceBulletEffectStat, iceBulletSpeedStat, iceBulletEffectDuration, iceBulletFireDelay, iceBulletMaxAmmo);
+        iceBullet = new IceBullet(GetComponent<Rigidbody>(), iceBulletDamageStat, iceBulletEffectStat, iceBulletSpeedStat, iceBulletEffectDuration);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -32,14 +31,12 @@ public class IceBulletController : MonoBehaviour
 
 public class IceBullet : PlayerBullet
 {
-    public IceBullet(Rigidbody bulletRigidbody, float damageStat, float effectStat, float speedStat, int effectDuration, int fireDelay, int maxAmmo)
+    public IceBullet(Rigidbody bulletRigidbody, float damageStat, float effectStat, float speedStat, int effectDuration)
     {
         this.damageStat = damageStat;
         this.effectStat = effectStat;
         this.speedStat = speedStat;
         this.effectDuration = effectDuration;
-        this.fireDelay = fireDelay;
-        this.maxAmmo = maxAmmo;
         bulletRigidbody.velocity = Drone.Instance.bulletDirection * speedStat;
     }
 

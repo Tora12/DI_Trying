@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8695702008313044895}
   - component: {fileID: 2296913681435626077}
   - component: {fileID: -6942355428789549737}
+  - component: {fileID: -5607532651731563892}
   m_Layer: 0
   m_Name: FireBullet
   m_TagString: Bullet
@@ -149,3 +150,17 @@ MonoBehaviour:
   fireBulletSpeedStat: 20
   fireBulletEffectDuration: 0
   fireBulletLifetime: 1
+--- !u!114 &-5607532651731563892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885061641079051341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0521f5f7e9f434a668f8d49b3cb73947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.25
+  maxAmmo: 5

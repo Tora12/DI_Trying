@@ -13,12 +13,14 @@ public class DroneController : MonoBehaviour
         Drone.Instance.reloadTime = reloadTime;
         Drone.Instance.drone = gameObject;
         Drone.Instance.maxAmmo = maxAmmo;
+        Drone.Instance.Start();
     }
 }
 
 public class Drone : Singleton<Drone>
 {
     private bool isReloading;
+    private bool isShooting;
     private float bulletDistance;
     private float bulletRotation;
     private GameObject bullet;
@@ -49,8 +51,11 @@ public class Drone : Singleton<Drone>
                 }
 
                 if (Input.GetButtonDown("Fire1"))
+                {
+                  if(!isShooting) {
                     shoot();
-
+                  }
+                }
                 if (Input.GetButtonDown("Fire2"))
                     changeAmmo();
             }
@@ -59,6 +64,7 @@ public class Drone : Singleton<Drone>
     public void Start()
     {
         isReloading = false;
+        isShooting = false;
         bulletPrefabs = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Jenner/PlayerBullets").ToArray();
         bullet = bulletPrefabs[0];
         currentAmmo = maxAmmo;
@@ -75,15 +81,18 @@ public class Drone : Singleton<Drone>
 
     private IEnumerator shoot_Coroutine()
     {
+        isShooting = true;
         droneTarget = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.x));
         droneTarget = new Vector3(GameManager.Instance.player.transform.position.x, droneTarget.y, droneTarget.z);
         bulletDifference = droneTarget - drone.transform.position;
         bulletRotation = Mathf.Atan2(bulletDifference.y, bulletDifference.z) * -Mathf.Rad2Deg;
         bulletDistance = bulletDifference.magnitude;
         bulletDirection = bulletDifference / bulletDistance;
-        GameManager.Instance.spawnEntity(bullet, drone.transform.position, Quaternion.Euler(bulletRotation, 0f, 0f), 0);
+        spawnedBullet = GameManager.Instance.spawnEntity(bullet, drone.transform.position, Quaternion.Euler(bulletRotation, 0f, 0f), 0);
+        yield return new WaitForSeconds(spawnedBullet.GetComponent<BulletController>().fireRate);
         currentAmmo--;
-        yield return new WaitForSeconds(0);
+        isShooting = false;
+
     }
 
     private void changeAmmo()
@@ -107,5 +116,5 @@ public class Drone : Singleton<Drone>
     {
         StartCoroutine(shoot_Coroutine());
     }
-    
+
 }
