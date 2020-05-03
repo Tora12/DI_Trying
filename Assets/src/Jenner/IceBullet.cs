@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceBullet : MonoBehaviour {
+public class IceBulletOld : MonoBehaviour {
 
   private BulletElement iceBuff;
   private Rigidbody rigidBody; // Rigidbody for Bullet.prefab

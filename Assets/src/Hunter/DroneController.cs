@@ -23,6 +23,7 @@ public class Drone : Singleton<Drone>
     private float bulletRotation;
     private GameObject bullet;
     private GameObject[] bulletPrefabs;
+    private GameObject spawnedBullet;
     private int currentAmmo;
     private int currentBullet;
     private Vector3 droneTarget;
@@ -72,6 +73,19 @@ public class Drone : Singleton<Drone>
         isReloading = false;
     }
 
+    private IEnumerator shoot_Coroutine()
+    {
+        droneTarget = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.x));
+        droneTarget = new Vector3(GameManager.Instance.player.transform.position.x, droneTarget.y, droneTarget.z);
+        bulletDifference = droneTarget - drone.transform.position;
+        bulletRotation = Mathf.Atan2(bulletDifference.y, bulletDifference.z) * -Mathf.Rad2Deg;
+        bulletDistance = bulletDifference.magnitude;
+        bulletDirection = bulletDifference / bulletDistance;
+        GameManager.Instance.spawnEntity(bullet, drone.transform.position, Quaternion.Euler(bulletRotation, 0f, 0f), 0);
+        currentAmmo--;
+        yield return new WaitForSeconds(0);
+    }
+
     private void changeAmmo()
     {
         if (currentBullet < bulletPrefabs.Length - 1)
@@ -91,13 +105,7 @@ public class Drone : Singleton<Drone>
 
     public void shoot()
     {
-        droneTarget = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.x));
-        droneTarget = new Vector3(GameManager.Instance.player.transform.position.x, droneTarget.y, droneTarget.z);
-        bulletDifference = droneTarget - drone.transform.position;
-        bulletRotation = Mathf.Atan2(bulletDifference.y, bulletDifference.z) * -Mathf.Rad2Deg;
-        bulletDistance = bulletDifference.magnitude;
-        bulletDirection = bulletDifference / bulletDistance;
-        GameManager.Instance.spawnEntity(bullet, drone.transform.position, Quaternion.Euler(bulletRotation, 0f, 0f), 0);
-        currentAmmo--;
+        StartCoroutine(shoot_Coroutine());
     }
+    
 }

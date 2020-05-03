@@ -8,6 +8,8 @@ public abstract class PlayerBullet
     public float effectStat;
     public float speedStat;
     public int effectDuration;
+    public int fireDelay;
+    public int maxAmmo;
 
     public abstract void playerBulletEffect(GameObject enemy);
 }
