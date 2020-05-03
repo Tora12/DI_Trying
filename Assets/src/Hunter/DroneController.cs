@@ -35,26 +35,29 @@ public class Drone : Singleton<Drone>
 
     private void Update()
     {
-        if (!isReloading)
+        if(GameManager.Instance.inGame)
         {
-            if(currentAmmo <= 0)
+            if (!isReloading)
             {
-                StartCoroutine(reload());
-                return;
-            }
+                if (currentAmmo <= 0)
+                {
+                    reload();
+                    return;
+                }
 
-            if (Input.GetButtonDown("Fire1"))
-                shoot();
+                if (Input.GetButtonDown("Fire1"))
+                    shoot();
+            }
         }
     }
     public void Start()
     {
         isReloading = false;
-        bullet = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Jenner/Bullet.prefab", typeof(GameObject));
+        bullet = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Jenner/IceBullet.prefab", typeof(GameObject));
         currentAmmo = maxAmmo;
     }
 
-    private IEnumerator reload()
+    private IEnumerator reload_Coroutine()
     {
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
@@ -72,5 +75,12 @@ public class Drone : Singleton<Drone>
         bulletDirection = bulletDifference / bulletDistance;
         GameManager.Instance.spawnEntity(bullet, drone.transform.position, Quaternion.Euler(bulletRotation, 0f, 0f), 0);
         currentAmmo--;
+    }
+
+
+
+    public void reload()
+    {
+        StartCoroutine(reload_Coroutine());
     }
 }

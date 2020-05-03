@@ -3,24 +3,31 @@
 public abstract class EnemyDrop
 {
     protected GameObject player;
-    public int effectDuration;
+
     public float effectStat;
+    public int effectDuration;
 
     public virtual void enemyDropEffect() { }
 }
 
-public abstract class EffectDurationDecorator : EnemyDrop
+public abstract class EnemyDropEffectDurationDecorator : EnemyDrop
 {
     public virtual void changeEffectDuration() { }
     public override void enemyDropEffect() { }
 }
 
-public class IncreaseDuration : EffectDurationDecorator
+public abstract class EnemyDropEffectStatDecorator : EnemyDrop
+{
+    public virtual void changeEffectStat() { }
+    public override void enemyDropEffect() { }
+}
+
+public class EnemyDropIncreaseDuration : EnemyDropEffectDurationDecorator
 {
     private EnemyDrop enemyDrop;
     private int durationIncrease;
 
-    public IncreaseDuration(EnemyDrop enemyDrop, int durationIncrease)
+    public EnemyDropIncreaseDuration(EnemyDrop enemyDrop, int durationIncrease)
     {
         this.enemyDrop = enemyDrop;
         this.durationIncrease = durationIncrease;
@@ -38,12 +45,12 @@ public class IncreaseDuration : EffectDurationDecorator
     }
 }
 
-public class DecreaseDuration : EffectDurationDecorator
+public class EnemyDropDecreaseDuration : EnemyDropEffectDurationDecorator
 {
     private EnemyDrop enemyDrop;
     private int durationDecrease;
 
-    public DecreaseDuration(EnemyDrop enemyDrop, int durationDecrease)
+    public EnemyDropDecreaseDuration(EnemyDrop enemyDrop, int durationDecrease)
     {
         this.enemyDrop = enemyDrop;
         this.durationDecrease = durationDecrease;
@@ -61,18 +68,12 @@ public class DecreaseDuration : EffectDurationDecorator
     }
 }
 
-public abstract class EffectStatDecorator : EnemyDrop
-{
-    public virtual void changeEffectStat() { }
-    public override void enemyDropEffect() { }
-}
-
-public class IncreaseStat : EffectStatDecorator
+public class EnemyDropIncreaseStat : EnemyDropEffectStatDecorator
 {
     private EnemyDrop enemyDrop;
     private float statIncrease;
 
-    public IncreaseStat(EnemyDrop enemyDrop, float statIncrease)
+    public EnemyDropIncreaseStat(EnemyDrop enemyDrop, float statIncrease)
     {
         this.enemyDrop = enemyDrop;
         this.statIncrease = statIncrease;
@@ -90,12 +91,12 @@ public class IncreaseStat : EffectStatDecorator
     }
 }
 
-public class DecreaseStat : EffectStatDecorator
+public class EnemyDropDecreaseStat : EnemyDropEffectStatDecorator
 {
     private EnemyDrop enemyDrop;
     private float statDecrease;
 
-    public DecreaseStat(EnemyDrop enemyDrop, float statDecrease)
+    public EnemyDropDecreaseStat(EnemyDrop enemyDrop, float statDecrease)
     {
         this.enemyDrop = enemyDrop;
         this.statDecrease = statDecrease;

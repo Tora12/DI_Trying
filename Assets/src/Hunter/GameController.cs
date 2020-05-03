@@ -44,8 +44,6 @@ public class GameController : MonoBehaviour
 
 public class GameManager : Singleton<GameManager>
 {
-    //A boolean that indicates if the user is in the game
-    private bool inGame;
     //The drone corpse that will spawn at the drone's location upon death
     private GameObject droneCorpse;
     //The player corpse that will spawn at the player's location upon death
@@ -55,6 +53,8 @@ public class GameManager : Singleton<GameManager>
     //The rigidbody of the player that senses collision
     private Rigidbody playerRigidbody;
 
+    //A boolean that indicates if the user is in the game
+    [HideInInspector] public bool inGame;
     //The maximum distance the player can be from a checkpoint and still count it as reached
     [HideInInspector] public float checkpointDistance;
     //The maximum distance of the rigidbody sweep test
@@ -85,7 +85,7 @@ public class GameManager : Singleton<GameManager>
 
 
     protected GameManager() { }
-    private void FixedUpdate()
+    private void Update()
     {
         if (inGame) // checks if the user is in the game
         {
