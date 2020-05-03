@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8930891206045146469}
   - component: {fileID: 5494497772141843802}
   - component: {fileID: 3102259591965196440}
-  - component: {fileID: 4200933097038266077}
+  - component: {fileID: 6568946460528792186}
   m_Layer: 0
-  m_Name: IceBullet
+  m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ CapsuleCollider:
   m_Height: 1.1
   m_Direction: 2
   m_Center: {x: 0, y: 1, z: 0.5}
---- !u!114 &4200933097038266077
+--- !u!114 &6568946460528792186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,11 +141,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4081783694510104200}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beefa0be321232840a0263caed49c90b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f50a15540f15441a90c5476beae26b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceBulletDamageStat: 20
-  iceBulletEffectStat: 0
-  iceBulletSpeedStat: 20
-  iceBulletEffectDuration: 0
-  iceBulletLifetime: 1
+  iceBuffEffect: 0
+  iceBuffDuration: 0
+  damage: 20
+  speed: 20
+  levelUp: 10
