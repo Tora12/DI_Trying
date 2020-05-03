@@ -48,8 +48,6 @@ public class GameManager : Singleton<GameManager>
     private bool inGame;
     //The drone corpse that will spawn at the drone's location upon death
     private GameObject droneCorpse;
-    //The player that the user will control
-    private GameObject player;
     //The player corpse that will spawn at the player's location upon death
     private GameObject playerCorpse;
     //The object that collides with the player in a sweep test
@@ -61,6 +59,8 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public float checkpointDistance;
     //The maximum distance of the rigidbody sweep test
     [HideInInspector] public float sweepTestDistance;
+    //The player that the user will control
+    public GameObject player;
     //The delay for any call to close a door
     [HideInInspector] public int closeDoorDelay;
     //The rate that enemy drops will spawn upon killing an enemy
