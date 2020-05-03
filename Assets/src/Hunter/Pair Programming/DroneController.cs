@@ -12,7 +12,7 @@ public class DroneController : MonoBehaviour
     {
         Drone.Instance.reloadTime = reloadTime;
         Drone.Instance.drone = gameObject;
-        Drone.Instance.maxAmmo = maxAmmo;
+        Drone.Instance.maxAmmo = maxAmmo; // Might want to initialize using BulletController.cs instead
         Drone.Instance.Start();
     }
 }
