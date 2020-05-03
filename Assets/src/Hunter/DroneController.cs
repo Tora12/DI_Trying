@@ -47,6 +47,9 @@ public class Drone : Singleton<Drone>
 
                 if (Input.GetButtonDown("Fire1"))
                     shoot();
+
+                if (Input.GetButtonDown("Fire2"))
+                    shoot();
             }
         }
     }
