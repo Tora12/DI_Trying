@@ -2706,7 +2706,7 @@ MonoBehaviour:
   enterRegionDelay: 3
   finishGameDelay: 3
   respawnPlayerDelay: 3
-  playerStartLocation: {x: 0, y: 0.51, z: -106.95}
+  playerStartLocation: {x: 0, y: 0.5, z: 178}
   playerFinishLocation: {x: 0, y: 0, z: 0}
   checkpointLocations: []
 --- !u!1001 &667364883
@@ -9803,7 +9803,7 @@ PrefabInstance:
     - target: {fileID: 1416570533568593951, guid: df66855d997424b458192cda3f622820,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 172.12
+      value: 172
       objectReference: {fileID: 0}
     - target: {fileID: 1416570533568593951, guid: df66855d997424b458192cda3f622820,
         type: 3}
@@ -9868,7 +9868,7 @@ PrefabInstance:
     - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
         type: 3}
       propertyPath: navPoints.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115667261285392450, guid: df66855d997424b458192cda3f622820,
         type: 3}
@@ -9931,7 +9931,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2228923584496627165}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 5.36
   m_Speed: 3.5
