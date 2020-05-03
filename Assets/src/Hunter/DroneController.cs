@@ -11,6 +11,7 @@ public class DroneController : MonoBehaviour
     private void Start()
     {
         Dron.Instance.reloadTime = reloadTime;
+        Dron.Instance.drone = gameObject;
         Dron.Instance.maxAmmo = maxAmmo;
     }
 }
@@ -20,23 +21,27 @@ public class Dron : Singleton<Dron>
     private bool isReloading;
     private GameObject bullet;
     private int currentAmmo;
-    private Vector3 droneTarget;
 
     [HideInInspector] public float reloadTime;
+    [HideInInspector] public GameObject drone;
     [HideInInspector] public int maxAmmo;
+    public Vector3 droneTarget;
+    Vector3 difference;
+    float rotationX;
+    float rotationY;
+    float rotationZ;
+    float distance;
+    public Vector3 direction;
 
 
-
-    private void FixedUpdate()
+    private void Update()
     {
-        droneTarget = Input.mousePosition;
-
-        if(!isReloading)
+        if (!isReloading)
         {
             if(currentAmmo <= 0)
             {
-                StartCoroutine(reload());
-                return;
+                //StartCoroutine(reload());
+                //return;
             }
 
             if (Input.GetButtonDown("Fire1"))
@@ -60,7 +65,13 @@ public class Dron : Singleton<Dron>
 
     private void shoot()
     {
-        GameManager.Instance.spawnEntity(bullet, droneTarget, Quaternion.identity, 0);
+        droneTarget = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.x));
+        droneTarget = new Vector3(GameManager.Instance.player.transform.position.x, droneTarget.y, droneTarget.z);
+        difference = droneTarget - drone.transform.position;
+        rotationX = Mathf.Atan(difference.x) * Mathf.Rad2Deg;
+        distance = difference.magnitude;
+        direction = difference / distance;
+        GameManager.Instance.spawnEntity(bullet, drone.transform.position, Quaternion.Euler(rotationX, 0f, 0f), 0);
         currentAmmo--;
     }
 }
