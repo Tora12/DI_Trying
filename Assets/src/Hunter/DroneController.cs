@@ -22,7 +22,9 @@ public class Drone : Singleton<Drone>
     private float bulletDistance;
     private float bulletRotation;
     private GameObject bullet;
+    private GameObject[] bulletPrefabs;
     private int currentAmmo;
+    private int currentBullet;
     private Vector3 droneTarget;
     private Vector3 bulletDifference;
 
@@ -49,15 +51,17 @@ public class Drone : Singleton<Drone>
                     shoot();
 
                 if (Input.GetButtonDown("Fire2"))
-                    shoot();
+                    changeAmmo();
             }
         }
     }
     public void Start()
     {
         isReloading = false;
-        bullet = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Jenner/IceBullet.prefab", typeof(GameObject));
+        bulletPrefabs = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Jenner/PlayerBullets").ToArray();
+        bullet = bulletPrefabs[0];
         currentAmmo = maxAmmo;
+        currentBullet = 0;
     }
 
     private IEnumerator reload_Coroutine()
@@ -68,7 +72,24 @@ public class Drone : Singleton<Drone>
         isReloading = false;
     }
 
-    private void shoot()
+    private void changeAmmo()
+    {
+        if (currentBullet < bulletPrefabs.Length - 1)
+            currentBullet++;
+        else
+            currentBullet = 0;
+
+        bullet = bulletPrefabs[currentBullet];
+    }
+
+
+
+    public void reload()
+    {
+        StartCoroutine(reload_Coroutine());
+    }
+
+    public void shoot()
     {
         droneTarget = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.x));
         droneTarget = new Vector3(GameManager.Instance.player.transform.position.x, droneTarget.y, droneTarget.z);
@@ -78,12 +99,5 @@ public class Drone : Singleton<Drone>
         bulletDirection = bulletDifference / bulletDistance;
         GameManager.Instance.spawnEntity(bullet, drone.transform.position, Quaternion.Euler(bulletRotation, 0f, 0f), 0);
         currentAmmo--;
-    }
-
-
-
-    public void reload()
-    {
-        StartCoroutine(reload_Coroutine());
     }
 }
