@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220d5f153a3df614dad971b3b9c3ef4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapArray:
+  weapons:
   - {fileID: 1422462305936282453}
   - {fileID: 1422892940488594117}
   Bullet: {fileID: 6713806701002191508, guid: b0692db48f2a3cf45ab2b174a34d4477, type: 3}
@@ -1991,16 +1991,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57d3160c31b2a84b8f564a024e91237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 6418262402414357363}
   maxHealth: 400
-  Health: 0
-  minFireDelay: 0.1
-  maxFireDelay: 1
-  HealthBar: {fileID: 3310654824610003972}
+  healthBar: {fileID: 3310654824610003972}
   canvas: {fileID: 8960213821786660667}
   slider: {fileID: 6917820957204407898}
-  movement: {fileID: 6418262402414357363}
-  EnemyDespawnTime: 2
+  health: 0
   eye: {fileID: 3973602156294664527}
+  minFireDelay: 0.1
+  maxFireDelay: 1
+  maxDistance: 20
+  navPoints: []
+  minNavDelay: 3
+  maxNavDelay: 8
 --- !u!1 &1422181602392803531
 GameObject:
   m_ObjectHideFlags: 0
