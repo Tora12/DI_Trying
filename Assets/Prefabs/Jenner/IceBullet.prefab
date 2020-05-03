@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beefa0be321232840a0263caed49c90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceBulletDamageStat: 0
+  iceBulletDamageStat: 20
   iceBulletEffectStat: 0
-  iceBulletSpeedStat: 0
+  iceBulletSpeedStat: 20
   iceBulletEffectDuration: 0
-  iceBulletLifetime: 0
+  iceBulletLifetime: 1
