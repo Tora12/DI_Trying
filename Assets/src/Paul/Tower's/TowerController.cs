@@ -56,8 +56,6 @@ public class TowerController : MonoBehaviour
     private float lastNavTime;
     private float navDelay;
 
-    private readonly int Damage = 10; //REMOVE WHEN JENNER GETS A DAMAGE VALUE FOR BULLETS
-
     // Start is called before the first frame update
     void Start()
     {
@@ -138,14 +136,17 @@ public class TowerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    public void Damage(float damage)
     {
-        if (other.CompareTag("Bullet"))
-        {
-            Destroy(other.gameObject);
-            health = health - Damage;
-            slider.value = health;
-        }
+        health -= damage;
+        slider.value = health;
+    }
+
+    public void Damage(float damage, string type)
+    {
+        Debug.Log(type);
+        health -= damage;
+        slider.value = health;
     }
 
     //Assigns a random value within the range to publicly accessable varrible
