@@ -22,7 +22,7 @@ public class IceBulletController : MonoBehaviour
         iceBuff = new IceBuff(iceBuffEffect, iceBuffDuration);
         //iceBuff = new IncreaseDuration();
         rigidBody = this.GetComponent<Rigidbody>();
-        rigidBody.velocity = Dron.Instance.droneTarget * speed;
+        rigidBody.velocity = Drone.Instance.bulletDirection * speed;
     }
 
     // Update is called once per frame
