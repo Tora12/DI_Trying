@@ -212,7 +212,10 @@ public class GameManager : Singleton<GameManager>
                     playerRespawnLocation = position;
 
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
+        {
+            inGame = false;
             finishGame(player, finishGameDelay);
+        }
     }
 
 

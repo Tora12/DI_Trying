@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataStore : MonoBehaviour
+public class DataStore : Singleton<DataStore>
 {
     public bool bcmode = false;
     public bool ui = false;
