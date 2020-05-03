@@ -171,12 +171,12 @@ VideoPlayer:
   m_RenderMode: 0
   m_AspectRatio: 2
   m_DataSource: 0
-  m_PlaybackSpeed: 1
+  m_PlaybackSpeed: 1.2
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 01
@@ -404,16 +404,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5ce1a0e67883d49a263452690decd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGame: 0
   checkpointDistance: 0
   sweepTestDistance: 0
   closeDoorDelay: 0
+  enemyDropRate: 0
   enterRegionDelay: 0
   finishGameDelay: 0
   respawnPlayerDelay: 0
   playerStartLocation: {x: 0, y: 0, z: 0}
   playerFinishLocation: {x: 0, y: 0, z: 0}
-  checkpointLocation: []
+  checkpointLocations: []
 --- !u!4 &1368191429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4029688786263620, guid: e4a44daee2cdaf941b4fcca5737bde8c,
