@@ -146,6 +146,13 @@ public class AutoCannonController : MonoBehaviour
         }
     }
 
+    public void ResetHealth()
+    {
+        health = maxHealth;
+        healthBar.SetActive(false);
+        canvas.SetActive(false);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet"))
