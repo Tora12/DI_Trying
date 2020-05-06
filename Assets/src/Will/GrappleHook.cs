@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class GrappleHook : MonoBehaviour
 {
-	[SerializeField] private GameObject stationaryHook=null;
     // Start is called before the first frame update
     void Start()
     {
-        //GetComponent<Rigidbody>().velocity=new Vector3(0,-1,0);
+        GetComponent<Rigidbody>().velocity= Drone.Instance.bulletDirection * 10.0f;
     }
 
     // Update is called once per frame

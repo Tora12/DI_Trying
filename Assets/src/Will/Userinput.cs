@@ -30,7 +30,7 @@ public class Userinput : MonoBehaviour
         float h =Input.GetAxis("Horizontal");
         move=h*cameraPos.right;
         character.Move(move,jump,dash);
-		if(grapple&&character.canUseGrapple==true)Drone.Instance.grapple();
+		if(grapple==true && character.canUseGrapple==true)Drone.Instance.grapple();
         jump=false;
         dash=false;
 		grapple=false;
