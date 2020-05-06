@@ -145,11 +145,9 @@ public class GameManager : Singleton<GameManager>
     {
         player.SetActive(false);
         player.GetComponent<PlayerHealthandDamage>().resetPlayer();
-        //GameObject spawnedDroneCorpse = spawnEntity(droneCorpse, player.transform.position, player.transform.rotation, 0);
         GameObject spawnedPlayerCorpse = spawnEntity(playerCorpse, player.transform.position, player.transform.rotation, 0);
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
-        //despawnEntity(spawnedDroneCorpse, 0);
         despawnEntity(spawnedPlayerCorpse, 0);
         player.SetActive(true);
     }

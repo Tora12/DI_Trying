@@ -19,13 +19,16 @@ public class DroneController : MonoBehaviour
 
 public class Drone : Singleton<Drone>
 {
+    private bool isGrappling;
     private bool isReloading;
     private bool isShooting;
     private float bulletDistance;
     private float bulletRotation;
     private GameObject bullet;
     private GameObject[] bulletPrefabs;
+    private GameObject grappleHook;
     private GameObject spawnedBullet;
+    private GameObject spawnedGrappleHook = null;
     private int currentAmmo;
     private int currentBullet;
     private Vector3 droneTarget;
@@ -50,15 +53,15 @@ public class Drone : Singleton<Drone>
                     return;
                 }
 
-                if (Input.GetButtonDown("Fire1"))
-                {
-                  if(!isShooting) {
+                if (Input.GetButtonDown("Fire1") && !isShooting)
                     shoot();
-                  }
-                }
+
                 if (Input.GetButtonDown("Fire2"))
                     changeAmmo();
             }
+
+            if(Input.GetButtonDown("Fire4"))
+                grapple();
         }
     }
     public void Start()
@@ -92,7 +95,6 @@ public class Drone : Singleton<Drone>
         yield return new WaitForSeconds(spawnedBullet.GetComponent<BulletController>().fireRate);
         currentAmmo--;
         isShooting = false;
-
     }
 
     private void changeAmmo()
@@ -107,6 +109,27 @@ public class Drone : Singleton<Drone>
 
 
 
+
+    public void grapple()
+    {
+        if (spawnedGrappleHook == null)
+        {
+            isGrappling = true;
+            droneTarget = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.x));
+            droneTarget = new Vector3(GameManager.Instance.player.transform.position.x, droneTarget.y, droneTarget.z);
+            bulletDifference = droneTarget - drone.transform.position;
+            bulletRotation = Mathf.Atan2(bulletDifference.y, bulletDifference.z) * -Mathf.Rad2Deg;
+            bulletDistance = bulletDifference.magnitude;
+            bulletDirection = bulletDifference / bulletDistance;
+            spawnedGrappleHook = GameManager.Instance.spawnEntity(grappleHook, drone.transform.position, Quaternion.Euler(bulletRotation, 0f, 0f), 0);
+        }
+        else
+        {
+            GameManager.Instance.despawnEntity(spawnedGrappleHook, 0);
+            isGrappling = false;
+        }
+    }
+
     public void reload()
     {
         StartCoroutine(reload_Coroutine());
@@ -116,5 +139,4 @@ public class Drone : Singleton<Drone>
     {
         StartCoroutine(shoot_Coroutine());
     }
-
 }
