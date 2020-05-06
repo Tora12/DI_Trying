@@ -60,8 +60,6 @@ public class Drone : Singleton<Drone>
                     changeAmmo();
             }
 
-            if(Input.GetButtonDown("Fire4"))
-                grapple();
         }
     }
     public void Start()

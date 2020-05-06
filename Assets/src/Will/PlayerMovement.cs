@@ -84,9 +84,9 @@ public class PlayerMovement : MonoBehaviour
         if(canUseGrapple && (GameObject.FindGameObjectsWithTag("Grapple").Length == 1)){
 			Hook = GameObject.FindGameObjectWithTag("Grapple");
 			Vector3 point= -transform.position + Hook.transform.position;
-			if(point.magnitude<grappleRange){
+			//if(point.magnitude<grappleRange){
 				HandleGrappleMovement();
-			}
+			//}
 		}
     }
     void UpdateAnimator(Vector3 move){
