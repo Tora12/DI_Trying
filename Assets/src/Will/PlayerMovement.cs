@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 	bool dashJump=false;
     Vector3 dashDirection;
 	
-    bool canUseGrapple=true;
+    public bool canUseGrapple=true;
     GameObject Hook;
 
 

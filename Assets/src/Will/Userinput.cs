@@ -17,7 +17,6 @@ public class Userinput : MonoBehaviour
         if(Camera.main!=null)cameraPos=Camera.main.transform;
         else Debug.LogWarning("No Main Camera",gameObject);
         character=GetComponent<PlayerMovement>();
-		fire=GetComponent<NoncombatFire>();
     }
 
     

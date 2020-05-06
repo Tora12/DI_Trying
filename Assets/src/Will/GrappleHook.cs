@@ -20,6 +20,6 @@ public class GrappleHook : MonoBehaviour
 	{
 		if(other.gameObject.CompareTag("Player")) return;
 		gameObject.tag = "Grapple";
-		rigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
 	}
 }
