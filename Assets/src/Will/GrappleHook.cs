@@ -18,7 +18,8 @@ public class GrappleHook : MonoBehaviour
     }
 	void OnTriggerEnter(Collider other)
 	{
-		Instantiate(stationaryHook, transform.position, transform.rotation);
-		Destroy(gameObject);
+		if(other.gameObject.CompareTag("Player")) return;
+		gameObject.tag = "Grapple";
+		rigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
 	}
 }
