@@ -70,6 +70,7 @@ public class Drone : Singleton<Drone>
         isShooting = false;
         bulletPrefabs = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Jenner/PlayerBullets").ToArray();
         bullet = bulletPrefabs[0];
+        grappleHook = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/GrappleHookProjectile.prefab", typeof(GameObject));
         currentAmmo = maxAmmo;
         currentBullet = 0;
     }
