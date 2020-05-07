@@ -13,6 +13,8 @@ public class DataStore : Singleton<DataStore>
         DontDestroyOnLoad(transform.gameObject);
         ui = true;
         bcmode = false;
+
+        float test = float.MaxValue;
     }
 
     public void UiToggle()
