@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataStore : MonoBehaviour
+public class DataStore : Singleton<DataStore>
 {
     public bool bcmode = false;
     public bool ui = false;
@@ -13,6 +13,8 @@ public class DataStore : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         ui = true;
         bcmode = false;
+
+        float test = float.MaxValue;
     }
 
     public void UiToggle()

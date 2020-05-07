@@ -9,7 +9,7 @@ public abstract class BulletElement {
 
 }
 
-public class ElementDecorator : BulletElement
+public abstract class ElementDecorator : BulletElement
 {
   public override void increaseElementBuff() {}
 }

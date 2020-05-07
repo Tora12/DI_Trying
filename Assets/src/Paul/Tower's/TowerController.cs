@@ -136,7 +136,14 @@ public class TowerController : MonoBehaviour
         }
     }
 
-    public void Damage(float damage)
+    public void ResetHealth()
+    {
+        health = maxHealth;
+        healthBar.SetActive(false);
+        canvas.SetActive(false);
+    }
+
+	public void Damage(float damage)
     {
         health -= damage;
         slider.value = health;

@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: -8140120351811255891}
-  maxHealth: 10
+  maxHealth: 50
   healthBar: {fileID: 7041978337125981102}
   canvas: {fileID: 2207466311158388445}
   slider: {fileID: 6620544569984743500}

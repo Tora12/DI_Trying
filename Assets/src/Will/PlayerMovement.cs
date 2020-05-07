@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
-    [SerializeField] float JumpPower = 10f; 
+    [SerializeField] public float JumpPower = 10f; 
     [SerializeField] public float MoveSpeedMultiplier = 1f;
     [SerializeField] float AirSpeed = 6f;
     [SerializeField] public float dashSpeed = 24f;
@@ -37,17 +37,17 @@ public class PlayerMovement : MonoBehaviour
     Vector3 CapsuleCenter;
     CapsuleCollider Capsule;
 	
-    bool canDoubleJump=true;
+    bool canDoubleJump=false;
 	bool airJump=true;
 	
-    bool canDash=true;
+    bool canDash=false;
     bool dashing=false;
 	float lastDashTime=0;
 	bool airDash=false;
 	bool dashJump=false;
     Vector3 dashDirection;
 	
-    bool canUseGrapple=true;
+    public bool canUseGrapple=false;
     GameObject Hook;
 
 
@@ -84,9 +84,9 @@ public class PlayerMovement : MonoBehaviour
         if(canUseGrapple && (GameObject.FindGameObjectsWithTag("Grapple").Length == 1)){
 			Hook = GameObject.FindGameObjectWithTag("Grapple");
 			Vector3 point= -transform.position + Hook.transform.position;
-			if(point.magnitude<grappleRange){
+			//if(point.magnitude<grappleRange){
 				HandleGrappleMovement();
-			}
+			//}
 		}
     }
     void UpdateAnimator(Vector3 move){
@@ -148,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         if(Physics.Raycast(transform.position+(Vector3.up*0.1f),Vector3.down,out hitInfo,GroundCheckDistance)){
             GroundNormal=hitInfo.normal;
             IsGrounded=true;
+			airJump=true;
             Animator.applyRootMotion=true;
         }else{
             IsGrounded=false;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5703291027839907407}
   - component: {fileID: 5703291027839907406}
   - component: {fileID: 5703291027839907400}
+  - component: {fileID: 7603678789071215301}
   m_Layer: 0
   m_Name: float_spike
   m_TagString: Enemy
@@ -107,7 +108,7 @@ MeshCollider:
   m_GameObject: {fileID: 5703291027753772888}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
@@ -127,3 +128,17 @@ MonoBehaviour:
   _distance: 1
   _speed_x: 0
   _direction: 0
+--- !u!136 &7603678789071215301
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703291027753772888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.0208201
+  m_Height: 2.063156
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

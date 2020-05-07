@@ -23,8 +23,6 @@ public class GameController : MonoBehaviour
     public Vector3 playerStartLocation;
     [Tooltip("The location the player must reach to complete the level and finish the game.")]
     public Vector3 playerFinishLocation;
-    [Tooltip("An array of locations where the player will respawn at upon death if reached.")]
-    public Vector3[] checkpointLocations;
 
     private void Start()
     {
@@ -37,19 +35,14 @@ public class GameController : MonoBehaviour
         GameManager.Instance.respawnPlayerDelay = respawnPlayerDelay;
         GameManager.Instance.playerStartLocation = playerStartLocation;
         GameManager.Instance.playerFinishLocation = playerFinishLocation;
-        GameManager.Instance.checkpointLocations = checkpointLocations;
         GameManager.Instance.Start();
     }
 }
 
 public class GameManager : Singleton<GameManager>
 {
-    //A boolean that indicates if the user is in the game
-    private bool inGame;
     //The drone corpse that will spawn at the drone's location upon death
     private GameObject droneCorpse;
-    //The player that the user will control
-    private GameObject player;
     //The player corpse that will spawn at the player's location upon death
     private GameObject playerCorpse;
     //The object that collides with the player in a sweep test
@@ -57,10 +50,14 @@ public class GameManager : Singleton<GameManager>
     //The rigidbody of the player that senses collision
     private Rigidbody playerRigidbody;
 
+    //A boolean that indicates if the user is in the game
+    [HideInInspector] public bool inGame;
     //The maximum distance the player can be from a checkpoint and still count it as reached
     [HideInInspector] public float checkpointDistance;
     //The maximum distance of the rigidbody sweep test
     [HideInInspector] public float sweepTestDistance;
+    //The player that the user will control
+    public GameObject player;
     //The delay for any call to close a door
     [HideInInspector] public int closeDoorDelay;
     //The rate that enemy drops will spawn upon killing an enemy
@@ -79,13 +76,11 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public Vector3 playerRespawnLocation;
     //The location the player must reach to complete the level and finish the game
     [HideInInspector] public Vector3 playerFinishLocation;
-    //An array of locations that will update the player's respawn location if reached
-    [HideInInspector] public Vector3[] checkpointLocations;
 
 
 
     protected GameManager() { }
-    private void FixedUpdate()
+    private void Update()
     {
         if (inGame) // checks if the user is in the game
         {
@@ -145,11 +140,10 @@ public class GameManager : Singleton<GameManager>
     {
         player.SetActive(false);
         player.GetComponent<PlayerHealthandDamage>().resetPlayer();
-        //GameObject spawnedDroneCorpse = spawnEntity(droneCorpse, player.transform.position, player.transform.rotation, 0);
         GameObject spawnedPlayerCorpse = spawnEntity(playerCorpse, player.transform.position, player.transform.rotation, 0);
+		spawnedPlayerCorpse.GetComponent<Transform>().localScale=player.GetComponent<Transform>().localScale;
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
-        //despawnEntity(spawnedDroneCorpse, 0);
         despawnEntity(spawnedPlayerCorpse, 0);
         player.SetActive(true);
     }
@@ -192,6 +186,11 @@ public class GameManager : Singleton<GameManager>
                 doorController.openDoor(0);
                 enterRegion(player, doorController.teleportLocation, data, enterRegionDelay);
             }
+
+            if (raycastHit.transform.gameObject.CompareTag("Checkpoint"))
+            {
+                playerRespawnLocation = raycastHit.transform.position;
+            }
         }
     }
 
@@ -206,13 +205,11 @@ public class GameManager : Singleton<GameManager>
         if (Vector3.Distance(player.transform.position, playerStartLocation) <= checkpointDistance)
             playerRespawnLocation = playerStartLocation;
 
-        if (checkpointLocations != null && checkpointLocations.Length > 0)
-            foreach (Vector3 position in checkpointLocations)
-                if (Vector3.Distance(player.transform.position, position) <= checkpointDistance)
-                    playerRespawnLocation = position;
-
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
+        {
+            inGame = false;
             finishGame(player, finishGameDelay);
+        }
     }
 
 
