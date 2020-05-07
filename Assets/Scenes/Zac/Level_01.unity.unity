@@ -31148,12 +31148,12 @@ PrefabInstance:
     - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: playerStartLocation.y
-      value: 21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
       propertyPath: playerStartLocation.z
-      value: 314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5602306995083274080, guid: 08ec3ad31fe8f1e48afa4b9c99d1c57f,
         type: 3}
