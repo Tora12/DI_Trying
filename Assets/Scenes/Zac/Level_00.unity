@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5499997
@@ -731,6 +735,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -896,7 +904,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: de222f4ee1be9fe43868fd5e958dce70, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.616
+  m_Volume: 0.379
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1119,8 +1127,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1128,7 +1136,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1295,6 +1303,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1477,8 +1489,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1486,7 +1498,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1629,6 +1641,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2026,6 +2042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.9500003
@@ -2086,6 +2106,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2153,6 +2177,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2255,8 +2283,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2264,7 +2292,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -2347,8 +2375,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2356,7 +2384,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -2412,6 +2440,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2474,6 +2506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.84
@@ -2534,6 +2570,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2834,8 +2874,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2843,7 +2883,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -3059,6 +3099,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3300,6 +3344,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3712,6 +3760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.9500003
@@ -3860,8 +3912,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3869,7 +3921,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -4571,8 +4623,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4580,7 +4632,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -4891,8 +4943,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4900,7 +4952,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -5068,6 +5120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.23
@@ -5193,8 +5249,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5202,7 +5258,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -5647,6 +5703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -5821,8 +5881,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5830,7 +5890,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -5952,8 +6012,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5961,7 +6021,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -6050,8 +6110,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6059,7 +6119,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -6154,8 +6214,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6163,7 +6223,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -6300,6 +6360,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6698,8 +6762,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.7
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6707,7 +6771,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -6900,8 +6964,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6909,7 +6973,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -6992,8 +7056,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7001,7 +7065,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -7065,6 +7129,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7186,8 +7254,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7195,7 +7263,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -7259,6 +7327,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7418,8 +7490,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7427,7 +7499,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -7715,8 +7787,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7724,7 +7796,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -8362,6 +8434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lampost_lod1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -8536,8 +8612,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9122857, g: 1, b: 0.3254717, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 6
   m_SpotAngle: 67.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -8545,7 +8621,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.049
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -8621,6 +8697,10 @@ PrefabInstance:
     - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_Name
       value: lampost_lod1 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 137404, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483690, guid: 3af18b6fd94e95242b17bbff8b9dc7e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9334,6 +9414,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1701239333}
+    - target: {fileID: 5414096815282247902, guid: 5a4b53b2a7ea3094ba6debd68d1a19fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5414096815543528805, guid: 5a4b53b2a7ea3094ba6debd68d1a19fa,
         type: 3}
       propertyPath: m_AnchorMax.x

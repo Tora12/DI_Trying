@@ -5018,6 +5018,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 5414096815282247902, guid: 5a4b53b2a7ea3094ba6debd68d1a19fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5414096815543528805, guid: 5a4b53b2a7ea3094ba6debd68d1a19fa,
         type: 3}
       propertyPath: m_AnchorMax.x
