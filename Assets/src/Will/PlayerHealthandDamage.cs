@@ -60,7 +60,6 @@ public class PlayerHealthandDamage : MonoBehaviour
 	{
 		if (collision.transform.gameObject.GetComponent<Hazard>()!=null)
         {
-			Debug.Log("HI");
 			health -=collision.transform.gameObject.GetComponent<Hazard>().damage;     
         }
     }
