@@ -112,7 +112,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Grapple, Press Shift\n or Middle Mouse"
+  m_text: "Grapple, Press F\n or Middle Mouse"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_margin: {x: -23.79849, y: 0, z: -8.595077, w: -0.662086}
   m_textInfo:
     textComponent: {fileID: 8010893955965789899}
-    characterCount: 37
+    characterCount: 33
     spriteCount: 0
     spaceCount: 6
     wordCount: 6
