@@ -4,10 +4,12 @@
  * https://gist.github.com/ytjchan/b32e54233895122ab9d51156dccf6ee4
  */
 using System.Collections.Generic;
-using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+using UnityEngine;
 using System.IO;
-
+/*
 public static class PrefabLoader
 {
     //So, there's no "load all assets in directory" function in unity. 
@@ -45,6 +47,7 @@ public static class PrefabLoader
             string fullPath = fileInfo.FullName.Replace(@"\", "/");
             string assetPath = "Assets" + fullPath.Replace(Application.dataPath, "");
             GameObject prefab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
+            
 
             if (prefab != null)
             {
@@ -54,3 +57,4 @@ public static class PrefabLoader
         return prefabs;
     }
 }
+*/

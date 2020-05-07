@@ -34,6 +34,7 @@ namespace Tests
         [UnityTest]
         public IEnumerator EnemyDropSpawnStressTest()
         {
+            /*
             GameObject[] enemyDrops = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops").ToArray();
 
             if(enemyDrops != null)
@@ -54,10 +55,11 @@ namespace Tests
             }
             else
                 Debug.Log("Couldn't load enemy drop prefabs.");
-
+                */
             Debug.Log("Test failed.");
             Assert.Fail();
             yield return null;
+            
         }
     }
 }

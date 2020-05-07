@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,7 +27,7 @@ public class Drone : Singleton<Drone>
     private float bulletDistance;
     private float bulletRotation;
     private GameObject bullet;
-    private GameObject[] bulletPrefabs;
+    private Object[] bulletPrefabs;
     private GameObject grappleHook;
     private GameObject spawnedBullet;
     private GameObject spawnedGrappleHook = null;
@@ -65,9 +67,9 @@ public class Drone : Singleton<Drone>
     {
         isReloading = false;
         isShooting = false;
-        bulletPrefabs = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Jenner/PlayerBullets").ToArray();
-        bullet = bulletPrefabs[0];
-        grappleHook = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/GrappleHookProjectile.prefab", typeof(GameObject));
+        bulletPrefabs = Resources.LoadAll("PlayerBullets");
+        bullet = (GameObject)bulletPrefabs[0];
+        grappleHook = Resources.Load<GameObject>("Misc/GrappleHookProjectile");
         currentAmmo = maxAmmo;
         currentBullet = 0;
     }
@@ -102,7 +104,7 @@ public class Drone : Singleton<Drone>
         else
             currentBullet = 0;
 
-        bullet = bulletPrefabs[currentBullet];
+        bullet = (GameObject)bulletPrefabs[currentBullet];
     }
 
 

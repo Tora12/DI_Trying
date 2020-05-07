@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -94,8 +96,7 @@ public class GameManager : Singleton<GameManager>
         if ((player = GameObject.Find("MainCharacter")) != null) // tries to find an object in the hierarchy called MainCharacter, then checks if one was found
         {
             inGame = true; // means that the user is in the game
-            droneCorpse = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Jenner/robotSphere.prefab", typeof(GameObject));
-            playerCorpse = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Will/PlayerRagdoll.prefab", typeof(GameObject)); // finds the PlayerRagdoll prefab in the directory
+            playerCorpse = Resources.Load<GameObject>("Misc/PlayerRagdoll"); // finds the PlayerRagdoll prefab in the directory
             playerRigidbody = player.GetComponent<Rigidbody>();
             playerRespawnLocation = playerStartLocation;
             startGame(player, playerStartLocation, 0);
@@ -259,9 +260,9 @@ public class GameManager : Singleton<GameManager>
 
         if (percent <= enemyDropRate)
         {
-            GameObject[] enemyDrops = PrefabLoader.LoadAllPrefabsAt(@"Assets/Prefabs/Hunter/EnemyDrops").ToArray();
+            Object[] enemyDrops = Resources.LoadAll("EnemyDrops");
             Random.InitState(System.DateTime.Now.Millisecond);
-            GameObject spawnedEnemyDrop = spawnEntity(enemyDrops[Random.Range(0, enemyDrops.Length)], position, Quaternion.identity, delay);
+            GameObject spawnedEnemyDrop = spawnEntity((GameObject)enemyDrops[Random.Range(0, enemyDrops.Length)], position, Quaternion.identity, delay);
             return spawnedEnemyDrop;
         }
 
