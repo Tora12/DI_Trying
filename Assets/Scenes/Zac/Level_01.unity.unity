@@ -4415,6 +4415,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2228507718671216889, guid: 5a4b53b2a7ea3094ba6debd68d1a19fa,
+        type: 3}
+      propertyPath: m_text
+      value: YOU WIN.  MEATBAG!
+      objectReference: {fileID: 0}
     - target: {fileID: 5414096814687418968, guid: 5a4b53b2a7ea3094ba6debd68d1a19fa,
         type: 3}
       propertyPath: m_Name
