@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4081783694510104200
+--- !u!1 &5430685662790921585
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1420376426315164183}
-  - component: {fileID: 155674080405187539}
-  - component: {fileID: 8456574239088402393}
-  - component: {fileID: 8930891206045146469}
-  - component: {fileID: 5494497772141843802}
-  - component: {fileID: 3102259591965196440}
-  - component: {fileID: 6568946460528792186}
+  - component: {fileID: 6939751974710450670}
+  - component: {fileID: 8201569161491339306}
+  - component: {fileID: 478237005002664992}
+  - component: {fileID: 578753549321580188}
+  - component: {fileID: 4591600064170075811}
+  - component: {fileID: 6410227398147994465}
+  - component: {fileID: 2036800824480907575}
+  - component: {fileID: 5934847327226227987}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: ElectricBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1420376426315164183
+--- !u!4 &6939751974710450670
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081783694510104200}
+  m_GameObject: {fileID: 5430685662790921585}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.20411932, y: 1.577, z: 0.023}
+  m_LocalPosition: {x: -3.0190866, y: 1.0000006, z: 6.178154}
   m_LocalScale: {x: 1, y: 0.004, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!23 &155674080405187539
+--- !u!23 &8201569161491339306
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081783694510104200}
+  m_GameObject: {fileID: 5430685662790921585}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,21 +76,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &8456574239088402393
+--- !u!33 &478237005002664992
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081783694510104200}
+  m_GameObject: {fileID: 5430685662790921585}
   m_Mesh: {fileID: 0}
---- !u!114 &8930891206045146469
+--- !u!114 &578753549321580188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081783694510104200}
+  m_GameObject: {fileID: 5430685662790921585}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0884dceb0d4308c4eb8bc763c8f8deae, type: 3}
@@ -99,16 +100,16 @@ MonoBehaviour:
   m_doNotOverwriteTemplateMaterialProperties: 0
   m_startPos: {x: 0, y: 0, z: 1}
   m_endPos: {x: 0, y: 0, z: 0}
-  m_lineColor: {r: 0, g: 1, b: 1, a: 1}
+  m_lineColor: {r: 0.9813129, g: 1, b: 0, a: 1}
   m_lineWidth: 0.3
   m_lightSaberFactor: 0.8
---- !u!54 &5494497772141843802
+--- !u!54 &4591600064170075811
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081783694510104200}
+  m_GameObject: {fileID: 5430685662790921585}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -118,13 +119,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!136 &3102259591965196440
+--- !u!136 &6410227398147994465
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081783694510104200}
+  m_GameObject: {fileID: 5430685662790921585}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -132,20 +133,34 @@ CapsuleCollider:
   m_Height: 1.1
   m_Direction: 2
   m_Center: {x: 0, y: 1, z: 0.5}
---- !u!114 &6568946460528792186
+--- !u!114 &2036800824480907575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081783694510104200}
+  m_GameObject: {fileID: 5430685662790921585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f50a15540f15441a90c5476beae26b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f9b8bc648d6f244793eeb8b924fa8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceBuffEffect: 0
-  iceBuffDuration: 0
-  damage: 20
-  speed: 20
-  levelUp: 10
+  electricBulletDamageStat: 20
+  electricBulletEffectStat: 0
+  electricBulletSpeedStat: 20
+  electricBulletEffectDuration: 0
+  electricBulletLifetime: 1
+--- !u!114 &5934847327226227987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430685662790921585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0521f5f7e9f434a668f8d49b3cb73947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 1
+  maxAmmo: 5

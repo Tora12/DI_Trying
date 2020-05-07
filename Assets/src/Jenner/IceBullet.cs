@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceBullet : MonoBehaviour {
+public class IceBulletOld : MonoBehaviour {
 
   private BulletElement iceBuff;
   private Rigidbody rigidBody; // Rigidbody for Bullet.prefab
@@ -21,7 +21,7 @@ public class IceBullet : MonoBehaviour {
       iceBuff = new IceBuff(iceBuffEffect, iceBuffDuration);
       //iceBuff = new IncreaseDuration();
       rigidBody = this.GetComponent<Rigidbody>();
-      rigidBody.velocity = Dron.Instance.direction * speed;
+      rigidBody.velocity = Drone.Instance.bulletDirection * speed;
     }
 
     // Update is called once per frame

@@ -206,6 +206,11 @@ PrefabInstance:
       propertyPath: sphere
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4232276531950513370, guid: c720e47f5e1c8cb488838029d40cc3bf,
+        type: 3}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4893799887049348636, guid: c720e47f5e1c8cb488838029d40cc3bf,
         type: 3}
       propertyPath: m_Name

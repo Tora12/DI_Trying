@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drone : MonoBehaviour {
+public class DroneOld : MonoBehaviour {
 
   // Only allow one instance of the Drone script at a time
   // Only allows other classes to get instance of the Drone script
   // Does not allow other classes to delete an instance of the Drone script
-  public static Drone Instance {get; private set;}
+  public static DroneOld Instance {get; private set;}
 
   [SerializeField]
   private Transform firePoint; // spawn point for Bullet.prefab to shoot forward along the z-axis
