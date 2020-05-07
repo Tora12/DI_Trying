@@ -146,6 +146,7 @@ public class GameManager : Singleton<GameManager>
         player.SetActive(false);
         player.GetComponent<PlayerHealthandDamage>().resetPlayer();
         GameObject spawnedPlayerCorpse = spawnEntity(playerCorpse, player.transform.position, player.transform.rotation, 0);
+		spawnedPlayerCorpse.GetComponent<Transform>().localScale=player.GetComponent<Transform>().localScale;
         yield return new WaitForSeconds(delay);
         player.transform.position = position;
         despawnEntity(spawnedPlayerCorpse, 0);
