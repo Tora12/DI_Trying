@@ -143,6 +143,7 @@ public class GameManager : Singleton<GameManager>
         GameObject spawnedPlayerCorpse = spawnEntity(playerCorpse, player.transform.position, player.transform.rotation, 0);
 		spawnedPlayerCorpse.GetComponent<Transform>().localScale=player.GetComponent<Transform>().localScale;
         yield return new WaitForSeconds(delay);
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         player.transform.position = position;
         despawnEntity(spawnedPlayerCorpse, 0);
         player.SetActive(true);
