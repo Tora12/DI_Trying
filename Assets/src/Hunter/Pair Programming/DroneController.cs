@@ -59,9 +59,6 @@ public class Drone : Singleton<Drone>
                 if (Input.GetButtonDown("Fire2"))
                     changeAmmo();
             }
-
-            if(Input.GetButtonDown("Fire4"))
-                grapple();
         }
     }
     public void Start()
