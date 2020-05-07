@@ -49,17 +49,20 @@ public class PlayerMovement : MonoBehaviour
 	
     public bool canUseGrapple=false;
     GameObject Hook;
+	
+	DataStore dataStore=null;
 
 
     void Start()
     {
         Animator = GetComponent<Animator>();
-	rigidBody = GetComponent<Rigidbody>();
-	Capsule = GetComponent<CapsuleCollider>();
-	CapsuleHeight = Capsule.height;
-	CapsuleCenter = Capsule.center;
-	rigidBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX; 
-	OrigGroundCheckDistance = GroundCheckDistance;
+		rigidBody = GetComponent<Rigidbody>();
+		Capsule = GetComponent<CapsuleCollider>();
+		CapsuleHeight = Capsule.height;
+		CapsuleCenter = Capsule.center;
+		rigidBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX; 
+		OrigGroundCheckDistance = GroundCheckDistance;
+		dataStore = GameObject.Find("DataStore").GetComponent<DataStore>();
     }
 
     public void Move(Vector3 move,bool jump, bool dash){
@@ -130,7 +133,9 @@ public class PlayerMovement : MonoBehaviour
        if(jump && ((canDoubleJump && airJump) ||(canDash && dashJump))){
             rigidBody.velocity=new Vector3(rigidBody.velocity.x,JumpPower,rigidBody.velocity.z);
             if(dashJump) dashJump=false;
-			else airJump=false;
+			else if (!dataStore.bcmode){
+				airJump=false;
+			}
         }
     }
     void HandleGroundMovement(bool jump){
