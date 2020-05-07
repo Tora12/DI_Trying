@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4045746254352186}
   - component: {fileID: 33794878294550678}
   - component: {fileID: 23330274295523008}
-  - component: {fileID: 65203028731192466}
   - component: {fileID: 54891905524464788}
   - component: {fileID: 4991184701004194041}
+  - component: {fileID: 8522632692215863945}
   m_Layer: 0
   m_Name: Shell
   m_TagString: EnemyBullet
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65203028731192466
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127454497954148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.09947289, y: 0.16505761, z: 0.114861384}
-  m_Center: {x: -0.003731519, y: 0.08252881, z: 0.013926202}
 --- !u!54 &54891905524464788
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,6 +112,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  delay: 10
+--- !u!136 &8522632692215863945
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127454497954148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.9747119
+  m_Height: 1.949424
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.000009238721, z: 0.15}
 --- !u!1 &1432421815286234
 GameObject:
   m_ObjectHideFlags: 0
