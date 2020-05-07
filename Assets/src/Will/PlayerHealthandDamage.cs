@@ -54,16 +54,21 @@ public class PlayerHealthandDamage : MonoBehaviour
 			health -=other.GetComponent<EnemyBullet>().damage;
             Destroy(other.gameObject);
             
-        }/*else if (other.tag == "Hazard")
+        }
+	}
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.transform.gameObject.GetComponent<Hazard>()!=null)
         {
-			health -=other.GetComponent<Hazard>().damage;     
-        }*/
+			Debug.Log("HI");
+			health -=collision.transform.gameObject.GetComponent<Hazard>().damage;     
+        }
     }
-	void OnTriggerStay(Collider other){
-		/*if (other.tag == "Hazard")
+	void OnCollisionStay(Collision collision){
+		if (collision.transform.gameObject.GetComponent<Hazard>()!=null)
         {
-			health -=other.GetComponent<Hazard>().damage;     
-        }*/
+			health -=collision.transform.gameObject.GetComponent<Hazard>().damage/10;     
+        }
 	}
 	public void killPlayer(){
 		health=0.0f;
