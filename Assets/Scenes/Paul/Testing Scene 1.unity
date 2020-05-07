@@ -9186,6 +9186,12 @@ PrefabInstance:
       propertyPath: maxNavDelay
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6418262402414357363, guid: df66855d997424b458192cda3f622820,
+        type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5,
+        type: 3}
     - target: {fileID: 6527136039885813366, guid: df66855d997424b458192cda3f622820,
         type: 3}
       propertyPath: m_Constraints

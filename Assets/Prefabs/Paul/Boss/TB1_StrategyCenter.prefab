@@ -4111,6 +4111,8 @@ GameObject:
   - component: {fileID: 3811305315005237499}
   - component: {fileID: 3865873465004811291}
   - component: {fileID: 1801379401501051774}
+  - component: {fileID: 1801379401501051770}
+  - component: {fileID: 1801379401501051773}
   m_Layer: 0
   m_Name: TB1_StrategyCenter
   m_TagString: Untagged
@@ -4127,7 +4129,7 @@ Transform:
   m_GameObject: {fileID: 3815435633530831125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.38230896, y: 0.5, z: 153.2972}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 191690198710955997}
   - {fileID: 3811689728899037997}
@@ -4178,6 +4180,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &1801379401501051770
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815435633530831125}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 15, y: 15, z: 10.4}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &1801379401501051773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815435633530831125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b19ee94c1ccc99449add9ae2ce62e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipText: {fileID: 0}
+  force: 1000
+  gen1: {fileID: 3814926007680296783}
+  gen2: {fileID: 3815480899528475825}
+  gen3: {fileID: 3815617710737436657}
 --- !u!1 &3815440265210902659
 GameObject:
   m_ObjectHideFlags: 0
