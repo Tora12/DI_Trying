@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beefa0be321232840a0263caed49c90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceBulletDamageStat: 20
+  iceBulletDamageStat: 15
   iceBulletEffectStat: 0
   iceBulletSpeedStat: 20
   iceBulletEffectDuration: 0
@@ -162,5 +162,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0521f5f7e9f434a668f8d49b3cb73947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.1
+  fireRate: 0.5
   maxAmmo: 5

@@ -41,6 +41,22 @@ public class FireBullet : PlayerBullet
 
     public override void playerBulletEffect(GameObject enemy)
     {
+        if (enemy.GetComponentInParent<AutoCannonController>() != null)
+        {
+            enemy.GetComponentInParent<AutoCannonController>().Damage(damageStat);
+            return;
+        }
 
+        if (enemy.GetComponentInParent<TankController>() != null)
+        {
+            enemy.GetComponentInParent<TankController>().Damage(damageStat);
+            return;
+        }
+
+        if (enemy.GetComponentInParent<TowerController>() != null)
+        {
+            enemy.GetComponentInParent<TowerController>().Damage(damageStat);
+            return;
+        }
     }
 }
