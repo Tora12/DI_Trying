@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 CapsuleCenter;
     CapsuleCollider Capsule;
 	
-    bool canDoubleJump=true;
+    bool canDoubleJump=false;
 	bool airJump=true;
 	
     bool canDash=true;
