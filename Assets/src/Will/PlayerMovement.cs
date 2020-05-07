@@ -40,14 +40,14 @@ public class PlayerMovement : MonoBehaviour
     bool canDoubleJump=false;
 	bool airJump=true;
 	
-    bool canDash=true;
+    bool canDash=false;
     bool dashing=false;
 	float lastDashTime=0;
 	bool airDash=false;
 	bool dashJump=false;
     Vector3 dashDirection;
 	
-    public bool canUseGrapple=true;
+    public bool canUseGrapple=false;
     GameObject Hook;
 
 
