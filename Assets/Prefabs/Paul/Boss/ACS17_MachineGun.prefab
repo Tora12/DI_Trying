@@ -1902,6 +1902,7 @@ GameObject:
   - component: {fileID: 6527136039885813366}
   - component: {fileID: 6418262402414357363}
   - component: {fileID: 4115667261285392450}
+  - component: {fileID: 2228923584496627166}
   m_Layer: 0
   m_Name: ACS17_MachineGun
   m_TagString: Untagged
@@ -1918,7 +1919,7 @@ Transform:
   m_GameObject: {fileID: 1422176951229143677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 172.12}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 7365176670644406831}
   - {fileID: 1420590128795326315}
@@ -1976,7 +1977,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 1422462305936282453}
   - {fileID: 1422892940488594117}
-  Bullet: {fileID: 6713806701002191508, guid: b0692db48f2a3cf45ab2b174a34d4477, type: 3}
+  Bullet: {fileID: 1896030263230236, guid: 962016fae7878344196cbddbc387fae5, type: 3}
   speed: 1
   rotationSpeed: 1
 --- !u!114 &4115667261285392450
@@ -2002,8 +2003,30 @@ MonoBehaviour:
   maxFireDelay: 1
   maxDistance: 20
   navPoints: []
-  minNavDelay: 3
-  maxNavDelay: 8
+  minNavDelay: 10
+  maxNavDelay: 20
+--- !u!195 &2228923584496627166
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422176951229143677}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 5.36
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 9.51
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1422181602392803531
 GameObject:
   m_ObjectHideFlags: 0
@@ -7473,7 +7496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3973602156294664527}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 3.16, z: 0}
+  m_LocalPosition: {x: 0, y: 2.7, z: 0}
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
   m_Children: []
   m_Father: {fileID: 1416570533568593951}

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9b8bc648d6f244793eeb8b924fa8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricBulletDamageStat: 20
+  electricBulletDamageStat: 30
   electricBulletEffectStat: 0
   electricBulletSpeedStat: 20
   electricBulletEffectDuration: 0
