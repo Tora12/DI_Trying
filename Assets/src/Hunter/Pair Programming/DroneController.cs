@@ -43,7 +43,7 @@ public class Drone : Singleton<Drone>
 
     private void Update()
     {
-        if(GameManager.Instance.inGame)
+        if(GameManager.Instance.inGame && GameManager.Instance.player.activeSelf)
         {
             if (!isReloading)
             {
