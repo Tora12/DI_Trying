@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5703291027839907406}
   - component: {fileID: 5703291027839907400}
   - component: {fileID: 7603678789071215301}
+  - component: {fileID: 5329763711996907169}
   m_Layer: 0
   m_Name: float_spike
   m_TagString: Enemy
@@ -142,3 +143,16 @@ CapsuleCollider:
   m_Height: 2.063156
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5329763711996907169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703291027753772888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c40c8fac89d754491e001b59554c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
