@@ -23,8 +23,6 @@ public class GameController : MonoBehaviour
     public Vector3 playerStartLocation;
     [Tooltip("The location the player must reach to complete the level and finish the game.")]
     public Vector3 playerFinishLocation;
-    [Tooltip("An array of locations where the player will respawn at upon death if reached.")]
-    public Vector3[] checkpointLocations;
 
     private void Start()
     {
@@ -37,7 +35,6 @@ public class GameController : MonoBehaviour
         GameManager.Instance.respawnPlayerDelay = respawnPlayerDelay;
         GameManager.Instance.playerStartLocation = playerStartLocation;
         GameManager.Instance.playerFinishLocation = playerFinishLocation;
-        GameManager.Instance.checkpointLocations = checkpointLocations;
         GameManager.Instance.Start();
     }
 }
@@ -79,8 +76,6 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public Vector3 playerRespawnLocation;
     //The location the player must reach to complete the level and finish the game
     [HideInInspector] public Vector3 playerFinishLocation;
-    //An array of locations that will update the player's respawn location if reached
-    [HideInInspector] public Vector3[] checkpointLocations;
 
 
 
@@ -191,6 +186,11 @@ public class GameManager : Singleton<GameManager>
                 doorController.openDoor(0);
                 enterRegion(player, doorController.teleportLocation, data, enterRegionDelay);
             }
+
+            if (raycastHit.transform.gameObject.CompareTag("Checkpoint"))
+            {
+                playerRespawnLocation = raycastHit.transform.position;
+            }
         }
     }
 
@@ -204,11 +204,6 @@ public class GameManager : Singleton<GameManager>
     {
         if (Vector3.Distance(player.transform.position, playerStartLocation) <= checkpointDistance)
             playerRespawnLocation = playerStartLocation;
-
-        if (checkpointLocations != null && checkpointLocations.Length > 0)
-            foreach (Vector3 position in checkpointLocations)
-                if (Vector3.Distance(player.transform.position, position) <= checkpointDistance)
-                    playerRespawnLocation = position;
 
         if (Vector3.Distance(player.transform.position, playerFinishLocation) <= checkpointDistance)
         {

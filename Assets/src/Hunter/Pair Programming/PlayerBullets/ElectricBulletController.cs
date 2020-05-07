@@ -41,6 +41,6 @@ public class ElectricBullet : PlayerBullet
 
     public override void playerBulletEffect(GameObject enemy)
     {
-
+        enemy.GetComponent<AutoCannonController>()
     }
 }

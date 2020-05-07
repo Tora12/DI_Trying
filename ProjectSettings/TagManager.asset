@@ -19,6 +19,7 @@ TagManager:
   - Region_Door
   - Enemy_Drop
   - Ability_Unlock
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

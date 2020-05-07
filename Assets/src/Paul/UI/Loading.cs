@@ -24,6 +24,9 @@ public class Loading : MonoBehaviour
             {
                 ui.SetActive(false);
             }
+			if(dataStore.bcmode){
+				GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthandDamage>().health=float.MaxValue;
+			}
         }
         else
             Debug.LogWarning("Main Menu Scene not Loaded.\nYou can Safely ignore this message, added for better debug.");

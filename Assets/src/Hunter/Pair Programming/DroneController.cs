@@ -59,7 +59,6 @@ public class Drone : Singleton<Drone>
                 if (Input.GetButtonDown("Fire2"))
                     changeAmmo();
             }
-
         }
     }
     public void Start()

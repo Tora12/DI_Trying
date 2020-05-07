@@ -148,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         if(Physics.Raycast(transform.position+(Vector3.up*0.1f),Vector3.down,out hitInfo,GroundCheckDistance)){
             GroundNormal=hitInfo.normal;
             IsGrounded=true;
+			airJump=true;
             Animator.applyRootMotion=true;
         }else{
             IsGrounded=false;
